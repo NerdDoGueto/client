@@ -44,3 +44,5 @@ g_modules.ensureModuleLoaded("game_interface")
 
 -- mods 1000-9999
 g_modules.autoLoadModules(9999)
+
+-- teste se vai dar update
