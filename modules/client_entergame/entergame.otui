@@ -1,0 +1,202 @@
+EnterGameWindow < Window
+  !text: tr('Enter Game')
+  size: 300 400
+  opacity: 0.8
+  anchors.bottom: parent.bottom
+  anchors.horizontalCenter: parent.horizontalCenter
+  margin-bottom: 82
+
+EnterGameButton < Button
+  width: 128
+
+SocialButton < UIButton
+  width: 70
+
+EnterGameWindow
+  id: enterGame
+  @onEnter: EnterGame.doLogin()
+
+  MenuLabel
+    !text: tr('Account name')
+    anchors.left: parent.left
+    anchors.top: parent.top
+    text-auto-resize: true
+
+  PasswordTextEdit
+    id: accountNameTextEdit
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 2
+
+  MenuLabel
+    !text: tr('Password')
+    anchors.left: prev.left
+    anchors.top: prev.bottom
+    margin-top: 8
+    text-auto-resize: true
+
+  PasswordTextEdit
+    id: accountPasswordTextEdit
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 2
+
+  CheckBox
+    id: rememberAccountBox	
+    size: 110 15
+    !text: tr('Remember account')
+    !tooltip: tr('Remember account when starts client')
+    anchors.left: parent.left
+    anchors.top: prev.bottom
+    margin-top: 10
+
+  CheckBox
+    id: TestServerBox	
+    size: 110 15
+    !text: tr('Servidor Teste')
+    !tooltip: tr('Marque se voce fizer parte do grupo do teste server')
+    anchors.right: parent.right
+    anchors.top: rememberAccountBox.top
+
+  EnterGameButton
+    id: enterGameButtonOk
+    !text: tr('Ok')
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    @onClick: EnterGame.doLogin()
+    margin-top: 8
+
+  HorizontalSeparator
+    id: separator
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-right: 1
+    margin-top: 11
+
+  HorizontalSeparator
+    id: separator2
+    anchors.top: createRecoverKeyButton.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-right: 1
+    margin-top: 5
+
+  HorizontalSeparator
+    id: separator3
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-right: 1
+    margin-top: 70
+
+  Button
+    id: createButton
+    size: 120 20
+    !text: tr('Criar Conta')
+    anchors.left: parent.left
+    anchors.top: separator.bottom
+    margin-top: 5
+    margin-left: 5
+    @onClick: AccountManager.show()
+
+  Button
+    id: characterButton
+    size: 120 20
+    !text: tr('Criar Personagem')
+    anchors.left: createButton.right
+    anchors.top: createButton.top
+    margin-left: 10
+    @onClick: AccountManager.characterCreatorShow()
+
+  Button
+    id: changePasswordButton
+    size: 120 20
+    !text: tr('Alterar Senha')
+    anchors.left: parent.left
+    anchors.top: createButton.bottom
+    margin-top: 5
+    margin-left: 5
+    @onClick: AccountManager.changePasswordShow()
+
+  Button
+    id: recoverButton
+    size: 120 20
+    !text: tr('Recuperar Senha')
+    anchors.left: changePasswordButton.right
+    anchors.top: createButton.bottom
+    margin-top: 5
+    margin-left: 10
+    @onClick: AccountManager.recoverShow()
+
+  Button
+    id: createRecoverKeyButton
+    size: 150 20
+    !text: tr('Gerar Recovery Key')
+    anchors.left: changePasswordButton.left
+    anchors.top: recoverButton.bottom
+    margin-top: 5
+    margin-left: 50
+    @onClick: AccountManager.createRecoverKeyShow()
+
+  SocialButton
+    !tooltip: tr('Pagina no Facebook')
+    image-source: facebook
+    size: 45 45
+    anchors.left: parent.left
+    anchors.top: separator2.bottom
+    @onClick: g_platform.openUrl("www.facebook.com/")
+    margin-top: 10
+
+  SocialButton
+    !tooltip: tr('Pagina no Instagram')
+    image-source: instagram
+    size: 45 45
+    anchors.left: parent.left
+    anchors.top: separator2.bottom
+    @onClick: g_platform.openUrl("www.instagram.com/legends.of.unknown/")
+    margin-top: 10
+    margin-left: 55
+
+  SocialButton
+    !tooltip: tr('Pagina no Discord')
+    image-source: discord
+    size: 45 45
+    anchors.left: parent.left
+    anchors.top: separator2.bottom
+    @onClick: g_platform.openUrl("discord.gg/nwBZVpuVH9")
+    margin-top: 10
+    margin-left: 110
+
+  SocialButton
+    !tooltip: tr('Pagina no Youtube')
+    image-source: youtube
+    size: 45 45
+    anchors.left: parent.left
+    anchors.top: separator2.bottom
+    @onClick: g_platform.openUrl("www.youtube.com/")
+    margin-top: 10
+    margin-left: 165
+
+  SocialButton
+    !tooltip: tr('Pagina no Whatsapp')
+    image-source: whatsapp
+    size: 45 45
+    anchors.left: parent.left
+    anchors.top: separator2.bottom
+    @onClick: g_platform.openUrl("chat.whatsapp.com/CICDk55T6Z5BeVW2D1nvtw")
+    margin-top: 10
+    margin-left: 220
+
+  SocialButton
+    !tooltip: tr('Pagina de Donate')
+    image-source: donate2
+    size: 250 80
+    anchors.left: parent.left
+    anchors.top: separator3.bottom
+    @onClick: g_platform.openUrl("www.legendsofunknown.com.br/index.php?page=account/donate")
+    margin-top: 0
+    margin-left: 5

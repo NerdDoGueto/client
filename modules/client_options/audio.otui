@@ -1,0 +1,57 @@
+Panel
+  OptionCheckBox
+    id: enableAudio
+    !text: tr('Ativar audio')
+
+  OptionCheckBox
+    id: enablePrivateMessageAlert
+    !text: tr('Alerta sonoro de mensagens privadas')
+
+  OptionCheckBox
+    id: enableAmbientSound
+    !text: tr('Ativar sons de ambiente')
+
+
+  OptionCheckBox
+    id: enableEffectSound
+    !text: tr('Ativar sons de efeito')
+
+  Label
+    id: ambientSoundVolumeLabel
+    !text: tr('Volume de sons de ambiente: %d', 100)
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 6
+    @onSetup: |
+      local value = modules.client_options.getOption('ambientSoundVolume')
+      self:setText(tr('Ambient volume: %d', value))
+
+  OptionScrollbar
+    id: ambientSoundVolume
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 3
+    minimum: 0
+    maximum: 100
+
+  Label
+    id: effectSoundVolumeLabel
+    !text: tr('Volume de sons de efeito: %d', 100)
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 6
+    @onSetup: |
+      local value = modules.client_options.getOption('effectSoundVolume')
+      self:setText(tr('Effect volume: %d', value))
+
+  OptionScrollbar
+    id: effectSoundVolume
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-top: 3
+    minimum: 0
+    maximum: 100

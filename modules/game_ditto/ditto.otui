@@ -1,0 +1,199 @@
+PortraitBackground1 < UIButton
+  id: PortraitBackground1
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait1 < UIButton
+  id: Portrait1
+  virtual: true
+  border-width: 0
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PortraitBackground2 < UIButton
+  id: PortraitBackground2
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: Portrait1.right
+  border: 1 black
+  
+Portrait2 < UIButton
+  id: Portrait2
+  size: 56 56
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: Portrait1.right
+  $hover:
+    border-color: white
+    border-width: 1
+
+PortraitBackground3 < UIButton
+  id: PortraitBackground3
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: Portrait2.right
+  border: 1 black
+  
+Portrait3 < UIButton
+  id: Portrait3
+  size: 56 56
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: Portrait2.right
+  $hover:
+    border-color: white
+    border-width: 1
+
+PortraitBackground4 < UIButton
+  id: PortraitBackground4
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait4 < UIButton
+  id: Portrait4
+  size: 56 56
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PortraitBackground5 < UIButton
+  id: PortraitBackground5
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: Portrait4.right
+  border: 1 black
+  
+Portrait5 < UIButton
+  id: Portrait5
+  size: 56 56
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: Portrait4.right
+  $hover:
+    border-color: white
+    border-width: 1
+
+PortraitBackground6 < UIButton
+  id: PortraitBackground6
+  size: 56 56
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: Portrait5.right
+  border: 1 black
+  
+Portrait6 < UIButton
+  id: Portrait6
+  size: 56 56
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: Portrait5.right
+  $hover:
+    border-color: white
+    border-width: 1
+
+MiniWindow
+  id: playerStatsWindow
+  !text: tr('Memorias do Ditto')
+  @onClose: modules.game_ditto.open()
+  height: 150
+  
+  MiniWindowContents
+    PortraitBackground1
+    Portrait1
+    PortraitBackground2
+    Portrait2
+    PortraitBackground3
+    Portrait3
+    PortraitBackground4
+    Portrait4
+    PortraitBackground5
+    Portrait5
+    PortraitBackground6
+    Portrait6
+
+  ResizeBorder
+    id: bottomResizeBorder
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 3
+    minimum: 90
+    maximum: 150
+    margin-left: 3
+    margin-right: 3
+    background: #ffffff88

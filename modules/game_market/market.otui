@@ -1,0 +1,130 @@
+BuyTableUIItem < UIItem
+  anchors.horizontalCenter: parent.horizontalCenter
+  size: 32 32
+  image-source: /images/ui/item
+  virtual: true
+
+PanelTableColumn < TableColumn
+  font: verdana-11px-monochrome
+  background-color: alpha
+  text-offset: 5 0
+  color: #cccccc
+  width: 80
+  focusable: false  
+
+PanelTableHeaderRow < TableHeaderRow
+  font: verdana-11px-monochrome
+  focusable: false
+  color: #cccccc
+  height: 20
+  text-align: center
+
+PanelTableHeaderColumn < TableHeaderColumn
+  font: verdana-11px-monochrome
+  background-color: alpha
+  text-offset: 2 0
+  color: #cccccc
+  width: 80
+  focusable: true
+
+MarketTable < Table
+  focusable: false
+  background-color: #222222
+  border-width: 1
+  border-color: #35261B
+  column-style: PanelTableColumn
+  header-row-style: PanelTableHeaderRow
+  header-column-style: PanelTableHeaderColumn
+
+MarketBottomButton < UIWidget
+  width: 110
+  anchors.bottom: parent.bottom
+  anchors.right: parent.right
+  margin-right: 5
+
+MarketTabButton < UIWidget
+  anchors.top: parent.top
+  anchors.left: parent.left
+  margin-top: 40
+  margin-left: 6
+  size: 145 45
+  font: verdana-11px-rounded
+
+  $first:
+    margin-left: 130
+
+  $!first:
+    anchors.left: prev.right
+    margin-left: 1
+
+MarketPanel < Panel
+  anchors.fill: parent
+  margin-top: 120
+  margin-bottom: 25
+  visible: false
+
+MarketWindow < UIWindow
+  id: marketWndow
+  size: 700 630
+  image-source: images/fundo
+  color: #dfdfdf
+  text-offset: 0 6
+  text-align: top
+  image-border: 6
+  image-border-top: 27
+  padding-top: 0
+  padding-left: 5
+  padding-right: 5
+  padding-bottom: 5
+  anchors.centerIn: parent
+  @onEscape: hide()
+
+  MarketTabButton
+    id: buyTabButton
+    @onClick: changeMarketPanel(self:getParent():getChildById('buyPanel'), self)
+    image-source: images/Comprar_1 
+
+    $hover !disabled:
+      image-source: images/Comprar_2 
+    
+    $pressed:
+      image-source: images/Comprar_3
+
+  MarketTabButton
+    id: sellTabButton
+    @onClick: changeMarketPanel(self:getParent():getChildById('sellPanel'), self)
+    image-source: images/Vender_1 
+
+    $hover !disabled:
+      image-source: images/Vender_2 
+    
+    $pressed:
+      image-source: images/Vender_3
+
+  MarketTabButton
+    id: historicTabButton
+    @onClick: changeMarketPanel(self:getParent():getChildById('historicPanel'), self)
+    image-source: images/Historico_1 
+
+    $hover !disabled:
+      image-source: images/Historico_2 
+    
+    $pressed:
+      image-source: images/Historico_3
+
+  UIWidget
+    id: closeButton
+    size: 35 35
+    image-source: images/x_1 
+
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 10
+    margin-right: 10
+    @onClick: hide()
+
+    $hover !disabled:
+      image-source: images/x_2 
+    
+    $pressed:
+      image-source: images/x_3

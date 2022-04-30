@@ -1,0 +1,9 @@
+Module
+  name: game_ditto
+  description: pokemon look
+  author: 
+  sandboxed: true
+  scripts: [ditto]
+  autoload: true
+  @onLoad: init()
+  @onUnload: terminate()

@@ -1,0 +1,169 @@
+IvInfoWidget < UIWidget
+  size: 68 15
+  font: verdana-11px-rounded
+  text-align: left
+  color: white
+  text-offset: 4 3
+  image-source: /images/game/iv/button
+  @onClick: selectIv(self)
+
+UpgradeItem < Item
+
+UIWindow
+  id: ivWindow
+  anchors.centerIn: parent
+  size: 560 259
+  @onClose: modules.game_inventory.onWindowClose()
+  image-source: /images/game/iv/background
+
+  UIWidget
+    id: closed
+    size: 32 32
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-right: 15
+    margin-top: 35
+    image-source: /modules/game_talents/images/fechar
+    @onClick: function(self) self:getParent():hide() end
+
+    $!hover !disabled:
+      color: #dfdfdf
+      opacity: 1.0
+
+    $hover:
+      color: #A8FFD3
+      opacity: 0.8
+
+    $pressed:
+      color: #dfdfdf86
+      opacity: 0.4
+      text-offset: 1 1
+
+  UIWidget
+    id: panel8
+    size: 191 146
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-left: 36
+    margin-top: 80
+
+    UIWidget
+      id: img
+      width: 110
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.bottom: parent.bottom
+
+    IvInfoWidget
+      id: hp
+      anchors.top: parent.top
+      anchors.left: img.right
+      margin-top: 13
+
+    IvInfoWidget
+      id: atk
+      anchors.top: hp.bottom
+      anchors.left: img.right
+      margin-top: 7
+
+    IvInfoWidget
+      id: def
+      anchors.top: atk.bottom
+      anchors.left: img.right
+      margin-top: 7
+
+    IvInfoWidget
+      id: spatk
+      anchors.top: def.bottom
+      anchors.left: img.right
+      margin-top: 7
+
+    IvInfoWidget
+      id: spdef
+      anchors.top: spatk.bottom
+      anchors.left: img.right
+      margin-top: 7
+
+    IvInfoWidget
+      id: speed
+      anchors.top: spdef.bottom
+      anchors.left: img.right
+      margin-top: 7
+
+  UIWidget
+    id: panel3
+    size: 191 146
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-right: 36
+    margin-top: 80
+
+    UIWidget
+      id: img
+      width: 110
+      anchors.top: parent.top
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+
+    IvInfoWidget
+      id: hp
+      anchors.top: parent.top
+      anchors.right: img.left
+      margin-top: 13
+
+    IvInfoWidget
+      id: atk
+      anchors.top: hp.bottom
+      anchors.right: img.left
+      margin-top: 7
+
+    IvInfoWidget
+      id: def
+      anchors.top: atk.bottom
+      anchors.right: img.left
+      margin-top: 7
+
+    IvInfoWidget
+      id: spatk
+      anchors.top: def.bottom
+      anchors.right: img.left
+      margin-top: 7
+
+    IvInfoWidget
+      id: spdef
+      anchors.top: spatk.bottom
+      anchors.right: img.left
+      margin-top: 7
+
+    IvInfoWidget
+      id: speed
+      anchors.top: spdef.bottom
+      anchors.right: img.left
+      margin-top: 7
+
+  UIWidget
+    id: upgradeButton
+    size: 32 32
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.horizontalCenter: parent.horizontalCenter
+    image-source: /images/ui/upgrade_iv
+    margin-top: 24
+    !tooltip: tr('Upgrade')
+  
+  UpgradeItem
+    id: slot8
+    image-source: /images/game/slots/neck
+    &position: {x=65535, y=8, z=0}
+    anchors.right: upgradeButton.left
+    anchors.bottom: upgradeButton.top
+    margin-right: 5
+    margin-bottom: 5
+  
+  UpgradeItem
+    id: slot3
+    image-source: /images/game/slots/back
+    &position: {x=65535, y=3, z=0}
+    anchors.left: upgradeButton.right
+    anchors.top: upgradeButton.bottom
+    margin-left: 5
+    margin-top: 5

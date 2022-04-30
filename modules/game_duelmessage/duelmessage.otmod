@@ -1,0 +1,9 @@
+Module
+  name: game_duelmessage
+  description: Duel Message
+  author: LegendsOfUnknown
+  website: www.legendsofunknown.com.br
+  sandboxed: true
+  scripts: [ duelmessage ]
+  @onLoad: onInit()
+  @onUnload: onTerminate()

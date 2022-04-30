@@ -1,0 +1,646 @@
+PortraitBackground1 < UIButton
+  id: PortraitBackground1
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait1 < UIButton
+  id: Portrait1
+  virtual: true
+  border-width: 0
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PokemonUse1 < UIButton
+  id: PokemonUse1
+  size: 11 11
+  image-source: /modules/game_belt/on
+  anchors.top: Portrait1.top
+  anchors.right: Portrait1.right
+  margin-top: 2
+  margin-right: 2
+  phantom: true
+
+PokemonRevive1 < Button
+  id: PokemonRevive1
+  !text: tr('REVIVE')
+  height: 20
+  anchors.bottom: Portrait1.bottom
+  anchors.left: Portrait1.right
+  anchors.right: PokemonHP1.right
+  margin-left: 5
+
+PokemonName1 < Label
+  id: PokemonName1
+  anchors.top: parent.top
+  anchors.left: Portrait1.right
+  margin-left: 5
+  margin-top: 10
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonLevel1 < Label
+  id: PokemonLevel1
+  anchors.top: PokemonName1.bottom
+  anchors.left: Portrait1.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonHP1 < ProgressBar
+  id: PokemonHP1
+  height: 7
+  background-color: #00b324
+  anchors.top: PokemonLevel1.bottom
+  anchors.left: Portrait1.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonMP1 < ProgressBar
+  id: PokemonMP1
+  height: 7
+  background-color: blue
+  anchors.top: PokemonHP1.bottom
+  anchors.left: Portrait1.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonEXP1 < ProgressBar
+  id: PokemonEXP1
+  height: 7
+  background-color: #f8de34
+  anchors.top: PokemonMP1.bottom
+  anchors.left: Portrait1.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PortraitBackground2 < UIButton
+  id: PortraitBackground2
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait2 < UIButton
+  id: Portrait2
+  size: 45 45
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 10
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait1.bottom
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PokemonUse2 < UIButton
+  id: PokemonUse2
+  size: 11 11
+  image-source: /modules/game_belt/on
+  anchors.top: Portrait2.top
+  anchors.right: Portrait2.right
+  margin-top: 2
+  margin-right: 2
+  phantom: true
+
+PokemonRevive2 < Button
+  id: PokemonRevive2
+  !text: tr('REVIVE')
+  height: 20
+  anchors.bottom: Portrait2.bottom
+  anchors.left: Portrait2.right
+  anchors.right: PokemonHP2.right
+  margin-left: 5
+
+PokemonName2 < Label
+  id: PokemonName2
+  anchors.top: Portrait2.top
+  anchors.left: Portrait2.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonLevel2 < Label
+  id: PokemonLevel2
+  anchors.top: PokemonName2.bottom
+  anchors.left: Portrait2.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonHP2 < ProgressBar
+  id: PokemonHP2
+  height: 7
+  background-color: #00b324
+  anchors.top: PokemonLevel2.bottom
+  anchors.left: Portrait2.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonMP2 < ProgressBar
+  id: PokemonMP2
+  height: 7
+  background-color: blue
+  anchors.top: PokemonHP2.bottom
+  anchors.left: Portrait2.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonEXP2 < ProgressBar
+  id: PokemonEXP2
+  height: 7
+  background-color: #f8de34
+  anchors.top: PokemonMP2.bottom
+  anchors.left: Portrait2.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PortraitBackground3 < UIButton
+  id: PortraitBackground3
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait2.bottom
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait3 < UIButton
+  id: Portrait3
+  size: 45 45
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 10
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait2.bottom
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PokemonUse3 < UIButton
+  id: PokemonUse3
+  size: 11 11
+  image-source: /modules/game_belt/on
+  anchors.top: Portrait3.top
+  anchors.right: Portrait3.right
+  margin-top: 2
+  margin-right: 2
+  phantom: true
+
+PokemonRevive3 < Button
+  id: PokemonRevive3
+  !text: tr('REVIVE')
+  height: 20
+  anchors.bottom: Portrait3.bottom
+  anchors.left: Portrait3.right
+  anchors.right: PokemonHP3.right
+  margin-left: 5
+
+PokemonName3 < Label
+  id: PokemonName3
+  anchors.top: Portrait3.top
+  anchors.left: Portrait3.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonLevel3 < Label
+  id: PokemonLevel3
+  anchors.top: PokemonName3.bottom
+  anchors.left: Portrait3.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonHP3 < ProgressBar
+  id: PokemonHP3
+  height: 7
+  background-color: #00b324
+  anchors.top: PokemonLevel3.bottom
+  anchors.left: Portrait3.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonMP3 < ProgressBar
+  id: PokemonMP3
+  height: 7
+  background-color: blue
+  anchors.top: PokemonHP3.bottom
+  anchors.left: Portrait3.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonEXP3 < ProgressBar
+  id: PokemonEXP3
+  height: 7
+  background-color: #f8de34
+  anchors.top: PokemonMP3.bottom
+  anchors.left: Portrait3.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PortraitBackground4 < UIButton
+  id: PortraitBackground4
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait3.bottom
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait4 < UIButton
+  id: Portrait4
+  size: 45 45
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 10
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait3.bottom
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PokemonUse4 < UIButton
+  id: PokemonUse4
+  size: 11 11
+  image-source: /modules/game_belt/on
+  anchors.top: Portrait4.top
+  anchors.right: Portrait4.right
+  margin-top: 2
+  margin-right: 2
+  phantom: true
+
+PokemonRevive4 < Button
+  id: PokemonRevive4
+  !text: tr('REVIVE')
+  height: 20
+  anchors.bottom: Portrait4.bottom
+  anchors.left: Portrait4.right
+  anchors.right: PokemonHP4.right
+  margin-left: 5
+
+PokemonName4 < Label
+  id: PokemonName4
+  anchors.top: Portrait4.top
+  anchors.left: Portrait4.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonLevel4 < Label
+  id: PokemonLevel4
+  anchors.top: PokemonName4.bottom
+  anchors.left: Portrait4.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonHP4 < ProgressBar
+  id: PokemonHP4
+  height: 7
+  background-color: #00b324
+  anchors.top: PokemonLevel4.bottom
+  anchors.left: Portrait4.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonMP4 < ProgressBar
+  id: PokemonMP4
+  height: 7
+  background-color: blue
+  anchors.top: PokemonHP4.bottom
+  anchors.left: Portrait4.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonEXP4 < ProgressBar
+  id: PokemonEXP4
+  height: 7
+  background-color: #f8de34
+  anchors.top: PokemonMP4.bottom
+  anchors.left: Portrait4.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PortraitBackground5 < UIButton
+  id: PortraitBackground5
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait4.bottom
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait5 < UIButton
+  id: Portrait5
+  size: 45 45
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 10
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait4.bottom
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PokemonUse5 < UIButton
+  id: PokemonUse5
+  size: 11 11
+  image-source: /modules/game_belt/on
+  anchors.top: Portrait5.top
+  anchors.right: Portrait5.right
+  margin-top: 2
+  margin-right: 2
+  phantom: true
+
+PokemonRevive5 < Button
+  id: PokemonRevive5
+  !text: tr('REVIVE')
+  height: 20
+  anchors.bottom: Portrait5.bottom
+  anchors.left: Portrait5.right
+  anchors.right: PokemonHP5.right
+  margin-left: 5
+
+PokemonName5 < Label
+  id: PokemonName5
+  anchors.top: Portrait5.top
+  anchors.left: Portrait5.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonLevel5 < Label
+  id: PokemonLevel5
+  anchors.top: PokemonName5.bottom
+  anchors.left: Portrait5.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonHP5 < ProgressBar
+  id: PokemonHP5
+  height: 7
+  background-color: #00b324
+  anchors.top: PokemonLevel5.bottom
+  anchors.left: Portrait5.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonMP5 < ProgressBar
+  id: PokemonMP5
+  height: 7
+  background-color: blue
+  anchors.top: PokemonHP5.bottom
+  anchors.left: Portrait5.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonEXP5 < ProgressBar
+  id: PokemonEXP5
+  height: 7
+  background-color: #f8de34
+  anchors.top: PokemonMP5.bottom
+  anchors.left: Portrait5.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PortraitBackground6 < UIButton
+  id: PortraitBackground6
+  size: 45 45
+  margin-left: 5
+  margin-top: 10
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: Portrait5.bottom
+  anchors.left: parent.left
+  border: 1 black
+  
+Portrait6 < UIButton
+  id: Portrait6
+  size: 45 45
+  virtual: true
+  border-width: 0
+  margin-left: 5
+  margin-top: 10
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: Portrait5.bottom
+  anchors.left: parent.left
+  $hover:
+    border-color: white
+    border-width: 1
+
+PokemonUse6 < UIButton
+  id: PokemonUse6
+  size: 11 11
+  image-source: /modules/game_belt/on
+  anchors.top: Portrait6.top
+  anchors.right: Portrait6.right
+  margin-top: 2
+  margin-right: 2
+  phantom: true
+
+PokemonRevive6 < Button
+  id: PokemonRevive6
+  !text: tr('REVIVE')
+  height: 20
+  anchors.bottom: Portrait6.bottom
+  anchors.left: Portrait6.right
+  anchors.right: PokemonHP6.right
+  margin-left: 5
+
+PokemonName6 < Label
+  id: PokemonName6
+  anchors.top: Portrait6.top
+  anchors.left: Portrait6.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonLevel6 < Label
+  id: PokemonLevel6
+  anchors.top: PokemonName6.bottom
+  anchors.left: Portrait6.right
+  margin-left: 5
+  text-auto-resize: true
+  font: verdana-10px-rounded
+  phantom: true
+
+PokemonHP6 < ProgressBar
+  id: PokemonHP6
+  height: 7
+  background-color: #00b324
+  anchors.top: PokemonLevel6.bottom
+  anchors.left: Portrait6.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonMP6 < ProgressBar
+  id: PokemonMP6
+  height: 7
+  background-color: blue
+  anchors.top: PokemonHP6.bottom
+  anchors.left: Portrait6.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+PokemonEXP6 < ProgressBar
+  id: PokemonEXP6
+  height: 7
+  background-color: #f8de34
+  anchors.top: PokemonMP6.bottom
+  anchors.left: Portrait6.right
+  margin-left: 5
+  opacity: 0.6
+  phantom: true
+
+MiniWindow
+  icon: /images/topbuttons/belt
+  id: playerStatsWindow
+  !text: tr('Cinto Pokemon')
+  height: 360
+  @onClose: modules.game_belt.onMiniWindowClose()
+  &autoOpen: 2
+
+  MiniWindowContents
+    PortraitBackground1
+    Portrait1
+    PokemonRevive1
+    PokemonUse1
+    PokemonName1
+    PokemonLevel1
+    PokemonHP1
+    PokemonMP1
+    PokemonEXP1
+    PortraitBackground2
+    Portrait2
+    PokemonRevive2
+    PokemonUse2
+    PokemonName2
+    PokemonLevel2
+    PokemonHP2
+    PokemonMP2
+    PokemonEXP2
+    PortraitBackground3
+    Portrait3
+    PokemonRevive3
+    PokemonUse3
+    PokemonName3
+    PokemonLevel3
+    PokemonHP3
+    PokemonMP3
+    PokemonEXP3
+    PortraitBackground4
+    Portrait4
+    PokemonRevive4
+    PokemonUse4
+    PokemonName4
+    PokemonLevel4
+    PokemonHP4
+    PokemonMP4
+    PokemonEXP4
+    PortraitBackground5
+    Portrait5
+    PokemonRevive5
+    PokemonUse5
+    PokemonName5
+    PokemonLevel5
+    PokemonHP5
+    PokemonMP5
+    PokemonEXP5
+    PortraitBackground6
+    Portrait6
+    PokemonRevive6
+    PokemonUse6
+    PokemonName6
+    PokemonLevel6
+    PokemonHP6
+    PokemonMP6
+    PokemonEXP6
+
+  ResizeBorder
+    id: bottomResizeBorder
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 3
+    minimum: 85
+    maximum: 360
+    margin-left: 3
+    margin-right: 3
+    background: #ffffff88

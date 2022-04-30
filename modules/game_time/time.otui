@@ -1,0 +1,34 @@
+UIWindow
+  id: timeWindow
+  size: 80 24
+  anchors.horizontalCenter: parent.horizontalCenter
+  anchors.top: parent.top
+  margin-top: 10
+
+  UIWidget
+    id: timeImage
+    height: 24
+    anchors.left: parent.left
+    anchors.top: parent.top
+
+  UILabel
+    id: timeLabel
+    height: 24
+    text-align: center
+    anchors.left: prev.right
+    anchors.top: parent.top
+    margin-left: 2
+
+  Label
+    id: location
+    !text: ''
+    font: terminus-10px
+    color: #FFFFFF
+    //text-align: center
+    background-color: alpha
+    anchors.left: prev.right
+    anchors.top: parent.top
+    text-offset: 2 0
+    text-auto-resize: true
+    margin-top: 6
+    margin-left: 5

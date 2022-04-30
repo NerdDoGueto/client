@@ -1,0 +1,9 @@
+Module
+  name: game_dungeon
+  description: Sistema de dungeon com salas de espera
+  author: LegendsOfUnknown
+  website: www.legendsofunknown.com.br
+  sandboxed: true
+  scripts: [ dungeon ]
+  @onLoad: onInit()
+  @onUnload: onTerminate()

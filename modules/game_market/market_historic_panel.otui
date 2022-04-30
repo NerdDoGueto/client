@@ -1,0 +1,26 @@
+HistoricLabel < UIWidget
+  height: 25
+  font: verdana-11px-antialised
+  text-align: left
+
+HistoricPanel < MarketPanel
+  id: historicPanel
+  
+  VerticalList
+    id: historicList
+    anchors.fill: parent
+    anchors.bottom: parent.bottom
+    margin: 7
+    margin-bottom: 25
+    background-color: #222222
+    border-width: 1
+    border-color: #35261B
+    vertical-scrollbar: historicVerticalSrollBar
+
+  VerticalScrollBar
+    id: historicVerticalSrollBar
+    anchors.top: historicList.top
+    anchors.bottom: historicList.bottom
+    anchors.right: historicList.right
+    step: 28
+    pixels-scroll: true

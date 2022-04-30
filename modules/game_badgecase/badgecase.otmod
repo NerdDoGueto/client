@@ -1,0 +1,9 @@
+Module
+  name: game_badgecase
+  description: Badge Case
+  author: LegendsOfUnknown
+  website: www.legendsofunknown.com.br
+  sandboxed: true
+  scripts: [ badgecase ]
+  @onLoad: onInit()
+  @onUnload: onTerminate()

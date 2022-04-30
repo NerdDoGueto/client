@@ -1,0 +1,324 @@
+DungeonRoomPlayer < UIButton
+  size: 304 91
+  image-source: imgs/select_rooms/player_panel
+  
+  UICreature
+    id: outfit
+    size: 57 57
+    fixed-creature-size: false
+    image-source: ~
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    margin-bottom: 3
+    margin-left: 7
+
+  UIButton
+    id: isHost
+    image-source: imgs/select_rooms/leader
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 10
+    margin-right: 13
+
+  UIButton
+    id: kickButton
+    image-source: imgs/room/kick_btn
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 10
+    margin-right: 13
+    @onClick: modules.game_dungeon.kickPlayer(self)
+
+    $hover:
+      image-source: imgs/room/kick_btn_hover
+
+    $pressed:
+      image-source: imgs/room/kick_btn_click
+
+  Label
+    id: name
+    anchors.top: parent.top
+    anchors.left: parent.left
+    text-auto-resize: true
+    text-align: left
+    font: newfont-16px-rounded
+    margin-top: 4
+    margin-left: 4
+
+  Panel
+    id: pokes
+    height: 30
+    padding: 0
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-bottom: 14
+    margin-left: 73
+    layout:
+      type: grid
+      cell-size: 40 30
+      cell-spacing: -5
+      num-columns: 999
+
+DungeonRoomInvitePlayer < UIButton
+  size: 304 91
+  image-source: imgs/select_rooms/player_panel
+
+  UIButton
+    id: invite
+    image-source: imgs/room/invite_btn
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.horizontalCenter: parent.horizontalCenter
+    @onClick: modules.game_dungeon.invitePlayer(self)
+
+    $hover:
+      image-source: imgs/room/invite_btn_hover
+
+    $pressed:
+      image-source: imgs/room/invite_btn_click
+
+UIWindow
+  id: roomWindow
+  image-source: imgs/background
+  padding: 0
+  anchors.centerIn: parent
+  size: 811 456
+
+  UIButton
+    id: cancelBtn
+    size: 149 47
+    image-source: imgs/room/cancel_btn
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    margin-left: 280
+    margin-bottom: 26
+    @onClick: modules.game_dungeon.leaveRoom(self)
+  
+    $hover:
+      image-source: imgs/room/cancel_btn_hover
+  
+    $pressed:
+      image-source: imgs/room/cancel_btn_click
+
+  UIButton
+    id: startBtn
+    size: 149 47
+    image-source: imgs/room/start_btn
+    anchors.bottom: prev.top
+    anchors.left: prev.left
+    margin-bottom: 2
+    @onClick: modules.game_dungeon.startDungeon(self)
+  
+    $hover:
+      image-source: imgs/room/start_btn_hover
+  
+    $pressed:
+      image-source: imgs/room/start_btn_click
+
+  UIButton
+    id: refuseBtn
+    size: 149 47
+    image-source: imgs/room/refuse_btn
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    margin-left: 280
+    margin-bottom: 26
+    @onClick: modules.game_dungeon.rejectInvitation(self)
+  
+    $hover:
+      image-source: imgs/room/refuse_btn_hover
+  
+    $pressed:
+      image-source: imgs/room/refuse_btn_click
+
+  UIButton
+    id: acceptBtn
+    size: 149 47
+    image-source: imgs/room/accept_btn
+    anchors.bottom: prev.top
+    anchors.left: prev.left
+    margin-bottom: 2
+    @onClick: modules.game_dungeon.acceptInvitation(self)
+  
+    $hover:
+      image-source: imgs/room/accept_btn_hover
+  
+    $pressed:
+      image-source: imgs/room/accept_btn_click
+
+  Panel
+    id: mapBannerSection
+    size: 396 115
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 36
+    margin-left: 35
+
+    UIButton
+      id: bannerBorder
+      phantom: true
+      image-source: imgs/border_selected
+      anchors.fill: parent
+
+    Label
+      id: dungeonName
+      font: newfont-16px-rounded
+      text-auto-resize: true
+      anchors.top: parent.top
+      anchors.left: parent.left
+      margin-top: 17
+      margin-left: 14
+
+    UIButton
+      id: visibilityBtn
+      image-source: imgs/room/closed_room_btn
+      anchors.top: parent.top
+      anchors.right: parent.right
+      margin-top: 7
+      margin-right: 7
+      @onClick: modules.game_dungeon.setVisiblity(self)
+
+      $hover !checked:
+        image-source: imgs/room/open_room_btn
+
+      $checked !hover:
+        image-source: imgs/room/open_room_btn
+
+      $checked hover:
+        image-source: imgs/room/closed_room_btn
+
+  Panel
+    id: pokemonsSection
+    image-source: imgs/select_rooms/pokemons_panel
+    anchors.top: prev.bottom
+    anchors.right: prev.right
+    anchors.left: prev.left
+    margin-top: 15
+
+    ScrollablePanel
+      id: pokesPanel
+      horizontal-scrollbar: pokesScrollBar
+      anchors.fill: parent
+      margin-top: 40
+      margin-left: 23
+      margin-right: 23
+      layout:
+        type: grid
+        cell-size: 40 30
+        cell-spacing: 1
+        num-columns: 999
+
+    HorizontalScrollBar
+      id: pokesScrollBar
+      visible: false
+      anchors.top: pokesPanel.top
+      anchors.bottom: pokesPanel.bottom
+      anchors.left: pokesPanel.right
+      margin-left: 5
+      step: 5
+
+  Panel
+    id: rewardsSection
+    size: 250 169
+    image-source: imgs/select_rooms/desc_rewards_panel
+    anchors.top: prev.bottom
+    anchors.left: prev.left
+    margin-top: 12
+
+    ScrollablePanel
+      id: rewardsAndDescPanel
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      padding: 4
+      margin-top: 35
+      margin-right: 8
+      vertical-scrollbar: rewardsScrollBar
+      layout:
+        type: verticalBox
+        spacing: 3
+
+      Label
+        id: descLabel
+        padding: 8
+        image-border: 5
+        image-source: imgs/scrollable_panel
+        text-auto-resize: true
+
+      Panel
+        id: rewardsPanel
+        width: 220
+        padding: 7
+        layout:
+          type: grid
+          cell-size: 32 32
+          cell-spacing: 6
+          num-columns: 6
+
+    VerticalScrollBar
+      id: rewardsScrollBar
+      visible: false
+      anchors.top: rewardsAndDescPanel.top
+      anchors.bottom: rewardsAndDescPanel.bottom
+      anchors.left: rewardsAndDescPanel.right
+      margin-left: 5
+      step: 30
+
+  Panel
+    id: bossesSection
+    size: 146 76
+    image-source: imgs/select_rooms/bosses_panel
+    anchors.top: prev.top
+    anchors.left: prev.right
+    margin-left: 1
+
+    ScrollablePanel
+      id: bossesPanel
+      size: 130 76
+      horizontal-scrollbar: bossesScrollBar
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      anchors.horizontalCenter: parent.horizontalCenter
+      margin-top: 38
+      layout:
+        type: grid
+        cell-size: 40 30
+        cell-spacing: 1
+        num-columns: 999
+
+    HorizontalScrollBar
+      id: bossesScrollBar
+      visible: false
+      anchors.top: bossesPanel.top
+      anchors.bottom: bossesPanel.bottom
+      anchors.left: bossesPanel.right
+      margin-left: 5
+      step: 5
+
+  ScrollablePanel
+    id: playersPanel
+    image-source: imgs/scrollable_panel
+    image-border: 4
+    padding: 4
+    width: 312
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    margin-top: 29
+    margin-bottom: 27
+    margin-right: 46
+    vertical-scrollbar: playersScrollBar
+    layout:
+      type: grid
+      cell-size: 304 91
+      cell-spacing: 3
+      num-columns: 1
+
+  VerticalScrollBar
+    id: playersScrollBar
+    anchors.top: playersPanel.top
+    anchors.bottom: playersPanel.bottom
+    anchors.left: playersPanel.right
+    margin-left: 5
+    step: 30

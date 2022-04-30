@@ -1,0 +1,10 @@
+Module
+  name: game_craft
+  description: Shows available items to craft by profession.
+  author: LegendsOfUnknown
+  website: www.legendsofunknown.com.br
+  sandboxed: true
+  autoload: true
+  scripts: [ craft ]
+  @onLoad: init()
+  @onUnload: terminate()

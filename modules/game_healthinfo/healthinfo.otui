@@ -1,0 +1,411 @@
+InventoryItem < Item
+  margin: 3
+
+FingerSlot < InventoryItem
+  id: slot9
+  image-source: /images/game/slots/finger
+  &position: {x=65535, y=9, z=0}
+  anchors.top: soulLabel.bottom
+  anchors.left: parent.left
+  margin: 3
+  margin-top: 5
+
+FeetSlot < InventoryItem
+  id: slot8
+  image-source: /images/game/slots/feet
+  &position: {x=65535, y=8, z=0}
+  anchors.top: soulLabel.bottom
+  anchors.left: slot9.right
+  margin: 3
+  margin-top: 5
+
+AmmoSlot < InventoryItem
+  id: slot10
+  image-source: /images/game/slots/ammo
+  &position: {x=65535, y=10, z=0}
+  anchors.top: slot9.bottom
+  anchors.left: parent.left
+  margin: 3
+  margin-top: 5
+
+HeadSlot < InventoryItem
+  id: slot1
+  image-source: /images/game/slots/head
+  &position: {x=65535, y=1, z=0}
+  anchors.top: slot9.bottom
+  anchors.left: slot9.right
+  margin: 3
+  margin-top: 5
+
+PortraitBackground < FlatPanel
+  id: PortraitBackground
+  size: 70 70
+  margin-left: 5
+  margin-top: 5
+  focusable: false
+  anchors.top: NAMEBAR.bottom
+  anchors.left: parent.left
+  
+Portrait < UICreature
+  id: Portrait
+  size: 64 64
+  virtual: true
+  border-width: 0
+  margin-left: 8
+  margin-top: 8
+  image-color: white
+  focusable: false
+  anchors.top: NAMEBAR.bottom
+  anchors.left: parent.left
+  !tooltip: tr("+ Detalhes")
+  @onClick: print("TODO")
+  $hover:
+    border-color: white
+    border-width: 1
+
+NAMEBAR < FlatPanel
+  id: NAMEBAR
+  !text: tr("?")
+  anchors.top: parent.top
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  height: 15
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+LEVELBAR < FlatPanel
+  id: LEVELBAR
+  !text: tr("-")
+  anchors.top: NAMEBAR.bottom
+  anchors.right: parent.right
+  anchors.left: PortraitBackground.right
+  text-align: center
+  color: #abaaaa
+  height: 15
+  margin-right: 5
+  margin-left: 5
+  margin-top: 10
+  margin-bottom: 5
+
+HealthBar < ProgressBar
+  id: healthBar
+  background-color: #00b324
+  anchors.top: LEVELBAR.bottom
+  anchors.left: PortraitBackground.right
+  anchors.right: parent.right
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+ExperienceBar < ProgressBar
+  id: experienceBar
+  background-color: #f8de34
+  anchors.top: healthBar.bottom
+  anchors.left: PortraitBackground.right
+  anchors.right: parent.right
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+SoulLabel < GameLabel
+  id: soulLabel
+  text-align: right
+  color: white
+  font: verdana-11px-rounded
+  anchors.top: pokeball1.bottom
+  anchors.right: parent.right
+  anchors.left: parent.horizontalCenter
+  margin-top: 5
+  margin-right: 10
+  on: true
+
+  $!on:
+    visible: false
+    margin-top: 0
+    height: 0
+
+CapLabel < GameLabel
+  id: capLabel
+  color: white
+  font: verdana-11px-rounded
+  anchors.bottom: parent.bottom
+  anchors.left: parent.left
+  anchors.right: parent.horizontalCenter
+  margin-top: 5
+  margin-left: 3
+  on: true
+
+  $!on:
+    visible: false
+    margin-top: 0
+    height: 0
+
+ConditionWidget < UIWidget
+  size: 18 18
+
+  $!first:
+    margin-left: 2
+
+pokeball1 < UIButton
+  id: pokeball1
+  size: 26 26
+  image-source: /modules/game_healthinfo/pb_down
+  anchors.top: conditionPanel.bottom
+  margin-top: 5
+  phantom: true
+  focusable: false
+  margin-left: 6
+  anchors.left: parent.left
+
+pokeball2 < UIButton
+  id: pokeball2
+  size: 26 26
+  image-source: /modules/game_healthinfo/pb_down
+  anchors.top: pokeball1.top
+  phantom: true
+  focusable: false
+  margin-left: 3
+  anchors.left: pokeball1.right
+
+pokeball3 < UIButton
+  id: pokeball3
+  size: 26 26
+  image-source: /modules/game_healthinfo/pb_down
+  anchors.top: pokeball1.top
+  phantom: true
+  focusable: false
+  margin-left: 3
+  anchors.left: pokeball2.right
+
+pokeball4 < UIButton
+  id: pokeball4
+  size: 26 26
+  image-source: /modules/game_healthinfo/pb_down
+  anchors.top: pokeball1.top
+  phantom: true
+  focusable: false
+  margin-left: 3
+  anchors.left: pokeball3.right
+
+pokeball5 < UIButton
+  id: pokeball5
+  size: 26 26
+  image-source: /modules/game_healthinfo/pb_down
+  anchors.top: pokeball1.top
+  phantom: true
+  focusable: false
+  margin-left: 3
+  anchors.left: pokeball4.right
+
+pokeball6 < UIButton
+  id: pokeball6
+  size: 26 26
+  image-source: /modules/game_healthinfo/pb_down
+  anchors.top: pokeball1.top
+  phantom: true
+  focusable: false
+  margin-left: 3
+  anchors.left: pokeball5.right
+
+MiniWindow
+  icon: /images/topbuttons/healthinfo
+  id: healthInfoWindow
+  !text: tr('Player Stats')
+  height: 280
+  @onClose: modules.game_healthinfo.onMiniWindowClose()
+  &autoOpen: 1
+
+  MiniWindowContents
+    PortraitBackground
+    Portrait
+    NAMEBAR
+    LEVELBAR
+    HealthBar
+    ExperienceBar
+    Panel
+      id: conditionPanel
+      layout:
+        type: horizontalBox
+      height: 22
+      margin-top: 15
+      padding: 2
+      anchors.top: experienceBar.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin-right: 5
+      border-width: 1
+      border-color: #00000077
+      background-color: #ffffff11
+    pokeball1
+    pokeball2
+    pokeball3
+    pokeball4
+    pokeball5
+    pokeball6	
+    SoulLabel
+    FeetSlot
+    AmmoSlot
+    FingerSlot
+    HeadSlot
+
+    UIButton
+      id: icone1
+      anchors.top: slot9.top
+      anchors.left: slot8.right
+      !tooltip: tr('Registro de Quest')
+      size: 32 32
+      margin-left: 3
+      margin-top: 1
+      image-source: /modules/game_healthinfo/quest
+      @onClick: OPENWINDOW("QUESTS")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: icone2
+      anchors.top: slot9.top
+      anchors.left: icone1.right
+      !tooltip: tr('Arvore de Talentos')
+      size: 32 32
+      margin-left: 3
+      margin-top: 1
+      image-source: /modules/game_playerstats/images/others/talents
+      @onClick: OPENWINDOW("talents")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: icone3
+      anchors.top: slot9.top
+      anchors.left: icone2.right
+      !tooltip: tr('Skills')
+      size: 32 32
+      margin-left: 3
+      margin-top: 1
+      image-source: /modules/game_healthinfo/skills
+      @onClick: OPENWINDOW("SKILLS")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: icone4
+      anchors.top: slot1.top
+      anchors.left: slot8.right
+      !tooltip: tr('Lista VIP')
+      size: 32 32
+      margin-left: 3
+      margin-top: 1
+      image-source: /modules/game_healthinfo/vip
+      @onClick: OPENWINDOW("VIP")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: icone5
+      anchors.top: slot1.top
+      anchors.left: icone4.right
+      !tooltip: tr('Controles de Combate')
+      size: 32 32
+      margin-left: 3
+      margin-top: 1
+      image-source: /modules/game_healthinfo/combat_c
+      @onClick: OPENWINDOW("C_BATTLE")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: icone6
+      anchors.top: slot1.top
+      anchors.left: icone5.right
+      !tooltip: tr('Battle')
+      size: 32 32
+      margin-left: 3
+      margin-top: 1
+      image-source: /modules/game_healthinfo/battle
+      @onClick: OPENWINDOW("BATTLE")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+  ResizeBorder
+    id: bottomResizeBorder
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 3
+    minimum: 110
+    maximum: 280
+    margin-left: 3
+    margin-right: 3
+    background: #ffffff88

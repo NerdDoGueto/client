@@ -1,0 +1,137 @@
+CasinoItemTooltip < UIWidget
+  id: casinoItemTooltip
+  size: 220 140
+  font: verdana-11px-antialised
+  icon-rect: 4 4 16 16
+  width: 192
+  height: 200
+  text-offset: 24 5
+  text-align: topLeft
+  image-source: /images/ui/miniwindow
+  image-border: 4
+  image-border-top: 23
+  image-border-bottom: 4
+  focusable: false
+
+  UIWidget
+    id: name
+    height: 20
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    margin-left: 5
+    font: verdana-11px-rounded
+
+  Item
+    id: item
+    size: 32 32
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: name.bottom
+    margin: 2
+    virtual: true
+
+  Creature
+    id: outfit
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: name.bottom
+    padding: 4 4 4 4
+    fixed-creature-size: true
+    visible: false
+
+SquareWidget < UIWidget
+  id: squareWidget
+  size: 64 64
+  anchors.left: parent.left
+  anchors.top: parent.top
+  image-source: images/squarewidget
+  image-border: 2
+
+  UIItem
+    id: item
+    size: 60 60
+    anchors.left: parent.left
+    anchors.top: parent.top
+    margin: 2
+    virtual: true
+    phantom: true
+    text-align: bottomRight
+
+  UIWidget
+    id: digglet
+    anchors.fill: parent
+    image-source: images/digglet
+    phantom: true
+    visible: false
+
+SquarePanel < UIWidget
+  id: squarePanel
+  anchors.fill: parent
+  margin-top: 30
+  margin-right: 22
+  margin-bottom: 135
+  margin-left: 22
+
+PrizeWidget < UIWidget
+  id: prizeWidget
+  height: 20
+  anchors.centerIn: parent
+  margin-top: 220
+  text-auto-resize: true
+  font: sans-bold-16px
+  color: #FF1E44
+  text-align: left
+  text-offset: 20 0
+
+SortButton < Button
+  id: sortButton
+  anchors.centerIn: parent
+  margin-top: 270
+  text: Jogar
+  !tooltip: tr("Jogar")
+  @onClick: raffle()
+
+CloseButton < Button
+  id: closeButton
+  text: X
+  text-align: center
+  phantom: false
+  !tooltip: tr("Fechar")
+  size: 18 18
+  anchors.right: parent.right
+  anchors.top: parent.top
+  margin-right: 2
+  margin-top: 2
+  @onClick: function(self) self:getParent():hide() end
+
+Stake < UIWidget
+  id: stake
+  height: 15
+  anchors.centerIn: parent
+  margin-top: 180
+  margin-left: 0
+  text-align: right
+  font: verdana-11px-rounded
+
+UIWindow
+  id: casinoWindow  
+  text: Casino Maquina 1 [DOLLAR] [VALOR: 10k]
+  font: verdana-11px-antialised
+  icon-rect: 4 4 16 16
+  width: 775
+  height: 600
+  text-offset: 24 5
+  text-align: topLeft
+  image-source: /images/ui/miniwindow
+  image-border: 4
+  image-border-top: 23
+  image-border-bottom: 4  
+  anchors.centerIn: parent
+  focusable: false
+  @onEscape: hide()
+
+  SquarePanel
+  PrizeWidget
+  SortButton
+  CloseButton
+  Stake

@@ -1,0 +1,213 @@
+BuyNowWindow < MainWindow
+  id: buyNowWindow
+  !text: tr('Buy Now')
+  size: 200 100
+  visible: false
+  @onEscape: show()
+
+  SpinBox
+    id: spinBox
+    anchors.left: parent.left
+    anchors.top: parent.top
+    width: 1
+    height: 1
+    phantom: true
+    margin-top: 2
+    focusable: true
+
+  Item
+    id: item
+    anchors.left: parent.left
+    anchors.top: parent.top
+    margin-top: 2
+    margin-left: -4
+    focusable: false
+    virtual: true
+
+  UIWidget
+    id: value
+    anchors.left: item.right
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-left: 10
+    margin-top: 4
+    !text: tr('Price')..': 0'
+
+  HorizontalScrollBar
+    id: countScrollBar
+    anchors.left: item.right
+    anchors.right: parent.right
+    anchors.top: value.bottom
+    margin-left: 10
+    margin-top: 6
+    focusable: false
+
+  Button
+    id: buttonCancel
+    !text: tr('Cancel')
+    height: 20
+    anchors.left: countScrollBar.horizontalCenter
+    anchors.right: countScrollBar.right
+    anchors.top: countScrollBar.bottom
+    margin-top: 7
+    focusable: false
+
+  Button
+    id: buttonOk
+    !text: tr('Ok')
+    height: 20
+    anchors.right: countScrollBar.horizontalCenter
+    anchors.left: countScrollBar.left
+    anchors.top: countScrollBar.bottom
+    margin-top: 7
+    margin-right: 6
+    focusable: false
+
+MarketButton < Button
+  height: 20
+  color: #cccccc
+  opacity: 1.0
+
+BuyPanel < MarketPanel
+  id: buyPanel
+  visible: true
+
+  UIWidget
+    !text: tr('Categoria') .. ':'
+    text-offset: 0 2
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-left: 10
+
+  ComboBox
+    id: comboBox
+    width: 150
+    anchors.top: parent.top
+    anchors.left: prev.right
+    margin-left: 10
+    margin-right: 10
+    color: #cccccc
+    image-border-left: 20
+
+  UIWidget
+    size: 22 22
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-right: 6
+    !tooltip: tr("Search")
+    color: #cccccc
+    @onClick: refreshBuyItems()
+    image-source: images/Lupa_1 
+
+    $hover !disabled:
+      image-source: images/Lupa_2 
+    
+    $pressed:
+      image-source: images/Lupa_3
+
+  TextEdit
+    id: buySearchTextEdit
+    anchors.right: prev.left
+    anchors.top: parent.top
+    margin-right: 5
+    height: 22
+    width: 150
+
+  MarketTable
+    id: panelTable
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: buyListPages.top
+    margin: 5
+    margin-bottom: 5
+
+  TableData
+    id: panelTableData
+    anchors.bottom: panelTable.bottom
+    anchors.left: panelTable.left
+    anchors.right: panelTable.right
+    vertical-scrollbar: panelTableScrollBar
+    margin-top: 4
+  
+  VerticalScrollBar
+    id: panelTableScrollBar
+    anchors.top: panelTable.top
+    anchors.bottom: panelTable.bottom
+    anchors.right: panelTable.right
+    step: 28
+    pixels-scroll: true
+
+  Panel
+    id: buyListPages
+    anchors.bottom: refreshButton.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 22
+    margin-bottom: 5
+  
+    MarketButton
+      !text: tr(">>")
+      width: 23
+      anchors.right: parent.right
+      anchors.top: parent.top
+      color: #cccccc
+      margin: 0 5
+      @onClick: toPage(nil, false, true)
+  
+    MarketButton
+      !text: tr(">")
+      width: 13
+      anchors.right: prev.left
+      anchors.top: parent.top
+      margin: 0 5
+      @onClick: toPage(nil, true)
+  
+    MarketButton
+      !text: tr("<")
+      width: 13
+      anchors.right: prev.left
+      anchors.top: parent.top
+      margin: 0 5
+      @onClick: toPage(nil, false)
+  
+    MarketButton
+      !text: tr("<<")
+      width: 23
+      anchors.right: prev.left
+      anchors.top: parent.top
+      margin: 0 5
+      @onClick: toPage(1)
+  
+    Label
+      id: labelPages
+      !text: tr("Page: 1 / 1")
+      anchors.right: prev.left
+      anchors.top: parent.top
+      margin: 4 10
+      text-auto-resize: true
+
+  MarketBottomButton
+    id: refreshButton
+    !tooltip: tr('Refresh')
+    @onClick: refreshBuyItems()
+    image-source: images/atualizar_1 
+
+    $hover !disabled:
+      image-source: images/atualizar_2 
+    
+    $pressed:
+      image-source: images/atualizar_3
+
+  MarketBottomButton
+    id: buyNowButton
+    !tooltip: tr('Buy now')
+    anchors.right: refreshButton.left
+    @onClick: showBuyNowWindow()
+    image-source: images/buynow_1
+
+    $hover !disabled:
+      image-source: images/buynow_2 
+    
+    $pressed:
+      image-source: images/buynow_3

@@ -1,0 +1,575 @@
+AddonWidget < UIWidget
+  size: 100 100
+  padding: 1
+  image-border: 1
+  border-width: 1
+  border-color: white
+
+  UICreature
+    id: creature
+    size: 96 96
+    border-color: alpha
+    anchors.centerIn: parent
+    phantom: true
+
+AddonsListPanel < HorizontalList
+  id: addonsListPanel
+  size: 850 200
+  anchors.top: parent.top
+  anchors.horizontalCenter: parent.horizontalCenter
+  margin-top: 130
+  horizontal-scrollbar: addonsListScrollBall
+
+AddonsListScrollBall < HorizontalScrollBar
+  id: addonsListScrollBall
+  anchors.top: addonsListPanel.bottom
+  anchors.left: addonsListPanel.left
+  anchors.right: addonsListPanel.right
+  margin-top: 5
+
+MoveWidget < UIWidget
+  virtual: true
+  size: 50 50
+  anchors.top: parent.top
+  anchors.left: parent.left
+
+  $focus:
+    image-source: images/basefocus
+  $!focus:
+    image-source: images/base
+
+  UIItem
+    id: item
+    anchors.fill: parent
+    margin: 1
+    phantom: true
+
+  UIWidget
+    id: mask
+    anchors.fill: parent
+    margin: 1
+    phantom: true
+    image-source: images/movemask
+
+MovePoints < UIWidget
+  id: movePoints
+  size: 80 30
+  layout: horizontalBox
+  anchors.bottom: moveDescriptionPanel.top
+  anchors.right: moveDescriptionPanel.right
+  margin-bottom: 10
+  text-align: right
+  !text: tr('Points')..': 0'
+  font: verdana-11px-rounded
+
+MoveListPanel < ScrollablePanel
+  id: moveListPanel
+  size: 275 270
+  anchors.top: parent.top
+  anchors.left: parent.left
+  margin-top: 100
+  margin-left: 90
+  vertical-scrollbar: moveListScrollBar
+  border: 1 black
+
+MoveListScrollBar < VerticalScrollBar
+  id: moveListScrollBar
+  anchors.top: moveListPanel.top
+  anchors.bottom: moveListPanel.bottom
+  anchors.right: moveListPanel.right
+
+MoveDescriptionPanel < UIWidget
+  id: moveDescriptionPanel
+  size: 450 270
+  anchors.top: parent.top
+  anchors.right: parent.right
+  margin-top: 100
+  margin-right: 135
+  border: 1 black
+
+  UIWidget
+    id: moveType
+    size: 40 40
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 5
+    margin-left: 10
+
+  UIWidget
+    id: moveName
+    size: 250 40
+    anchors.top: parent.top
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-top: 5
+    text-align: center
+
+  UIWidget
+    id: moveCategory
+    size: 40 40
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 5
+    margin-right: 5
+
+  UIWidget
+    id: moveText
+    size: 40 40
+    anchors.top: moveName.bottom
+    anchors.right: parent.right
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-top: 15
+    margin-left: 10
+    margin-right: 5
+    text-align: leftTop
+    text-wrap: true
+
+  Button
+    id: moveLearn
+    anchors.bottom: parent.bottom
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-bottom: 5
+    !text: tr('Aprender')
+    visible: false
+
+CurrentMoveSlot < UIWidget
+  size: 46 46
+  image-source: images/base
+  anchors.top: parent.top
+  anchors.left: parent.left
+
+  $!first:
+    anchors.left: prev.right
+    margin-left: 5
+
+  UIItem
+    id: moveIcon
+    size: 46 46
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-left: 2
+    margin-top: 2
+
+PanelCurrentMoves < UIWidget
+  id: panelCurrentMoves
+  size: 645 50
+  anchors.bottom: parent.bottom
+  anchors.horizontalCenter: parent.horizontalCenter
+  margin-bottom: 20
+
+  CurrentMoveSlot
+    id: move1	
+    !text: ("M1")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move2
+    !text: ("M2")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move3
+    !text: ("M3")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move4
+    !text: ("M4")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move5
+    !text: ("M5")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move6
+    !text: ("M6")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move7
+    !text: ("M7")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move8
+    !text: ("M8")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move9
+    !text: ("M9")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move10
+    !text: ("M10")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move11
+    !text: ("M11")
+    font: sans-bold-16px-rounded
+  CurrentMoveSlot
+    id: move12
+    !text: ("M12")
+    font: sans-bold-16px-rounded
+
+TalentTooltip < UIWidget
+  width: 250
+  height: 420
+  background-color: #111111cc
+
+  UIWidget
+    id: icon
+    size: 60 60
+    anchors.top: parent.top
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-top: 5
+    image-source: images/interrogation
+
+  UIWidget
+    id: level
+    height: 20
+    anchors.top: icon.bottom
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-top: 5
+    font: verdana-11px-rounded
+    color: green
+
+  Label
+    id: name
+    height: 40
+    anchors.top: level.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    font: verdana-11px-rounded
+    text-wrap: true
+    text-align: center
+
+  Label
+    id: description
+    height: 100
+    anchors.top: name.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    text-wrap: true
+    text-align: left
+    font: verdana-11px-rounded
+
+  Label
+    id: description2
+    height: 100
+    anchors.top: name.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 22
+    text-wrap: true
+    text-align: left
+    font: verdana-11px-rounded
+
+  Label
+    id: description3
+    height: 100
+    anchors.top: name.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 35
+    text-wrap: true
+    text-align: left
+    font: verdana-11px-rounded
+
+  Label
+    id: bonus
+    height: 100
+    anchors.top: description.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    text-wrap: true
+    text-align: leftTop
+    color: green
+    font: verdana-11px-rounded
+
+  Label
+    id: bonus2
+    height: 100
+    anchors.top: description.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    text-wrap: true
+    text-align: leftTop
+    color: red
+    font: verdana-11px-rounded
+
+  Label
+    id: bonus3
+    height: 100
+    anchors.top: description.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    text-wrap: true
+    text-align: leftTop
+    color: yellow
+    font: verdana-11px-rounded
+
+  Label
+    id: requirements
+    height: 100
+    anchors.top: description.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-top: 5
+    text-wrap: true
+    text-align: left
+    color: red
+    font: verdana-11px-rounded
+
+TalentIcon < UIButton
+  size: 42 42
+  image-source: images/base3
+  anchors.bottom: parent.bottom
+  anchors.left: parent.left
+  text-align: leftTop
+
+  UIButton
+    id: talentImg
+    anchors.top: parent.top
+    anchors.left: parent.left
+    width: 34
+    height: 34
+    margin-top: 4
+    margin-left: 4
+    phantom: true
+
+  Button
+    id: talentAdd
+    size: 12 12
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-right: 1
+    margin-top: 1
+    !text: ("+")
+    text-align: center
+    visible: false
+
+  UIProgressBar
+    id: progress
+    height: 2
+    background-color: #20ed05
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    anchors.left: parent.left
+    margin-bottom: 6
+    margin-left: 6
+    margin-right: 6
+
+Points < UIWidget
+  size: 150 20
+  anchors.bottom: parent.bottom
+  anchors.left: parent.left
+  margin-bottom: 2
+  !text: tr('Points 0')
+  visible: false
+
+  $first:
+    margin-left: 50
+
+  $!first:
+    anchors.left: prev.right
+
+TalentPanel < Panel
+  anchors.fill: parent
+  background: #0c1013
+  margin-top: 70
+  margin-left: 25
+  margin-right: 25
+  margin-bottom: 25
+  visible: false
+
+  Points
+    id: talentPoints
+
+  Points
+    id: talentPoints2
+    margin-left: 90
+
+  Points
+    id: talentPoints3
+    margin-left: 55
+
+  Points
+    id: talentPoints4
+    margin-left: 55
+
+  UIWidget
+    id: playerTalentPoints
+    size: 80 20
+    anchors.bottom: parent.top
+    anchors.right: parent.right
+    visible: false
+    !text: tr('Pontos: 0')
+
+  UIButton
+    id: playerReset
+    size: 50 50
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-right: 20
+    margin-top: 2	
+    !tooltip: tr("Resetar Talentos")
+    image-source: images/poke_reset_points
+    visible: false
+    @onClick: resetTalents()
+
+    $!hover !disabled:
+      color: #dfdfdf
+      opacity: 1.0
+
+    $hover:
+      color: #A8FFD3
+      opacity: 0.8
+
+    $pressed:
+      color: #dfdfdf86
+      opacity: 0.4
+      text-offset: 1 1
+
+  UIItem
+    id: portrait
+    size: 64 64
+    anchors.left: parent.left
+    anchors.top: parent.top
+    margin-top: 1
+    margin-left: 18
+    virtual: true
+
+  UIWidget
+    id: info
+    size: 500 70
+    anchors.left: portrait.right
+    anchors.top: portrait.top
+    margin-left: 10
+    !text: tr('')
+    text-align: leftCenter
+    visible: false
+
+  UIButton
+    id: reset
+    size: 46 46
+    anchors.left: info.right
+    anchors.bottom: portrait.bottom
+    margin-bottom: 10
+    margin-left: 10
+    image-source: images/poke_reset_points
+    visible: false
+    @onClick: resetTalents()
+
+    $!hover !disabled:
+      color: #dfdfdf
+      opacity: 1.0
+
+    $hover:
+      color: #A8FFD3
+      opacity: 0.8
+
+    $pressed:
+      color: #dfdfdf86
+      opacity: 0.4
+      text-offset: 1 1
+
+  UIButton
+    id: reset2
+    size: 46 46
+    anchors.left: reset.right
+    anchors.bottom: portrait.bottom
+    margin-bottom: 10
+    margin-left: 10
+    image-source: images/poke_reset_role
+    visible: false
+    @onClick: resetRole()
+
+    $!hover !disabled:
+      color: #dfdfdf
+      opacity: 1.0
+
+    $hover:
+      color: #A8FFD3
+      opacity: 0.8
+
+    $pressed:
+      color: #dfdfdf86
+      opacity: 0.4
+      text-offset: 1 1
+
+PanelButton < UIButton
+  size: 120 27
+  anchors.top: parent.top
+  margin-top: 31
+  margin-left: 263
+
+  $first:
+    anchors.left: parent.left
+
+  $!first:
+    anchors.left: prev.right
+    margin-left: 5
+
+  $!hover !disabled:
+    color: #dfdfdf
+    opacity: 1.0
+
+  $hover:
+    color: #A8FFD3
+    opacity: 0.9
+
+  $pressed:
+    color: #dfdfdf86
+    opacity: 0.6
+    text-offset: 1 1
+
+UIWindow
+  id: treeWindow
+  image-source: images/background
+  size: 1000 600
+  @onEscape: hide()
+
+  PanelButton
+    id: button1
+    image-source: images/trainer_button_off
+    @onClick: togglePanel(1)
+
+    $on:
+      image-source: images/trainer_button_on
+
+  PanelButton
+    id: button2
+    image-source: images/pokemon_button_off
+    @onClick: togglePanel(2)
+
+    $on:
+      image-source: images/pokemon_button_on
+
+  PanelButton
+    id: button3
+    image-source: images/moves_button_off
+    @onClick: togglePanel(3)
+
+    $on:
+      image-source: images/moves_button_on
+
+  PanelButton
+    id: button4
+    image-source: images/addons_button_off
+    @onClick: togglePanel(4)
+
+    $on:
+      image-source: images/addons_button_on
+
+  Button
+    id: closed
+    text: X
+    text-align: center
+    phantom: false
+    !tooltip: tr("Fechar")
+    size: 18 18
+    anchors.right: parent.right
+    anchors.top: parent.top
+    margin-right: 2
+    margin-top: 2
+    @onClick: function(self) self:getParent():hide() end

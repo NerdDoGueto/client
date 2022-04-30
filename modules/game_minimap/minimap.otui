@@ -1,0 +1,46 @@
+MiniWindow
+  id: minimapWindow
+  !text: tr('Minimap')
+  height: 150
+  icon: /images/topbuttons/minimap
+  @onClose: modules.game_minimap.onMiniWindowClose()
+  &autoOpen: 1
+
+  ResizeBorder
+    id: rightResizeBorder
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    enabled: true
+    minimum: 198
+  
+  UIButton
+    phantom: false
+    !tooltip: tr("Alternar para o Mapa Cheio")
+    anchors.top: lockButton.top
+    anchors.right: lockButton.left
+    margin-right: 3
+    size: 14 14
+    @onClick: toggleFullMap()
+    image-source: /images/ui/minimap_button
+    image-clip: 0 0 14 14
+
+    $hover:
+      image-clip: 0 14 14 14
+
+    $pressed:
+      image-clip: 0 28 14 14
+
+    $on:
+      image-clip: 14 0 14 14
+
+    $on hover:
+      image-clip: 14 14 14 14
+
+    $on pressed:
+      image-clip: 14 28 14 14
+
+  MiniWindowContents
+    Minimap
+      id: minimap
+      anchors.fill: parent

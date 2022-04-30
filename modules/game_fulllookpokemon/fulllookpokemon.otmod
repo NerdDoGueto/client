@@ -1,0 +1,9 @@
+Module
+  name: game_fulllookpokemon
+  description: pokemon look
+  author: 
+  sandboxed: true
+  scripts: [fulllookpokemon]
+  autoload: true
+  @onLoad: init()
+  @onUnload: terminate()

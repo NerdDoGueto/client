@@ -1,0 +1,164 @@
+HouseData < UILabel
+  anchors.left: parent.left
+  anchors.top: prev.bottom
+  color: #abaaaa
+  margin-top: 6
+  height: 50
+  font: verdana-11px-rounded
+  text-auto-resize: true
+
+Panel
+  id: lookWindow
+  size: 240 410
+  @onEnter: onCloseInformation()
+  @onEscape: onCloseInformation()
+  image-source: images/fundo
+  border: 2 #242424
+
+  Panel
+    id: full_content
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    
+    Panel
+      id: left_image
+      anchors.top: parent.top
+      anchors.horizontalCenter: parent.horizontalCenter
+      margin-top: 10
+      size: 64 64
+      border: 1 #6e6e6e
+
+    Panel
+      id: left_image2
+      size: 64 64
+      anchors.top: parent.top
+      anchors.horizontalCenter: parent.horizontalCenter
+      margin-top: 10
+
+    Panel
+      id: right_content
+      anchors.top: left_image2.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      margin-top: 2
+      margin-left: 5
+      margin-right: 5
+
+      Label
+        id: look_map_name
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        text-align: center
+        font: verdana-11px-rounded
+        color: #abaaaa
+        margin-top: 5
+        margin-bottom: 5
+      
+      Label
+        id: data_content
+        anchors.top: prev.bottom
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        border: 1 #6e6e6e
+        margin-top: 10
+        margin-left: 5
+        margin-right: 5
+        margin-bottom: 10
+
+        Panel
+          id: info_panel
+          margin-left: 4
+          anchors.top: parent.top
+          anchors.left: parent.left
+          anchors.bottom: parent.bottom
+          anchors.right: parent.right
+          width: 150
+
+          HouseData
+            id: look_pokemon_natureTXT
+            font: sans-bold-16px-italic
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_nature
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_specialabTXT
+            font: sans-bold-16px-italic
+            margin-top: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_specialab
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_IVTXT
+            font: sans-bold-16px-italic
+            margin-top: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_IV_HP
+            margin-left: 10
+
+          HouseData
+            id: look_pokemon_IVS_ATK
+            anchors.left: look_pokemon_IV_HP.right
+            margin-left: 28
+            anchors.top: look_pokemon_IVTXT.bottom
+
+          HouseData
+            id: look_pokemon_IVS_DEF
+            anchors.left: look_pokemon_IVS_ATK.right
+            margin-left: 20
+            anchors.top: look_pokemon_IVTXT.bottom
+
+          HouseData
+            id: look_pokemon_IVS_SPATK
+
+          HouseData
+            id: look_pokemon_IVS_SPDEF
+            anchors.left: look_pokemon_IVS_SPATK.right
+            margin-left: 10
+            anchors.top: look_pokemon_IV_HP.bottom
+
+          HouseData
+            id: look_pokemon_IVS_SPEED
+            anchors.left: look_pokemon_IVS_SPDEF.right
+            margin-left: 10
+            anchors.top: look_pokemon_IV_HP.bottom
+
+          HouseData
+            id: look_pokemon_IVS_TOTALTXT
+            font: sans-bold-16px-italic
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_IVS_TOTAL
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_happiness
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_PRICETXT
+            font: sans-bold-16px-italic
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_PRICE
+            anchors.horizontalCenter: parent.horizontalCenter
+
+          HouseData
+            id: look_pokemon_INFOTXT
+            font: verdana-9px-rounded
+            anchors.horizontalCenter: parent.horizontalCenter

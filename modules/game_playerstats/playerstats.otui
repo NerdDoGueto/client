@@ -1,0 +1,331 @@
+InventoryItem < Item
+  margin: 3
+
+HeadSlot < InventoryItem
+  id: slot1
+  size: 32 32
+  image-source: /images/game/slots/head
+  &position: {x=65535, y=1, z=0}
+  anchors.top: parent.top
+  anchors.left: parent.left
+
+NAMEBAR < FlatPanel
+  id: NAMEBAR
+  !text: tr("?")
+  anchors.top: parent.top
+  anchors.right: parent.right
+  anchors.left: slot1.right
+  text-align: center
+  color: #abaaaa
+  height: 15
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+LEVELBAR < FlatPanel
+  id: LEVELBAR
+  !text: tr("-")
+  anchors.top: NAMEBAR.bottom
+  anchors.right: parent.right
+  anchors.left: slot1.right
+  text-align: center
+  color: #abaaaa
+  height: 15
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+PortraitBackground < UIButton
+  id: PortraitBackground
+  size: 64 64
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: LEVELBAR.bottom
+  anchors.left: parent.left
+  
+Portrait < UIButton
+  id: Portrait
+  size: 64 64
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: LEVELBAR.bottom
+  anchors.left: parent.left
+
+HPBAR < ProgressBar
+  id: HPBAR
+  !text: '0 / 0'
+  font: verdana-11px-rounded
+  color: #FFFFFF
+  background-color: #00b324
+  anchors.top: Portrait.top
+  anchors.left: Portrait.right
+  anchors.right: parent.right
+  margin-left: 5
+  margin-right: 5
+  margin-top: 5
+  opacity: 0.9
+
+MPBAR < ProgressBar
+  id: MPBAR
+  !text: '0 / 0'
+  font: verdana-11px-rounded
+  color: #FFFFFF
+  background-color: #344ef8
+  anchors.top: HPBAR.bottom
+  anchors.left: Portrait.right
+  anchors.right: parent.right
+  margin-left: 5
+  margin-right: 5
+  margin-top: 5
+  opacity: 0.9
+
+EXPBAR < ProgressBar
+  id: EXPBAR
+  !text: '0 / 0'
+  font: verdana-11px-rounded
+  color: #FFFFFF
+  background-color: #f8de34
+  anchors.top: MPBAR.bottom
+  anchors.left: Portrait.right
+  anchors.right: parent.right
+  margin-left: 5
+  margin-right: 5
+  margin-top: 5
+  opacity: 0.9
+
+PlayerStatsWidget < UIWidget
+  size: 20 37
+  anchors.top: parent.top
+  anchors.left: parent.left
+  margin-left: 8
+
+  $!first:
+    anchors.left: prev.right
+    margin-left: 5
+
+  FlatPanel
+    id: image
+    size: 20 20
+    anchors.top: parent.top
+    anchors.left: parent.left
+
+  FlatPanel
+    id: value
+    size: 20 15
+    anchors.top: image.bottom
+    anchors.left: parent.left
+    margin-top: 2
+    text: 0
+    color: white
+
+PSConditionWidget < UIWidget
+  size: 18 18
+  anchors.top: parent.top
+  anchors.left: parent.left
+  margin-left: 3
+  margin-top: 3
+
+  $!first:
+    anchors.left: prev.right
+
+MiniWindow
+  id: playerStatsWindow
+  !text: tr('Pokemon Stats')
+  icon: /images/topbuttons/playerstats
+  @onClose: modules.game_playerstats.onMiniWindowClose()
+  height: 262
+  &autoOpen: 1
+  
+  MiniWindowContents
+    NAMEBAR
+    LEVELBAR
+    HeadSlot
+    PortraitBackground
+    Portrait
+    HPBAR
+    MPBAR
+    EXPBAR
+    FlatPanel
+      id: critical
+      height: 15
+      anchors.top: PortraitBackground.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin: 2
+      margin-top: 7
+
+      UIWidget
+        id: txt
+        size: 120 15
+        anchors.top: PortraitBackground.bottom
+        anchors.left: parent.left
+        !text: tr("Critical Rate")
+        text-align: left
+        text-offset: 3 0
+        margin-top: 5
+      UIWidget
+        id: value
+        size: 40 15
+        anchors.top: PortraitBackground.bottom
+        anchors.right: parent.right
+        margin-right: 3
+        text: 0%
+        text-align: right
+        margin-top: 5
+    FlatPanel
+      id: stats
+      height: 37
+      anchors.top: critical.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin: 2
+      margin-top: 3
+    UIWidget
+      id: conditions
+      height: 25
+      anchors.top: stats.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      margin: 2
+      margin-top: 3
+      background: #ffffff22
+
+    UIButton
+      id: cinto
+      anchors.top: conditions.bottom
+      anchors.left: parent.left
+      !tooltip: tr('Cinto Pokemon')
+      margin: 5
+      margin-top: 5
+      size: 32 32
+      image-source: /modules/game_playerstats/images/others/cinto
+      @onClick: OPENWINDOW("cinto")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: MOVES
+      anchors.top: conditions.bottom
+      anchors.left: cinto.right
+      !tooltip: tr('Barra de Moves')
+      margin: 4
+      margin-top: 5
+      size: 32 32
+      image-source: /modules/game_playerstats/images/others/MOVES
+      @onClick: OPENWINDOW("MOVES")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: talents
+      anchors.top: conditions.bottom
+      anchors.left: MOVES.right
+      !tooltip: tr('Arvore de Talentos / Escolha de Moves')
+      margin: 4
+      margin-top: 5
+      size: 32 32
+      image-source: /modules/game_playerstats/images/others/talents
+      @onClick: OPENWINDOW("talents")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: IV
+      anchors.top: conditions.bottom
+      anchors.left: talents.right
+      !tooltip: tr('IV UP')
+      margin: 4
+      margin-top: 5
+      size: 32 32
+      image-source: /modules/game_playerstats/images/others/IV
+      @onClick: OPENWINDOW("IV")
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+    UIButton
+      id: DEX
+      anchors.top: conditions.bottom
+      anchors.left: IV.right
+      !tooltip: tr('Pokedex')
+      margin: 4
+      margin-top: 5
+      size: 32 32
+      image-source: /modules/game_playerstats/images/others/pokedex
+      @onClick: USEDEX()
+      
+      $!hover !disabled:
+        color: #dfdfdf
+        opacity: 1.0
+
+      $hover:
+        color: #A8FFD3
+        opacity: 0.8
+
+      $pressed:
+        color: #dfdfdf86
+        opacity: 0.4
+        text-offset: 1 1
+
+  ResizeBorder
+    id: bottomResizeBorder
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 3
+    minimum: 110
+    maximum: 262
+    margin-left: 3
+    margin-right: 3
+    background: #ffffff88

@@ -1,0 +1,487 @@
+PortraitBackground < UIButton
+  id: PortraitBackground
+  size: 100 100
+  margin-left: 5
+  margin-top: 5
+  image-source: /modules/game_belt/bg
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  
+Portrait < UIButton
+  id: Portrait
+  size: 100 100
+  margin-left: 5
+  margin-top: 5
+  image-source: /images/pictures/0
+  image-color: white
+  focusable: false
+  anchors.top: parent.top
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+
+NAMEBAR < Panel
+  id: NAMEBAR
+  !text: tr("?")
+  text-auto-resize: true
+  font: sans-bold-16px-rounded
+  anchors.top: Portrait.bottom
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  color: #abaaaa
+  margin-top: 10
+
+NATURETXT < Panel
+  id: NATURETXT
+  !text: tr("Nature")
+  text-auto-resize: true
+  anchors.top: NAMEBAR.bottom
+  font: sans-bold-16px-italic
+  anchors.left: Portrait.right
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  color: #abaaaa
+  margin-top: 15
+
+NATURE < Panel
+  id: NATURE
+  !text: tr("-")
+  text-auto-resize: true
+  anchors.top: NATURETXT.bottom
+  font: verdana-11px-rounded
+  anchors.left: Portrait.right
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+
+SPECIALABILITYTXT < Panel
+  id: SPECIALABILITYTXT
+  !text: tr("Special  Ability")
+  text-auto-resize: true
+  anchors.top: NATURE.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-top: 15
+
+SPECIALABILITY < Panel
+  id: SPECIALABILITY
+  !text: tr("-")
+  text-auto-resize: true
+  anchors.top: SPECIALABILITYTXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+
+INDIVIDUALVALUESIV < Panel
+  id: INDIVIDUALVALUESIV
+  !text: tr("IV / EV")
+  anchors.top: SPECIALABILITY.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-top: 15
+
+IVHP < Panel
+  id: IVHP
+  !text: tr("-")
+  anchors.top: INDIVIDUALVALUESIV.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  text-auto-resize: true
+  color: #abaaaa
+  margin-top: 5
+
+IVATK < Panel
+  id: IVATK
+  !text: tr("-")
+  anchors.top: IVHP.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  text-auto-resize: true
+  color: #abaaaa
+  margin-top: 5
+
+IVDEF < Panel
+  id: IVDEF
+  !text: tr("-")
+  anchors.top: IVATK.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  text-auto-resize: true
+  color: #abaaaa
+  margin-top: 5
+
+IVSPATK < Panel
+  id: IVSPATK
+  !text: tr("-")
+  anchors.top: IVDEF.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  text-auto-resize: true
+  color: #abaaaa
+  margin-top: 5
+
+IVSPDEF < Panel
+  id: IVSPDEF
+  !text: tr("-")
+  anchors.top: IVSPATK.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  text-auto-resize: true
+  color: #abaaaa
+  margin-top: 5
+
+IVSPEED < Panel
+  id: IVSPEED
+  !text: tr("-")
+  anchors.top: IVSPDEF.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.horizontalCenter: parent.horizontalCenter
+  text-align: center
+  text-auto-resize: true
+  color: #abaaaa
+  margin-top: 5
+
+EVHP < Panel
+  id: EVHP
+  !text: tr("-")
+  anchors.top: INDIVIDUALVALUESIV.bottom
+  font: verdana-11px-rounded
+  anchors.left: IVHP.right
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+EVATK < Panel
+  id: EVATK
+  !text: tr("-")
+  anchors.top: EVHP.bottom
+  font: verdana-11px-rounded
+  anchors.left: IVATK.right
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+EVDEF < Panel
+  id: EVDEF
+  !text: tr("-")
+  anchors.top: EVATK.bottom
+  font: verdana-11px-rounded
+  anchors.left: IVDEF.right
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+EVSPATK < Panel
+  id: EVSPATK
+  !text: tr("-")
+  anchors.top: EVDEF.bottom
+  font: verdana-11px-rounded
+  anchors.left: IVSPATK.right
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+EVSPDEF < Panel
+  id: EVSPDEF
+  !text: tr("-")
+  anchors.top: EVSPATK.bottom
+  font: verdana-11px-rounded
+  anchors.left: IVSPDEF.right
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+EVSPEED < Panel
+  id: EVSPEED
+  !text: tr("-")
+  anchors.top: EVSPDEF.bottom
+  font: verdana-11px-rounded
+  anchors.left: IVSPEED.right
+  text-align: center
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+IVTOTALTXT < Panel
+  id: IVTOTALTXT
+  !text: tr("Total  (IV)")
+  anchors.top: EVSPEED.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 10
+  margin-bottom: 5
+
+IVTOTAL < Panel
+  id: IVTOTAL
+  !text: tr("-")
+  anchors.top: IVTOTALTXT.bottom
+  font: verdana-11px-rounded
+  anchors.left: parent.left
+  anchors.right: parent.right
+  color: #abaaaa
+  margin-top: 5
+  margin-left: 5
+  text-auto-resize: true
+
+TMSTXT < Panel
+  id: TMSTXT
+  !text: tr("TM")
+  anchors.top: IVTOTAL.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 15
+  margin-bottom: 5
+
+TM1 < Panel
+  id: TM1
+  !text: tr("-")
+  anchors.top: TMSTXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+TM2 < Panel
+  id: TM2
+  !text: tr("-")
+  anchors.top: TM1.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+EGGMOVETXT < Panel
+  id: EGGMOVETXT
+  !text: tr("Egg Move")
+  anchors.top: TM2.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 15
+  margin-bottom: 5
+
+EGGMOVE < Panel
+  id: EGGMOVE
+  !text: tr("-")
+  anchors.top: EGGMOVETXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+HELDTXT < Panel
+  id: HELDTXT
+  !text: tr("Held")
+  anchors.top: EGGMOVE.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 15
+  margin-bottom: 5
+
+HELD < Panel
+  id: HELD
+  !text: tr("-")
+  anchors.top: HELDTXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+SEALTXT < Panel
+  id: SEALTXT
+  !text: tr("Seal")
+  anchors.top: HELD.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 15
+  margin-bottom: 5
+
+SEAL < Panel
+  id: SEAL
+  !text: tr("-")
+  anchors.top: SEALTXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+RELEARNTXT < Panel
+  id: RELEARNTXT
+  !text: tr("Relearn")
+  anchors.top: SEAL.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 15
+  margin-bottom: 5
+
+RELEARN < Panel
+  id: RELEARN
+  !text: tr("-")
+  anchors.top: RELEARNTXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  margin-bottom: 5
+
+ADDONSTXT < Panel
+  id: ADDONSTXT
+  !text: tr("Addons")
+  anchors.top: RELEARN.bottom
+  font: sans-bold-16px-italic
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 15
+  margin-bottom: 5
+
+ADDONS < Panel
+  id: ADDONS
+  !text: tr("-")
+  anchors.top: ADDONSTXT.bottom
+  font: verdana-11px-rounded
+  anchors.right: parent.right
+  anchors.left: parent.left
+  text-align: center
+  color: #abaaaa
+  margin-right: 5
+  margin-left: 5
+  margin-top: 5
+  text-auto-resize: true
+
+MiniWindow
+  id: playerStatsWindow
+  !text: tr('Detalhes do Pokemon')
+  size: 350 450
+  
+  MiniWindowContents
+    PortraitBackground
+    Portrait
+    NAMEBAR
+    NATURETXT
+    NATURE
+    SPECIALABILITYTXT
+    SPECIALABILITY
+    INDIVIDUALVALUESIV
+    IVHP
+    IVATK
+    IVDEF
+    IVSPATK
+    IVSPDEF
+    IVSPEED
+    EVHP
+    EVATK
+    EVDEF
+    EVSPATK
+    EVSPDEF
+    EVSPEED
+    IVTOTALTXT
+    IVTOTAL
+    TMSTXT
+    TM1
+    TM2
+    EGGMOVETXT
+    EGGMOVE
+    HELDTXT
+    HELD
+    SEALTXT
+    SEAL
+    RELEARNTXT
+    RELEARN
+    ADDONSTXT
+    ADDONS

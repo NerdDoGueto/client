@@ -1,0 +1,117 @@
+UIWindow
+  id: characterCreator
+  anchors.centerIn: parent
+  draggable: false
+  size: 236 354
+  image-source: /images/ui/login_back
+  @onEnter: AccountManager.doCreateCharacter()
+  @onEscape: EnterGame.show()
+
+  MenuLabel
+    id: createAccountIcon
+    !text: tr('Criar Personagem')
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
+    margin-top: 70
+
+  HorizontalSeparator
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: createAccountIcon.bottom
+    margin-top: 3
+    margin-left: 30
+    margin-right: 30
+
+  MenuLabel
+    id: accountNameLabel
+    !text: tr('Account name')
+    anchors.left: parent.left
+    anchors.top: parent.top
+    margin-left: 30
+    margin-top: 105
+    text-align: left
+
+  PasswordTextEdit
+    id: accountNameTextEdit
+    height: 20
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: accountNameLabel.bottom
+    margin-left: 30
+    margin-right: 30
+    margin-top: 2
+
+  MenuLabel
+    id: passwordLabel
+    size: 80 20
+    !text: tr('Password')
+    anchors.left: parent.left
+    anchors.top: accountNameTextEdit.bottom
+    margin-top: 8
+    margin-left: 30
+    text-align: left
+
+  PasswordTextEdit
+    id: accountPasswordTextEdit
+    size: 80 20
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: passwordLabel.bottom
+    margin-left: 30
+    margin-right: 30
+    margin-top: 2
+
+  MenuLabel
+    id: characterNameLabel
+    size: 80 20
+    !text: tr('Character')
+    anchors.left: parent.left
+    anchors.top: accountPasswordTextEdit.bottom
+    text-auto-resize: true
+    margin-left: 30
+    margin-right: 30
+    margin-top: 10
+    text-align: left
+
+  TextEdit
+    id: characterNameTextEdit
+    height: 20
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: prev.bottom
+    margin-left: 30
+    margin-right: 30
+    margin-top: 2
+
+  ComboBox
+    id: sexComboBox
+    size: 80 20
+    !tooltip: tr('Sex')
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.top: characterNameTextEdit.bottom
+    margin-left: 30
+    margin-right: 30
+    margin-top: 10
+    text-align: left
+
+  Button
+    !text: tr('Cancelar')
+    !tooltip: tr('Voltar e entrar no jogo')
+    width: 80
+    anchors.left: parent.left
+    anchors.top: sexComboBox.bottom
+    margin-top: 10
+    margin-left: 30
+    @onClick: EnterGame.show()
+
+  Button
+    id: createButton
+    width: 80
+    !text: tr('Criar')
+    !tooltip: tr('Criar Personagem')
+    anchors.right: parent.right
+    anchors.top: sexComboBox.bottom
+    margin-top: 10
+    margin-right: 30
+    @onClick: AccountManager.doCreateCharacter()

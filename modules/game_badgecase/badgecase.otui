@@ -1,0 +1,48 @@
+BadgeItem < Item
+  size: 32 32
+  border-width: 0
+  margin: 0
+  image-source: ~
+  image-source: /images/ui/item
+
+BadgeCaseWindow < MiniWindow
+  !text: tr('Badge Case')
+  size: 400 200
+
+  ResizeBorder
+    id: bottomResizeBorder
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    height: 3
+    minimum: 200
+    maximum: 600
+    margin-left: 3
+    margin-right: 3
+    background: #ffffff88
+
+  UIItem
+    id: icon
+    virtual: true
+    size: 16 16
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 4
+    margin-left: 4
+
+  MiniWindowContents
+    ScrollableFlatPanel
+      id: ownDexContainer
+      image-source: ~
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      width: 350
+      margin-top: 10
+      margin-left: 28
+      layout:
+        type: grid
+        cell-size: 64 64
+        flow: true
+        cell-spacing: 20
+        auto-spacing: true

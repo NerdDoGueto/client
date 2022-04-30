@@ -1,0 +1,9 @@
+Module
+  name: game_iv
+  description: IVs
+  author: LegendsOfUnknown
+  website: www.legendsofunknown.com.br
+  sandboxed: true
+  scripts: [ iv ]
+  @onLoad: init()
+  @onUnload: terminate()

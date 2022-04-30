@@ -1,0 +1,13 @@
+Module
+  name: game_sound
+  description: sound lib with 3d sound mod
+  author: 
+  website: 
+  
+  autoload: true
+  autoload-priority: 1000
+  sandbox: true
+  
+  scripts: [ sounds ]
+  @onLoad: init()
+  @onUnload: terminate()

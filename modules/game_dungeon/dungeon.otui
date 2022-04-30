@@ -1,0 +1,265 @@
+NewDungeonRoomWidget < UIButton
+  id: dungeonRoom
+  size: 261 45
+  image-source: imgs/room_panel
+  @onClick: function(self) self:setHeight(70) end
+  
+  $hover:
+    image-source: imgs/room_panel_hover
+  
+  $pressed:
+    image-source: imgs/room_panel_click
+
+  UIButton
+    id: createRoomBtn
+    size: 149 47
+    image-source: imgs/group_btn
+    anchors.verticalCenter: parent.verticalCenter
+    anchors.horizontalCenter: parent.horizontalCenter
+    @onClick: modules.game_dungeon.createNewRoom(self)
+  
+    $hover:
+      image-source: imgs/group_btn_hover
+  
+    $pressed:
+      image-source: imgs/group_btn_click
+
+DungeonRoomWidget < UIButton
+  id: dungeonRoom
+  size: 261 45
+  image-source: imgs/room_panel
+  @onDoubleClick: modules.game_dungeon.enterRoom(self)
+  
+  $hover:
+    image-source: imgs/room_panel_hover
+  
+  $pressed:
+    image-source: imgs/room_panel_click
+
+  Label
+    id: hostname
+    font: sans-bold-16px
+    text-align: center
+    text-auto-resize: true
+    anchors.bottom: progressBar.top
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-bottom: 5
+
+  ProgressBar
+    id: progressBar
+    size: 150 16
+    phantom: true
+    background-color: #66B2FF
+    anchors.bottom: parent.bottom
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-bottom: 4
+
+    Label
+      id: playerAmountLabel
+      phantom: true
+      text-auto-resize: true
+      anchors.verticalCenter: parent.verticalCenter
+      anchors.horizontalCenter: parent.horizontalCenter
+
+DungeonMapBanner < FlatPanel
+  id: mapBanner
+  size: 396 115
+  
+  UIButton
+    id: bannerBorder
+    anchors.fill: parent
+    image-source: imgs/border
+  
+    $hover:
+      image-source: imgs/border_hover
+  
+    $checked:
+      image-source: imgs/border_selected
+
+  Label
+    id: dungeonName
+    font: newfont-16px-rounded
+    text-auto-resize: true
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-top: 17
+    margin-left: 14
+
+  Label
+    id: playersAmount
+    font: terminus-14px-bold
+    text-auto-resize: true
+    anchors.top: prev.bottom
+    anchors.left: prev.left
+    margin-top: 7
+
+  Item
+    id: neededItem
+    size: 32 32
+    virtual: true
+    image-source: imgs/scrollable_panel
+    image-border: 4
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    margin-bottom: 8
+    margin-left: 8
+
+  Label
+    id: levelNeeded
+    font: newfont-16px-rounded
+    text-align: left
+    text-auto-resize: true
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 17
+    margin-right: 14
+
+  ProgressBar
+    id: mapRoomCapacity
+    size: 100 16
+    background-color: #66B2FF
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    margin-right: 15
+    margin-bottom: 10
+
+    Label
+      id: mapRoomsAmount
+      font: terminus-14px-bold
+      text-auto-resize: true
+      anchors.verticalCenter: parent.verticalCenter
+      anchors.horizontalCenter: parent.horizontalCenter
+
+UIWindow
+  id: dungeonWindow
+  image-source: imgs/background
+  padding: 0
+  anchors.centerIn: parent
+  size: 811 456
+  @onEscape: closeDungeonWindow(self)
+
+  UIButton
+    id: refresh
+    image-source: imgs/update_btn
+    anchors.bottom: parent.bottom
+    anchors.horizontalCenter: mapsPanel.horizontalCenter
+    margin-bottom: 15
+    @onClick: modules.game_dungeon.refresh()
+
+    $hover:
+      image-source: imgs/update_btn_hover
+  
+    $pressed:
+      image-source: imgs/update_btn_click
+
+  UIButton
+    id: closeBtn
+    size: 34 34
+    image-source: imgs/close_btn
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-right: 28
+    margin-top: 25
+    @onClick: closeDungeonWindow(self)
+  
+    $hover:
+      image-source: imgs/close_btn_hover
+  
+    $pressed:
+      image-source: imgs/close_btn_click
+
+  ScrollablePanel
+    id: mapsPanel
+    image-source: imgs/scrollable_panel
+    image-border: 4
+    padding: 4
+    width: 404
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    margin-top: 29
+    margin-bottom: 70
+    margin-left: 38
+    vertical-scrollbar: mapsScrollBar
+    layout:
+      type: grid
+      cell-size: 396 115
+      cell-spacing: 3
+      num-columns: 1
+
+  VerticalScrollBar
+    id: mapsScrollBar
+    anchors.top: mapsPanel.top
+    anchors.bottom: mapsPanel.bottom
+    anchors.left: mapsPanel.right
+    margin-left: 8
+    step: 30
+
+  Label
+    !text: tr("Filtrar por:")
+    text-auto-resize: true
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 25
+    margin-right: 247
+
+  UIButton
+    id: filter_btn
+    size: 149 47
+    image-source: imgs/select_rooms/filter/all_btn
+    image-clip: 0 0 149 47
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 44
+    margin-right: 147
+    @onClick: toggleFilter(self)
+
+    $hover:
+      image-clip: 0 47 149 47
+
+    $pressed:
+      image-clip: 0 94 149 47
+
+
+  Label
+    !text: tr("Selecione uma sala:")
+    text-auto-resize: true
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 112
+    margin-right: 205
+
+  ScrollablePanel
+    id: roomsPanel
+    image-source: imgs/scrollable_panel
+    image-border: 4
+    padding: 4
+    width: 269
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    margin-top: 140
+    margin-bottom: 70
+    margin-right: 57
+    vertical-scrollbar: roomsScrollBar
+    layout:
+      type: verticalBox
+      spacing: 5
+
+  VerticalScrollBar
+    id: roomsScrollBar
+    anchors.top: roomsPanel.top
+    anchors.bottom: roomsPanel.bottom
+    anchors.left: roomsPanel.right
+    margin-left: 8
+    step: 30
+
+  UIButton
+    id: dungeonLogo
+    image-source: imgs/Fundo
+    image-border: 4
+    size: 300 288
+    anchors.top: parent.top
+    anchors.right: parent.right
+    margin-top: 100
+    margin-right: 27

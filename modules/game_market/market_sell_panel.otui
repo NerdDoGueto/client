@@ -1,0 +1,148 @@
+BuyTableUIItem < UIItem
+  anchors.horizontalCenter: parent.horizontalCenter
+  size: 32 32
+  virtual: true
+
+SellPanel < MarketPanel
+  id: sellPanel
+
+  Panel
+    id: panelToSell
+    size: 608 105
+    border-width: 1
+    border-color: white
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-left: 5
+    margin-right: 5
+    padding: 10
+
+    UIItem
+      id: itemToSell
+      anchors.top: parent.top
+      anchors.left: parent.left
+      size: 64 64
+      font: verdana-11px-rounded
+      image-source: /images/ui/item
+      virtual: true
+
+    HorizontalScrollBar
+      id: itemToSellCount
+      anchors.right: parent.right
+      anchors.top: parent.top
+      margin-top: 5
+      margin-left: 10
+      width: 210
+      height: 13
+      enabled: false
+
+    Label
+      anchors.right: prev.left
+      anchors.top: parent.top
+      margin-right: 10
+      margin-top: 3
+      !text: tr("Amount:")
+
+    TextEdit
+      id: textEditSellPrice
+      anchors.top: prev.bottom
+      anchors.right: parent.right
+      margin-top: 10
+
+    Label
+      !text: tr("Price per unit:")
+      anchors.right: prev.left
+      anchors.top: prev.top
+      margin-right: 3
+      margin-top: 3
+
+    Label
+      !text: tr("Valor por unidade convertido (K):")
+      anchors.right: textSellPrice.left
+      anchors.top: textSellPrice.top
+      margin-right: 3
+      margin-top: 0
+
+    UIWidget
+      id: textSellPrice
+      text-auto-resize: true
+      anchors.top: textEditSellPrice.bottom
+      anchors.right: parent.right
+      margin-top: 20
+      !text: tr('0')
+
+    UIButton
+      id: sellButton
+      !tooltip: tr("Sell")
+      anchors.left: selectItem.right
+      anchors.top: selectItem.top
+      color: #cccccc
+      opacity: 1.0
+      enabled: false
+      image-source: images/sell_now_1
+      @onClick: doPlaceItemForSale()
+      $disabled:
+        image-source: images/sell_now_1
+
+      $hover !disabled:
+        image-source: images/sell_now_2
+
+      $pressed:
+        image-source: images/sell_now_3
+
+    UIWidget
+      id: selectItem
+      width: 130
+      anchors.left: itemToSell.right
+      anchors.top: itemToSell.top
+      !tooltip: tr("Select object")
+      margin-left: 20
+      margin-top: 33
+      color: #cccccc
+      @onClick: selectItemToSell()
+      image-source: images/select_1 
+
+      $hover !disabled:
+        image-source: images/select_2 
+
+      $pressed:
+        image-source: images/select_3
+
+  MarketTable
+    id: panelTable
+    anchors.top: prev.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: refreshButton.top
+    margin: 5
+    margin-bottom: 5
+    margin-top: 30
+
+  TableData
+    id: panelTableData
+    anchors.bottom: panelTable.bottom
+    anchors.left: panelTable.left
+    anchors.right: panelTable.right
+    vertical-scrollbar: panelTableScrollBar
+    margin-top: 4
+  
+  VerticalScrollBar
+    id: panelTableScrollBar
+    anchors.top: panelTable.top
+    anchors.bottom: panelTable.bottom
+    anchors.right: panelTable.right
+    step: 28
+    pixels-scroll: true
+
+  MarketBottomButton
+    id: refreshButton
+    !tooltip: tr('Refresh')
+    @onClick: refreshSellItems()
+    image-source: images/atualizar_1 
+
+    $hover !disabled:
+      image-source: images/atualizar_2 
+    
+    $pressed:
+      image-source: images/atualizar_3
