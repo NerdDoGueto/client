@@ -148,7 +148,7 @@ EnterGameWindow
     size: 45 45
     anchors.left: parent.left
     anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("www.facebook.com/")
+    @onClick: g_platform.openUrl("www.facebook.com/LegendsofUnknown/")
     margin-top: 10
 
   SocialButton
@@ -187,7 +187,7 @@ EnterGameWindow
     size: 45 45
     anchors.left: parent.left
     anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("chat.whatsapp.com/CICDk55T6Z5BeVW2D1nvtw")
+    @onClick: g_platform.openUrl("https://wa.me/message/UJJYRQRWVDLEM1")
     margin-top: 10
     margin-left: 220
 
