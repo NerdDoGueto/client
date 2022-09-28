@@ -51,10 +51,20 @@ UIWindow
     anchors.top: labelTitle.bottom
     anchors.left: outfitBox.right
     anchors.right: parent.right
+    anchors.bottom: consoleTextEdit.top
     margin: 8 30 10 25
     vertical-scrollbar: scrollPanel
     layout: verticalBox
     &limitText: 80
+
+  TextEdit
+    id: consoleTextEdit
+    size: 150 20
+    anchors.right: buttonEnviar.left
+    anchors.bottom: buttonHolder.top
+    margin: 15 6 8 10
+    shift-navigation: true
+    max-length: 255
 
   ScrollablePanel
     id: buttonHolder
@@ -63,6 +73,17 @@ UIWindow
     anchors.left: parent.left
     anchors.right: parent.right
     margin: 15 10 8 10
+    layout:
+      type: grid
+      cell-size: 99 22
+      flow: true
+
+  ScrollablePanel
+    id: buttonEnviar
+    size: 100 25
+    anchors.right: parent.right
+    anchors.bottom: buttonHolder.top
+    margin: 15 15 6 10
     layout:
       type: grid
       cell-size: 99 22
