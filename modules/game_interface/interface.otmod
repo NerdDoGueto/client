@@ -10,6 +10,8 @@ Module
     - game_healthinfo
     - game_playerstats	
     - game_belt
+    - client_terminal
+    - client_modulemanager
     - game_time
     - game_craft
     - game_tutorial
@@ -57,5 +59,6 @@ Module
     - game_lookpokemon
     - game_fulllookpokemon
     - game_ditto
+    - game_actionbar
   @onLoad: init()
   @onUnload: terminate()

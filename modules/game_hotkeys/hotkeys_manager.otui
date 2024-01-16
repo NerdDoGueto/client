@@ -1,12 +1,21 @@
 HotkeyListLabel < UILabel
-  font: verdana-11px-monochrome
+  font: start_11_big
+  color: white
+  opacity: 1
   background-color: alpha
   text-offset: 2 0
   focusable: true
   phantom: false
 
+  $hover:
+    font: start_11_big
+    color: white
+    background-color: #14c6e3
+    opacity: 0.2
+
   $focus:
-    background-color: #ffffff22
+    background-color: #14c6e3
+    opacity: 0.5
 
 MainWindow
   id: hotkeysWindow
@@ -18,7 +27,6 @@ MainWindow
 
   Label
     id: currentHotkeysLabel
-    !text: tr('Current hotkeys:')
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.top: parent.top
@@ -124,7 +132,7 @@ MainWindow
     margin-top: 2
     @onClick: modules.game_hotkeys.clearObject()
 
-  ButtonBox
+  Button
     id: useOnSelf
     !text: tr('Use on yourself')
     width: 128
@@ -135,7 +143,7 @@ MainWindow
     checked: false
     margin-left: 10
 
-  ButtonBox
+  Button
     id: useOnTarget
     !text: tr('Use on target')
     width: 128
@@ -146,7 +154,7 @@ MainWindow
     checked: false
     margin-top: 2
 
-  ButtonBox
+  Button
     id: useWith
     !text: tr('With crosshair')
     width: 128
@@ -157,7 +165,7 @@ MainWindow
     checked: false
     margin-top: 2
 
-  ButtonBox
+  Button
     id: useOnPokemon
     !text: tr('Use on Pokemon')
     width: 128

@@ -8,7 +8,7 @@ FingerSlot < InventoryItem
   anchors.top: soulLabel.bottom
   anchors.left: parent.left
   margin: 3
-  margin-top: 5
+  margin-top: 20
 
 FeetSlot < InventoryItem
   id: slot8
@@ -17,7 +17,7 @@ FeetSlot < InventoryItem
   anchors.top: soulLabel.bottom
   anchors.left: slot9.right
   margin: 3
-  margin-top: 5
+  margin-top: 10
 
 AmmoSlot < InventoryItem
   id: slot10
@@ -39,6 +39,7 @@ HeadSlot < InventoryItem
 
 PortraitBackground < FlatPanel
   id: PortraitBackground
+  image-source: ~
   size: 70 70
   margin-left: 5
   margin-top: 5
@@ -50,41 +51,37 @@ Portrait < UICreature
   id: Portrait
   size: 64 64
   virtual: true
-  border-width: 0
   margin-left: 8
   margin-top: 8
   image-color: white
   focusable: false
   anchors.top: NAMEBAR.bottom
   anchors.left: parent.left
-  !tooltip: tr("+ Detalhes")
-  @onClick: print("TODO")
-  $hover:
-    border-color: white
-    border-width: 1
 
-NAMEBAR < FlatPanel
+NAMEBAR < Label
   id: NAMEBAR
   !text: tr("?")
+  font: start_11_big
   anchors.top: parent.top
   anchors.right: parent.right
   anchors.left: parent.left
   text-align: center
-  color: #abaaaa
+  color: #0f98ae
   height: 15
   margin-right: 5
   margin-left: 5
   margin-top: 5
   margin-bottom: 5
 
-LEVELBAR < FlatPanel
+LEVELBAR < Label
   id: LEVELBAR
   !text: tr("-")
+  font: start_11_big
   anchors.top: NAMEBAR.bottom
   anchors.right: parent.right
   anchors.left: PortraitBackground.right
   text-align: center
-  color: #abaaaa
+  color: white
   height: 15
   margin-right: 5
   margin-left: 5
@@ -117,12 +114,11 @@ SoulLabel < GameLabel
   id: soulLabel
   text-align: right
   color: white
-  font: verdana-11px-rounded
-  anchors.top: pokeball1.bottom
-  anchors.right: parent.right
-  anchors.left: parent.horizontalCenter
+  font: start_11_big
+  anchors.top: conditionPanel.bottom
+  anchors.horizontalCenter: parent.horizontalCenter
+  height: 30
   margin-top: 5
-  margin-right: 10
   on: true
 
   $!on:
@@ -133,7 +129,7 @@ SoulLabel < GameLabel
 CapLabel < GameLabel
   id: capLabel
   color: white
-  font: verdana-11px-rounded
+  font: start_11_big
   anchors.bottom: parent.bottom
   anchors.left: parent.left
   anchors.right: parent.horizontalCenter
@@ -155,6 +151,7 @@ ConditionWidget < UIWidget
 pokeball1 < UIButton
   id: pokeball1
   size: 26 26
+  opacity: 0
   image-source: /modules/game_healthinfo/pb_down
   anchors.top: conditionPanel.bottom
   margin-top: 5
@@ -166,6 +163,7 @@ pokeball1 < UIButton
 pokeball2 < UIButton
   id: pokeball2
   size: 26 26
+  opacity: 0
   image-source: /modules/game_healthinfo/pb_down
   anchors.top: pokeball1.top
   phantom: true
@@ -176,6 +174,7 @@ pokeball2 < UIButton
 pokeball3 < UIButton
   id: pokeball3
   size: 26 26
+  opacity: 0
   image-source: /modules/game_healthinfo/pb_down
   anchors.top: pokeball1.top
   phantom: true
@@ -186,6 +185,7 @@ pokeball3 < UIButton
 pokeball4 < UIButton
   id: pokeball4
   size: 26 26
+  opacity: 0
   image-source: /modules/game_healthinfo/pb_down
   anchors.top: pokeball1.top
   phantom: true
@@ -195,6 +195,7 @@ pokeball4 < UIButton
 
 pokeball5 < UIButton
   id: pokeball5
+  opacity: 0
   size: 26 26
   image-source: /modules/game_healthinfo/pb_down
   anchors.top: pokeball1.top
@@ -205,6 +206,7 @@ pokeball5 < UIButton
 
 pokeball6 < UIButton
   id: pokeball6
+  opacity: 0
   size: 26 26
   image-source: /modules/game_healthinfo/pb_down
   anchors.top: pokeball1.top
@@ -217,7 +219,7 @@ MiniWindow
   icon: /images/topbuttons/healthinfo
   id: healthInfoWindow
   !text: tr('Player Stats')
-  height: 280
+  height: 270
   @onClose: modules.game_healthinfo.onMiniWindowClose()
   &autoOpen: 1
 
@@ -230,6 +232,7 @@ MiniWindow
     ExperienceBar
     Panel
       id: conditionPanel
+      opacity: 0.4
       layout:
         type: horizontalBox
       height: 22
@@ -255,57 +258,9 @@ MiniWindow
     HeadSlot
 
     UIButton
-      id: icone1
-      anchors.top: slot9.top
-      anchors.left: slot8.right
-      !tooltip: tr('Registro de Quest')
-      size: 32 32
-      margin-left: 3
-      margin-top: 1
-      image-source: /modules/game_healthinfo/quest
-      @onClick: OPENWINDOW("QUESTS")
-      
-      $!hover !disabled:
-        color: #dfdfdf
-        opacity: 1.0
-
-      $hover:
-        color: #A8FFD3
-        opacity: 0.8
-
-      $pressed:
-        color: #dfdfdf86
-        opacity: 0.4
-        text-offset: 1 1
-
-    UIButton
-      id: icone2
-      anchors.top: slot9.top
-      anchors.left: icone1.right
-      !tooltip: tr('Arvore de Talentos')
-      size: 32 32
-      margin-left: 3
-      margin-top: 1
-      image-source: /modules/game_playerstats/images/others/talents
-      @onClick: OPENWINDOW("talents")
-      
-      $!hover !disabled:
-        color: #dfdfdf
-        opacity: 1.0
-
-      $hover:
-        color: #A8FFD3
-        opacity: 0.8
-
-      $pressed:
-        color: #dfdfdf86
-        opacity: 0.4
-        text-offset: 1 1
-
-    UIButton
       id: icone3
       anchors.top: slot9.top
-      anchors.left: icone2.right
+      anchors.left: slot8.right
       !tooltip: tr('Skills')
       size: 32 32
       margin-left: 3
@@ -328,8 +283,8 @@ MiniWindow
 
     UIButton
       id: icone4
-      anchors.top: slot1.top
-      anchors.left: slot8.right
+      anchors.top: slot9.top
+      anchors.left: icone3.right
       !tooltip: tr('Lista VIP')
       size: 32 32
       margin-left: 3
@@ -351,61 +306,60 @@ MiniWindow
         text-offset: 1 1
 
     UIButton
-      id: icone5
-      anchors.top: slot1.top
+      id: cinto
+      anchors.top: slot9.top
       anchors.left: icone4.right
-      !tooltip: tr('Controles de Combate')
-      size: 32 32
+      !tooltip: tr('Cinto Pokemon')
       margin-left: 3
-      margin-top: 1
-      image-source: /modules/game_healthinfo/combat_c
-      @onClick: OPENWINDOW("C_BATTLE")
-      
-      $!hover !disabled:
-        color: #dfdfdf
-        opacity: 1.0
+      opacity: 1
+      size: 32 32
+      image-clip: 0 0 32 32
+      image-source: /modules/game_playerstats/images/others/cinto
+      @onClick: OPENWINDOW("cinto")
 
       $hover:
-        color: #A8FFD3
-        opacity: 0.8
+        image-clip: 0 32 32 32
+        opacity: 1
 
       $pressed:
-        color: #dfdfdf86
         opacity: 0.4
         text-offset: 1 1
 
     UIButton
-      id: icone6
-      anchors.top: slot1.top
-      anchors.left: icone5.right
-      !tooltip: tr('Battle')
+      id: MOVES
+      anchors.top: icone3.bottom
+      anchors.left: icone3.left
+      !tooltip: tr('Barra de Moves')
+      opacity: 1
       size: 32 32
-      margin-left: 3
-      margin-top: 1
-      image-source: /modules/game_healthinfo/battle
-      @onClick: OPENWINDOW("BATTLE")
-      
-      $!hover !disabled:
-        color: #dfdfdf
-        opacity: 1.0
+      image-clip: 0 0 32 32
+      image-source: /modules/game_playerstats/images/others/MOVES
+      @onClick: OPENWINDOW("MOVES")
 
       $hover:
-        color: #A8FFD3
-        opacity: 0.8
+        image-clip: 0 32 32 32
+        opacity: 1
 
       $pressed:
-        color: #dfdfdf86
         opacity: 0.4
         text-offset: 1 1
 
-  ResizeBorder
-    id: bottomResizeBorder
-    anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    height: 3
-    minimum: 110
-    maximum: 280
-    margin-left: 3
-    margin-right: 3
-    background: #ffffff88
+    UIButton
+      id: DEX
+      anchors.top: icone3.bottom
+      anchors.left: MOVES.right
+      !tooltip: tr('Pokedex')
+      margin-left: 3
+      opacity: 1
+      size: 32 32
+      image-clip: 0 0 32 32
+      image-source: /modules/game_playerstats/images/others/pokedex
+      @onClick: USEDEX()
+
+      $hover:
+        image-clip: 0 32 32 32
+        opacity: 1
+
+      $pressed:
+        opacity: 0.4
+        text-offset: 1 1

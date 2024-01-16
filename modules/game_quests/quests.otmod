@@ -1,8 +1,8 @@
 Module
   name: game_quests
   description: Veja quests, acompanhe as missões...
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: LAN
+  website: www.mundopokemon.org
   sandboxed: true
   autoload: true
   scripts: [ quests ]

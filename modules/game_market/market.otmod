@@ -1,8 +1,8 @@
 Module
   name: game_market
   description: Global item market system
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: LAN
+  website: www.mundopokemon.org
   scripts: [ market ]
   @onLoad: init()
   @onUnload: terminate()

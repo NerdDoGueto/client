@@ -36,7 +36,7 @@ MainWindow
   size: 550 515
   @onEscape: modules.game_npctrade.closeNpcTrade()
 
-  TabButton
+  MoveableTabBarButton
     id: buyTab
     !tooltip: tr("List of items that you're able to buy")
     !text: tr('Comprar')
@@ -48,7 +48,7 @@ MainWindow
     margin-right: 5
     margin-top: 5
 
-  TabButton
+  MoveableTabBarButton
     id: sellTab
     !tooltip: tr("List of items that you're able to sell")
     !text: tr('Vender')

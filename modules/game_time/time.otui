@@ -1,9 +1,10 @@
 UIWindow
   id: timeWindow
   size: 80 24
-  anchors.horizontalCenter: parent.horizontalCenter
+  anchors.left: parent.left
   anchors.top: parent.top
   margin-top: 10
+  margin-left: 10
 
   UIWidget
     id: timeImage

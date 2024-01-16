@@ -1,24 +1,24 @@
 ConsoleLabel < UITextEdit
-  font: verdana-11px-antialised
+  font: start_11_big
   height: 14
-  color: yellow
+  color: #87dce9
   margin-left: 2
   text-wrap: true
   text-auto-resize: true
-  selection-color: #111416
-  selection-background-color: #999999
+  selection-color: #87dce9
+  selection-background-color: #355a60
   change-cursor-image: false
   cursor-visible: false
   editable: false
 
 ConsolePhantomLabel < UILabel
-  font: verdana-11px-antialised
+  font: start_11_big
   height: 14
-  color: yellow
+  color: #87dce9
   text-wrap: true
   text-auto-resize: true
-  selection-color: #111416
-  selection-background-color: #999999
+  selection-color: #87dce9
+  selection-background-color: #355a60
 
 ConsoleTabBar < MoveableTabBar
   height: 28
@@ -34,9 +34,6 @@ ConsoleTabBarPanel < MoveableTabBarPanel
     layout:
       type: verticalBox
       align-bottom: true
-    border-width: 1
-    border-color: #202327
-    background: #00000066
     inverted-scroll: true
     padding: 1
 
@@ -49,7 +46,7 @@ ConsoleTabBarPanel < MoveableTabBarPanel
     pixels-scroll: true
 
 ConsoleTabBarButton < MoveableTabBarButton
-  height: 28
+  height: 25
   padding: 15
 
 Panel
@@ -63,7 +60,6 @@ Panel
     anchors.top: parent.top
     margin-left: 13
     margin-top: 8
-    image-source: /images/ui/checkbox_light
     @onCheckChange: toggleChat()
 
   TabButton
@@ -150,23 +146,24 @@ Panel
 
   TabButton
     id: sayModeButton
+    opacity: 0
     icon: /images/game/console/say
-    !tooltip: tr('Adjust volume')
     &sayMode: 2
-    size: 20 20
+    size: 0 0
     anchors.left: parent.left
     anchors.bottom: parent.bottom
-    margin-left: 6
-    margin-bottom: 6
+    margin-left: 10
+    margin-bottom: 14
     @onClick: sayModeChange()
 
   TextEdit
     id: consoleTextEdit
-    anchors.left: sayModeButton.right
+    anchors.left: parent.left
+    height: 23
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    margin-right: 6
-    margin-left: 6
-    margin-bottom: 6
+    margin-right: 12
+    margin-left: 12
+    margin-bottom: 8
     shift-navigation: true
     max-length: 255

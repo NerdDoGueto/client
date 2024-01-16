@@ -81,8 +81,8 @@ MarketWindow < UIWindow
 
   MarketTabButton
     id: buyTabButton
-    @onClick: changeMarketPanel(self:getParent():getChildById('buyPanel'), self)
-    image-source: images/Comprar_1 
+    @onClick: changeMarketPanel(self:getParent():getChildById('buyPanel'), self);refreshBuyItems()
+    image-source: images/Comprar_1
 
     $hover !disabled:
       image-source: images/Comprar_2 
@@ -92,9 +92,8 @@ MarketWindow < UIWindow
 
   MarketTabButton
     id: sellTabButton
-    @onClick: changeMarketPanel(self:getParent():getChildById('sellPanel'), self)
+    @onClick: changeMarketPanel(self:getParent():getChildById('sellPanel'), self);refreshSellItems()
     image-source: images/Vender_1 
-
     $hover !disabled:
       image-source: images/Vender_2 
     

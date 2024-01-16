@@ -24,7 +24,7 @@ MiniWindow
   id: combatControlsWindow
   !text: tr('Combat Controls')
   icon: /images/topbuttons/combatcontrols
-  height: 48
+  height: 80
   @onClose: modules.game_combatcontrols.onMiniWindowClose()
 
   MiniWindowContents

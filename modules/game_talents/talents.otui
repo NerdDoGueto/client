@@ -1,13 +1,12 @@
 AddonWidget < UIWidget
-  size: 100 100
+  size: 80 80
   padding: 1
   image-border: 1
-  border-width: 1
-  border-color: white
+  opacity: 0.5
 
   UICreature
     id: creature
-    size: 96 96
+    size: 80 80
     border-color: alpha
     anchors.centerIn: parent
     phantom: true
@@ -15,6 +14,8 @@ AddonWidget < UIWidget
 AddonsListPanel < HorizontalList
   id: addonsListPanel
   size: 850 200
+  background-color: alpha
+  border-width: 0
   anchors.top: parent.top
   anchors.horizontalCenter: parent.horizontalCenter
   margin-top: 130
@@ -60,7 +61,7 @@ MovePoints < UIWidget
   margin-bottom: 10
   text-align: right
   !text: tr('Points')..': 0'
-  font: verdana-11px-rounded
+  font: start_11_big
 
 MoveListPanel < ScrollablePanel
   id: moveListPanel
@@ -225,7 +226,7 @@ TalentTooltip < UIWidget
     anchors.top: icon.bottom
     anchors.horizontalCenter: parent.horizontalCenter
     margin-top: 5
-    font: verdana-11px-rounded
+    font: start_11_big
     color: green
 
   Label
@@ -235,7 +236,7 @@ TalentTooltip < UIWidget
     anchors.left: parent.left
     anchors.right: parent.right
     margin-top: 5
-    font: verdana-11px-rounded
+    font: start_11_big
     text-wrap: true
     text-align: center
 
@@ -248,7 +249,7 @@ TalentTooltip < UIWidget
     margin-top: 5
     text-wrap: true
     text-align: left
-    font: verdana-11px-rounded
+    font: start_11_big
 
   Label
     id: description2
@@ -259,7 +260,7 @@ TalentTooltip < UIWidget
     margin-top: 22
     text-wrap: true
     text-align: left
-    font: verdana-11px-rounded
+    font: start_11_big
 
   Label
     id: description3
@@ -270,7 +271,7 @@ TalentTooltip < UIWidget
     margin-top: 35
     text-wrap: true
     text-align: left
-    font: verdana-11px-rounded
+    font: start_11_big
 
   Label
     id: bonus
@@ -282,7 +283,7 @@ TalentTooltip < UIWidget
     text-wrap: true
     text-align: leftTop
     color: green
-    font: verdana-11px-rounded
+    font: start_11_big
 
   Label
     id: bonus2
@@ -294,7 +295,7 @@ TalentTooltip < UIWidget
     text-wrap: true
     text-align: leftTop
     color: red
-    font: verdana-11px-rounded
+    font: start_11_big
 
   Label
     id: bonus3
@@ -306,7 +307,7 @@ TalentTooltip < UIWidget
     text-wrap: true
     text-align: leftTop
     color: yellow
-    font: verdana-11px-rounded
+    font: start_11_big
 
   Label
     id: requirements
@@ -318,7 +319,7 @@ TalentTooltip < UIWidget
     text-wrap: true
     text-align: left
     color: red
-    font: verdana-11px-rounded
+    font: start_11_big
 
 TalentIcon < UIButton
   size: 42 42
@@ -339,12 +340,13 @@ TalentIcon < UIButton
 
   Button
     id: talentAdd
-    size: 12 12
-    anchors.top: parent.top
-    anchors.right: parent.right
-    margin-right: 1
-    margin-top: 1
+    size: 15 15
+    anchors.bottom: parent.bottom
+    anchors.horizontalCenter: parent.horizontalCenter
     !text: ("+")
+    font: verdana-11px-rounded
+    color: white
+    margin-bottom: -5
     text-align: center
     visible: false
 
@@ -375,7 +377,7 @@ Points < UIWidget
 
 TalentPanel < Panel
   anchors.fill: parent
-  background: #0c1013
+  background: alpha
   margin-top: 70
   margin-left: 25
   margin-right: 25
@@ -525,51 +527,98 @@ PanelButton < UIButton
 
 UIWindow
   id: treeWindow
-  image-source: images/background
+  image-source: /images/game/shop/background
+  image-border: 100
   size: 1000 600
   @onEscape: hide()
 
   PanelButton
     id: button1
-    image-source: images/trainer_button_off
+    margin-bottom: 10
+    margin-right: 5
+    size: 136 40
+    image-clip: 0 0 136 40
+    image-source: /images/game/shop/treinador
     @onClick: togglePanel(1)
 
+    $hover !disabled:
+      image-clip: 0 40 136 40
+
+    $pressed:
+      image-clip: 0 80 136 40
+
     $on:
-      image-source: images/trainer_button_on
+      image-clip: 0 80 136 40
 
   PanelButton
     id: button2
-    image-source: images/pokemon_button_off
+    margin-bottom: 10
+    margin-right: 5
+    size: 136 40
+    image-clip: 0 0 136 40
+    image-source: /images/game/shop/pokemon
     @onClick: togglePanel(2)
 
+    $hover !disabled:
+      image-clip: 0 40 136 40
+
+    $pressed:
+      image-clip: 0 80 136 40
+
     $on:
-      image-source: images/pokemon_button_on
+      image-clip: 0 80 136 40
 
   PanelButton
     id: button3
-    image-source: images/moves_button_off
+    margin-bottom: 10
+    margin-right: 5
+    size: 136 40
+    image-clip: 0 0 136 40
+    image-source: /images/game/shop/ataques
     @onClick: togglePanel(3)
 
+    $hover !disabled:
+      image-clip: 0 40 136 40
+
+    $pressed:
+      image-clip: 0 80 136 40
+
     $on:
-      image-source: images/moves_button_on
+      image-clip: 0 80 136 40
 
   PanelButton
     id: button4
-    image-source: images/addons_button_off
+    margin-bottom: 10
+    margin-right: 5
+    size: 136 40
+    image-clip: 0 0 136 40
+    image-source: /images/game/shop/addon
     @onClick: togglePanel(4)
 
+    $hover !disabled:
+      image-clip: 0 40 136 40
+
+    $pressed:
+      image-clip: 0 80 136 40
+
     $on:
-      image-source: images/addons_button_on
+      image-clip: 0 80 136 40
 
   Button
     id: closed
-    text: X
-    text-align: center
-    phantom: false
+    image-source: /images/game/shop/close
+    size: 20 20
+    image-clip: 0 0 20 20
     !tooltip: tr("Fechar")
-    size: 18 18
+    size: 20 20
     anchors.right: parent.right
     anchors.top: parent.top
-    margin-right: 2
-    margin-top: 2
+    margin-right: 25
+    margin-top: 25
+
+    $hover !disabled:
+      image-clip: 0 20 20 20
+
+    $pressed:
+      image-clip: 0 40 20 20
     @onClick: function(self) self:getParent():hide() end

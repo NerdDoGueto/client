@@ -21,6 +21,7 @@ PokedexTypeImage < UIWidget
 
 HeadlessWindow
   focusable: false
+  image-source: ~
   image-color: #ffffffee
   size: 50 66
 

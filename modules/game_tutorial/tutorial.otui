@@ -1,5 +1,5 @@
 TutorialLabel < Label
-  font: verdana-11px-monochrome
+  font: start_11_big
   text-offset: 2 0
   focusable: true
   background-color: alpha
@@ -97,8 +97,8 @@ MainWindow
     size: 16 16
     anchors.right: parent.right
     anchors.top: parent.top
-    margin-top: 3
-    margin-right: 5
+    margin-top: 6
+    margin-right: 10
     @onClick: onClickTutorial()
 
     $hover:
@@ -110,8 +110,8 @@ MainWindow
     size: 16 16
     anchors.left: parent.left
     anchors.top: parent.top
-    margin-top: 3
-    margin-left: 5
+    margin-top: 6
+    margin-left: 15
     @onClick: setLanguage('pt')
 
     $hover:
@@ -121,10 +121,10 @@ MainWindow
     id: languageButton_en
     image-source: imgs/flag_usa
     size: 16 16
-    anchors.left: parent.left
+    anchors.left: languageButton_pt.right
     anchors.top: parent.top
-    margin-top: 3
-    margin-left: 24
+    margin-top: 6
+    margin-left: 5
     @onClick: setLanguage('en')
 
     $hover:

@@ -10,16 +10,17 @@ OptionButton < Button
   width: 80
 
 UIWindow
-  size: 620 231
+  size: 700 320
   visible: false
-  image-source: window
-  image-border: 12
+  image-source: /data/images/ui/window
+  image-border: 30
+  opacity: 0.9
   anchors.centerIn: parent
   @onEscape: modules.game_npcdialog.closeDialog()
 
   Label
     id: labelTitle
-    font: newfont-16px-rounded
+    font: start_11_big
     anchors.top: parent.top
     anchors.left: parent.left
     !text: tr('Title')
@@ -59,10 +60,10 @@ UIWindow
 
   TextEdit
     id: consoleTextEdit
-    size: 150 20
+    size: 150 25
     anchors.right: buttonEnviar.left
     anchors.bottom: buttonHolder.top
-    margin: 15 6 8 10
+    margin: 150 6 8 10
     shift-navigation: true
     max-length: 255
 

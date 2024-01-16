@@ -1,8 +1,8 @@
 Module
   name: game_casino2
   description: Try your luck.
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: LAN
+  website: www.mundopokemon.org
   sandboxed: true
   autoload: true
   scripts: [ casino ]

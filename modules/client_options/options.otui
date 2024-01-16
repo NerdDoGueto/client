@@ -14,7 +14,7 @@ OptionCheckBox < CheckBox
     margin-top: 2
 
 OptionScrollbar < HorizontalScrollBar
-  step: 1
+  step: 30
   @onValueChange: modules.client_options.setOption(self:getId(), self:getValue())
 
 MainWindow

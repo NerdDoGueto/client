@@ -1,0 +1,105 @@
+ConditionWidget < UIWidget
+  size: 10 10
+  padding: 1 1
+
+  $!first:
+    margin-left: 2
+
+UIWindow
+  id: healthInfoWindow
+  image-source: img/healthinfo
+  size: 260 72
+  anchors.top: parent.top
+  anchors.left: parent.left
+  margin-top: 45
+  draggable: true
+
+  Label
+    id: nameLabel
+    font: start_11_big
+    anchors.top: parent.top
+    anchors.left: next.right
+    text-auto-resize: true
+    color: white
+    margin-top: 4
+    margin-left: 9
+
+  UICreature
+    id: outfitBox
+    size: 40 40
+    anchors.top: parent.top
+    anchors.left: parent.left
+    margin-left: 50
+    margin-top: 7
+
+  UIWidget
+    id: levelLabel
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    color: #3ec0f0
+    margin-right: 74
+    margin-bottom: -3
+    font: start_11_big
+
+  UIWidget
+    id: healthIcon
+    anchors.left: outfitBox.right
+    anchors.top: nameLabel.bottom
+    image-source: img/health
+    margin-top: 1
+    margin-left: 10
+
+  UIWidget
+    id: levelIcon
+    anchors.left: outfitBox.right
+    anchors.top: healthIcon.bottom
+    image-source: img/level
+    margin-top: 5
+    margin-left: 10
+
+  UIWidget
+    id: fishIcon
+    anchors.left: outfitBox.right
+    anchors.top: levelIcon.bottom
+    image-source: img/fish
+    margin-top: 5
+    margin-left: 10
+
+  ProgressBar
+    id: healthBar
+    size: 108 7
+    image-source: ~
+    background-color: #2ee440
+    anchors.top: healthIcon.top
+    anchors.left: healthIcon.right
+    margin-left: 5
+
+  ProgressBar
+    id: experienceBar
+    size: 108 7
+    image-source: ~
+    background-color: #e4af2e
+    anchors.top: levelIcon.top
+    anchors.left: healthIcon.right
+    margin-left: 5
+
+  ProgressBar
+    id: fishBar
+    size: 108 7
+    image-source: ~
+    background-color: #2ee4c7
+    anchors.top: fishIcon.top
+    anchors.left: healthIcon.right
+    margin-left: 5
+
+  Panel
+    id: panelCondition
+    layout:
+      type: horizontalBox
+    height: 11
+    width: 123
+    padding: 2
+    margin-bottom: 2
+    margin-left: 14
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left

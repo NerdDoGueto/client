@@ -1,0 +1,8 @@
+Font
+  name: start_12_mont
+  texture: start_12_mont
+  height: 17
+  y-offset: 0
+  glyph-size: 17 17
+  space-width: 2
+  spacing: 1 0

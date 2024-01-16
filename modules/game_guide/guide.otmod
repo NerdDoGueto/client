@@ -1,7 +1,7 @@
 Module
   name: game_guide
   description: Game Guide
-  author: LegendsOfUnknown
+  author: MundoPokemon
   sandboxed: true
   scripts: [guide]
   autoload-priority: 1001

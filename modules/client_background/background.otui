@@ -1,7 +1,7 @@
 Panel
   id: background
   image-smooth: true
-  anchors.top: topMenu.bottom
+  anchors.top: parent.top
   anchors.left: parent.left
   anchors.right: parent.right
   anchors.bottom: parent.bottom
@@ -19,3 +19,22 @@ Panel
     padding: 2
     color: #ffffff
     font: verdana-11px-monochrome
+
+  TopButton
+    id: options
+    anchors.top: parent.top
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-top: 30
+    @onClick: modules.client_options.show()
+
+  UIWidget
+    id: options_icon
+    image-source: /data/images/topbuttons/options
+    size: 23 23
+    image-clip: 0 0 23 23
+    anchors.verticalCenter: options.verticalCenter
+    anchors.horizontalCenter: options.horizontalCenter
+    @onClick: modules.client_options.show()
+
+    $hover !disabled:
+      image-clip: 0 23 23 23

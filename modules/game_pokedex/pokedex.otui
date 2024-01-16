@@ -6,24 +6,24 @@ DexStatusItem < Item
   phantom: true
 
 DexWindow < MiniWindow
-  !text: tr('Pokedex')
-  size: 798 429
-  image-source: /images/ui/dex
+  size: 811 454
+  image-source: /images/game/shop/back2
 
   ResizeBorder
     id: bottomResizeBorder
     anchors.bottom: parent.bottom
     anchors.left: parent.left
     anchors.right: parent.right
-    height: 3
+    height: 0
     minimum: 48
-    maximum: 429
     margin-left: 3
     margin-right: 3
+    opacity: 0
     background: #ffffff88
 
   UIItem
     id: dexItem
+    opacity: 0
     virtual: true
     size: 16 16
     anchors.top: parent.top
@@ -37,9 +37,10 @@ DexWindow < MiniWindow
       width: 243
       anchors.top: parent.top
       anchors.bottom: parent.bottom
-      anchors.right: parent.right
+      anchors.left: parent.left
       margin-top: 4
       margin-bottom: 4
+      margin-left: 15
       padding: 2
       layout:
         type: grid
@@ -52,55 +53,57 @@ DexWindow < MiniWindow
       id: ownDexScrollBar
       anchors.top: ownDexContainer.top
       anchors.bottom: ownDexContainer.bottom
-      anchors.right: ownDexContainer.right
+      anchors.right: ownDexContainer.left
       margin-top: 4
       margin-bottom: 4
-      margin-right: 2
-      step: 36
+      margin-left: 2
+      step: 80
       pixels-scroll: true
       $!on:
         width: 0
 
     Panel
       id: dexContent
-      margin-right: 44
       anchors.top: parent.top
       anchors.bottom: parent.bottom
-      anchors.left: parent.left
-      anchors.right: ownDexContainer.left
+      anchors.right: parent.right
+      anchors.left: ownDexContainer.right
+
+    Panel
+      id: pokelugar
+      size: 200 110
+      anchors.horizontalCenter: parent.horizontalCenter
+      anchors.top: parent.top
 
     UIWidget
       id: pokePicture
       size: 100 100
-      anchors.top: dexContent.top
-      anchors.left: pokeType1.right
-      margin-left: 5
+      anchors.top: pokelugar.top
+      anchors.horizontalCenter: pokelugar.horizontalCenter
       image-source: /images/pictures/0
       image-size: 100 100
       image-smooth: true
 
     ScrollableFlatPanel
       id: family
-      size: 110 100
-      anchors.top: dexContent.top
-      anchors.left: pokePicture.right
-      margin-left: 45
-      margin-top: 15
+      size: 32 100
+      anchors.verticalCenter: pokelugar.verticalCenter
+      anchors.right: pokelugar.right
       image-source: ~
       layout:
         type: grid
         cell-size: 32 32
-        flow: true
-        cell-spacing: 1
+        flow: false
+        cell-spacing: 3
         auto-spacing: true
 
     Label
       id: pokeName
       !text: tr('Unknown')
-      color: #aaaaaa
-      anchors.top: pokePicture.bottom
+      color: white
+      anchors.bottom: pokelugar.bottom
       anchors.horizontalCenter: pokePicture.horizontalCenter
-      font: sans-bold-16px
+      font: start_11_big
       text-auto-resize: true
       background-color: alpha
       text-offset: 2 0
@@ -110,52 +113,49 @@ DexWindow < MiniWindow
 
     UIWidget
       id: pokeType1
-      size: 32 32
-      anchors.top: dexContent.top
-      anchors.left: dexContent.left
-      image-size: 32 32
+      size: 18 18
+      anchors.top: pokelugar.top
+      anchors.left: pokelugar.left
+      image-size: 18 18
       image-smooth: true
-      margin-left: 85
       margin-top: 20
 
     UIWidget
       id: pokeType2
-      size: 32 32
+      size: 18 18
       anchors.top: pokeType1.bottom
-      anchors.left: dexContent.left
-      image-size: 32 32
+      anchors.left: pokelugar.left
+      image-size: 18 18
       image-smooth: true
       margin-top: 4
-      margin-left: 85
 
     Label
       id: pokeId
       !text: '#000'
-      color: #aaaaaa
-      anchors.top: pokeType2.bottom
-      anchors.left: dexContent.left
-      font: verdana-11px-monochrome
+      color: #13a9c3
+      anchors.bottom: pokelugar.bottom
+      anchors.left: pokelugar.left
+      font: start_11_big
       text-auto-resize: true
       background-color: alpha
       text-offset: 2 0
-      margin-left: 82
-      margin-top: 19
 
       $on:
         color: #ffffff
 
     TabBarVertical
-      width: 56
+      width: 55
       id: optionsTabBar
-      anchors.top: pokeName.bottom
-      anchors.left: dexContent.left
-      anchors.bottom: dexContent.bottom
-      margin-top: 10
+      border-color: white
+      anchors.top: pokelugar.top
+      anchors.left: pokelugar.right
+      anchors.bottom: optionsTabContent.top
+      margin-left: 10
 
     Panel
       id: optionsTabContent
-      anchors.top: pokeName.bottom
-      anchors.left: optionsTabBar.right
+      anchors.top: pokelugar.bottom
+      anchors.left: ownDexContainer.right
       anchors.right: dexContent.right
       anchors.bottom: dexContent.bottom
       margin-top: 10

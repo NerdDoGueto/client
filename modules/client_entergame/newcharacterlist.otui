@@ -1,9 +1,9 @@
 Character < Creature
   fixed-creature-size: true
-  anchors.top: parent.top
-  anchors.left: parent.left
-  margin-top: 30
-  margin-left: -10
+  anchors.horizontalCenter: parent.horizontalCenter
+  anchors.verticalCenter: parent.verticalCenter
+  margin-top: -22
+  margin-right: 10
   image-source: ~
 
 CharacterWidget < UIWidget
@@ -19,27 +19,26 @@ CharacterWidget < UIWidget
     end
   @onFocusChange: self:updateOnStates()
   @onSetup: self:updateOnStates()
-  opacity: 0.6
+  opacity: 0.7
 
   $focus:
     opacity: 1.0
 
   Label
     id: name
-    color: #aaaaaa
+    color: #13cae6
     anchors.top: parent.top
     anchors.left: parent.left
-    anchors.right: parent.right
-    font: verdana-11px-monochrome
+    font: start_11_big
     text-auto-resize: true
     background-color: alpha
     text-offset: 2 0
     text-align: center
-    margin-top: 8
-    margin-left: 5
+    margin-top: 22
+    margin-left: 38
 
     $on:
-      color: #ffffff
+      color: #13cae6
 
   Label
     visible: false
@@ -59,73 +58,90 @@ CharacterWidget < UIWidget
       color: #ffffff
 
   Label
-    id: level
-    color: #5C5C5C
-    anchors.top: parent.top
-    anchors.left: parent.left
-    margin-top: 40
-    font: sans-bold-16px
-    text-align: center
+    id: leveltext
+    !text: tr('Lv:')
+    color: white
+    anchors.top: name.top
+    anchors.left: name.right
+    font: start_11_big
     background-color: alpha
-    width: 75
+    margin-left: 6
 
     $on:
-      color: #7F7F7F
+      color: white
+
+  Label
+    id: level
+    color: #13cae6
+    anchors.top: name.top
+    anchors.left: leveltext.right
+    font: start_11_big
+    background-color: alpha
+    margin-left: 6
+
+    $on:
+      color: #13cae6
 
   UIWidget
     id: pokemon1
     color: #5C5C5C
-    anchors.top: parent.top
+    anchors.bottom: parent.bottom
     anchors.left: parent.left
-    margin-top: 30
-    margin-left: 78
+    margin-bottom: 20
+    margin-left: 20
     image-source: ~
-    size: 50 54
+    size: 34 34
 
   UIWidget
     id: pokemon2
     color: #5C5C5C
-    anchors.top: pokemon1.top
+    anchors.verticalCenter: pokemon1.verticalCenter
     anchors.left: pokemon1.right
+    margin-left: 3
     image-source: ~
-    size: 50 54
+    size: 34 34
 
   UIWidget
     id: pokemon3
     color: #5C5C5C
-    anchors.top: pokemon1.top
+    anchors.verticalCenter: pokemon1.verticalCenter
     anchors.left: pokemon2.right
+    margin-left: 3
     image-source: ~
-    size: 50 54
+    size: 34 34
 
   UIWidget
     id: pokemon4
     color: #5C5C5C
-    anchors.top: pokemon1.bottom
-    anchors.left: pokemon1.left
+    anchors.verticalCenter: pokemon1.verticalCenter
+    anchors.left: pokemon3.right
+    margin-left: 3
     image-source: ~
-    size: 50 54
+    size: 34 34
 
   UIWidget
     id: pokemon5
     color: #5C5C5C
-    anchors.top: pokemon4.top
+    anchors.verticalCenter: pokemon1.verticalCenter
     anchors.left: pokemon4.right
+    margin-left: 3
     image-source: ~
-    size: 50 54
+    size: 34 34
 
   UIWidget
     id: pokemon6
     color: #5C5C5C
-    anchors.top: pokemon4.top
+    anchors.verticalCenter: pokemon1.verticalCenter
     anchors.left: pokemon5.right
+    margin-left: 3
     image-source: ~
-    size: 50 54
+    size: 34 34
 
 MainWindow
   id: charactersWindow
-  !text: tr('Character List')
-  size: 540 600
+  size: 860 550
+  draggable: false
+  image-source: ~
   visible: false
   @onEnter: CharacterList.doLogin()
   @onEscape: CharacterList.hide(true)
@@ -133,8 +149,30 @@ MainWindow
     g_keyboard.bindKeyPress('Up', function() self:getChildById('characters'):focusPreviousChild(KeyboardFocusReason) end, self)
     g_keyboard.bindKeyPress('Down', function() self:getChildById('characters'):focusNextChild(KeyboardFocusReason) end, self)
 
+  UIWidget
+    id: welcome
+    !text: tr('BEM-VINDO (A) JOGADOR,')
+    size: 240 25
+    font: start_18
+    color: white
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    margin-bottom: 100
+    margin-left: 40
+
+  UIWidget
+    id: welcome2
+    !text: tr('POR FAVOR ESCOLHA UM PERSONAGEM ACIMA')
+    size: 700 25
+    font: start_18_big
+    color: #12cce8
+    anchors.verticalCenter: welcome.verticalCenter
+    anchors.left: welcome.right
+    margin-left: -125
+
   ScrollableFlatPanel
     id: characters
+    image-source: ~
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: characterListScrollBar.left
@@ -143,7 +181,7 @@ MainWindow
     padding: 1
     layout:
       type: grid
-      cell-size: 245 158
+      cell-size: 263 176
       flow: true
       cell-spacing: 1
     vertical-scrollbar: characterListScrollBar
@@ -152,6 +190,7 @@ MainWindow
 
   VerticalScrollBar
     id: characterListScrollBar
+    opacity: 0
     anchors.top: parent.top
     anchors.bottom: accountStatusCaption.top
     anchors.right: parent.right
@@ -163,28 +202,23 @@ MainWindow
     id: accountStatusCaption
     !text: tr('Account Status') .. ':'
     anchors.left: parent.left
-    anchors.bottom: separator.top
-    margin-bottom: 5
+    anchors.bottom: parent.bottom
+    margin-left: 220
+    margin-bottom: 73
 
   Label
     id: accountStatusLabel
     !text: tr('Free Account')
+    color: #12cce8
     anchors.left: accountStatusCaption.right
     anchors.right: parent.right
-    anchors.bottom: separator.top
+    anchors.bottom: parent.bottom
     margin-left: 5
-    margin-bottom: 5
+    margin-bottom: 70
     text-auto-resize: true
 
     $on:
       color: #FF0000
-
-  HorizontalSeparator
-    id: separator
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.bottom: next.top
-    margin-bottom: 10
 
   //CheckBox
   //  id: charAutoLoginBox
@@ -197,19 +231,23 @@ MainWindow
   //  margin-left: 18
   //  margin-right: 18
 
-  Button
+  StartButton
     id: buttonOk
-    !text: tr('Ok')
-    width: 64
-    anchors.right: next.left
+    !text: tr('LOGIN')
+    width: 130
+    anchors.left: parent.left
     anchors.bottom: parent.bottom
+    margin-left: 200
     margin-right: 10
+    margin-bottom: 15
     @onClick: CharacterList.doLogin()
 
-  Button
+  StartButton
     id: buttonCancel
-    !text: tr('Cancel')
-    width: 64
+    !text: tr('BACK')
+    width: 130
     anchors.right: parent.right
+    margin-right: 200
     anchors.bottom: parent.bottom
+    margin-bottom: 15
     @onClick: CharacterList.hide(true)

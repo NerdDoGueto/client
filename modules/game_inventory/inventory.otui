@@ -53,17 +53,16 @@ AmmoSlot < InventoryItem
 
 PurseButton < Button
   id: purseButton
-  size: 26 26
+  size: 16 16
   !tooltip: tr('Open purse')
   icon-source: /images/game/slots/purse
-  icon-size: 24 24
-  icon-offset: 1 1
+  icon-size: 16 16
 
 MiniWindow
   id: inventoryWindow
   !text: tr('Inventory')
   icon: /images/topbuttons/inventory
-  height: 105
+  height: 200
   @onClose: modules.game_inventory.onMiniWindowClose()
   &autoOpen: 1
 

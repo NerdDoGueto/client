@@ -1,0 +1,8 @@
+Font
+  name: start_11_big
+  texture: start_11_big
+  height: 17
+  y-offset: 0
+  glyph-size: 17 17
+  space-width: 3
+  spacing: 0 0

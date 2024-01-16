@@ -24,6 +24,7 @@ CountWindow < MainWindow
 
   HorizontalScrollBar
     id: countScrollBar
+    step: 15
     anchors.left: prev.right
     anchors.right: parent.right
     anchors.top: prev.top

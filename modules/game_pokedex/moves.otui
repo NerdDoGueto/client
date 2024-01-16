@@ -10,6 +10,7 @@ PokedexMoveSection < Panel
 HeadlessWindow
   focusable: false
   image-color: #ffffffee
+  image-source: ~
   size: 50 66
 
   ScrollableFlatPanel

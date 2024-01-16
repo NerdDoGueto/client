@@ -1,30 +1,27 @@
 PortraitBackground1 < UIButton
   id: PortraitBackground1
-  size: 45 45
+  size: 160 48
   margin-left: 5
   margin-top: 10
-  image-source: /modules/game_belt/bg
+  image-source: /modules/game_belt/bar
   image-color: white
   focusable: false
   anchors.top: parent.top
   anchors.left: parent.left
-  border: 1 black
+
   
 Portrait1 < UIButton
   id: Portrait1
   virtual: true
   border-width: 0
-  size: 45 45
-  margin-left: 5
-  margin-top: 10
+  size: 40 40
+  margin-left: 10
+  margin-top: 12
   image-source: /images/pictures/0
   image-color: white
   focusable: false
   anchors.top: parent.top
   anchors.left: parent.left
-  $hover:
-    border-color: white
-    border-width: 1
 
 PokemonUse1 < UIButton
   id: PokemonUse1
@@ -45,82 +42,86 @@ PokemonRevive1 < Button
   anchors.right: PokemonHP1.right
   margin-left: 5
 
-PokemonName1 < Label
-  id: PokemonName1
+PokemonLevel1 < Label
+  id: PokemonLevel1
   anchors.top: parent.top
   anchors.left: Portrait1.right
-  margin-left: 5
-  margin-top: 10
+  margin-top: 14
+  margin-left: 70
   text-auto-resize: true
+  color: #12baf1
   font: verdana-10px-rounded
   phantom: true
 
-PokemonLevel1 < Label
-  id: PokemonLevel1
-  anchors.top: PokemonName1.bottom
+PokemonName1 < Label
+  id: PokemonName1
+  anchors.top: PokemonLevel1.top
   anchors.left: Portrait1.right
   margin-left: 5
-  text-auto-resize: true
+  width: 60
   font: verdana-10px-rounded
   phantom: true
 
 PokemonHP1 < ProgressBar
   id: PokemonHP1
-  height: 7
+  height: 8
+  width: 100
   background-color: #00b324
   anchors.top: PokemonLevel1.bottom
   anchors.left: Portrait1.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 3
+  opacity: 0.8
   phantom: true
 
 PokemonMP1 < ProgressBar
   id: PokemonMP1
-  height: 7
+  height: 8
+  width: 100
   background-color: blue
   anchors.top: PokemonHP1.bottom
   anchors.left: Portrait1.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 1
+  opacity: 0.8
   phantom: true
 
 PokemonEXP1 < ProgressBar
   id: PokemonEXP1
-  height: 7
+  height: 4
+  width: 60
   background-color: #f8de34
   anchors.top: PokemonMP1.bottom
   anchors.left: Portrait1.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 2
+  opacity: 0.8
   phantom: true
 
 PortraitBackground2 < UIButton
   id: PortraitBackground2
-  size: 45 45
+  size: 160 48
   margin-left: 5
   margin-top: 10
-  image-source: /modules/game_belt/bg
+  image-source: /modules/game_belt/bar
   image-color: white
   focusable: false
   anchors.top: Portrait1.bottom
   anchors.left: parent.left
-  border: 1 black
   
 Portrait2 < UIButton
   id: Portrait2
-  size: 45 45
+  size: 40 40
   virtual: true
   border-width: 0
-  margin-left: 5
-  margin-top: 10
+  margin-left: 10
+  margin-top: 12
   image-source: /images/pictures/0
   image-color: white
   focusable: false
   anchors.top: Portrait1.bottom
   anchors.left: parent.left
-  $hover:
-    border-color: white
-    border-width: 1
+
 
 PokemonUse2 < UIButton
   id: PokemonUse2
@@ -141,81 +142,86 @@ PokemonRevive2 < Button
   anchors.right: PokemonHP2.right
   margin-left: 5
 
+PokemonLevel2 < Label
+  id: PokemonLevel2
+  anchors.top: Portrait2.top
+  anchors.left: Portrait2.right
+  margin-top: 3
+  margin-left: 70
+  text-auto-resize: true
+  color: #12baf1
+  font: verdana-10px-rounded
+  phantom: true
+
 PokemonName2 < Label
   id: PokemonName2
   anchors.top: Portrait2.top
   anchors.left: Portrait2.right
+  margin-top: 4
   margin-left: 5
-  text-auto-resize: true
-  font: verdana-10px-rounded
-  phantom: true
-
-PokemonLevel2 < Label
-  id: PokemonLevel2
-  anchors.top: PokemonName2.bottom
-  anchors.left: Portrait2.right
-  margin-left: 5
+  width: 60
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonHP2 < ProgressBar
   id: PokemonHP2
-  height: 7
+  height: 8
+  width: 100
   background-color: #00b324
   anchors.top: PokemonLevel2.bottom
   anchors.left: Portrait2.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 3
+  opacity: 0.8
   phantom: true
 
 PokemonMP2 < ProgressBar
   id: PokemonMP2
-  height: 7
+  height: 8
+  width: 100
   background-color: blue
   anchors.top: PokemonHP2.bottom
   anchors.left: Portrait2.right
   margin-left: 5
-  opacity: 0.6
+  opacity: 0.8
   phantom: true
 
 PokemonEXP2 < ProgressBar
   id: PokemonEXP2
-  height: 7
+  height: 4
+  width: 60
   background-color: #f8de34
   anchors.top: PokemonMP2.bottom
   anchors.left: Portrait2.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 2
+  opacity: 0.8
   phantom: true
 
 PortraitBackground3 < UIButton
   id: PortraitBackground3
-  size: 45 45
+  size: 160 48
   margin-left: 5
   margin-top: 10
-  image-source: /modules/game_belt/bg
+  image-source: /modules/game_belt/bar
   image-color: white
   focusable: false
   anchors.top: Portrait2.bottom
   anchors.left: parent.left
-  border: 1 black
   
 Portrait3 < UIButton
   id: Portrait3
-  size: 45 45
+  size: 40 40
   virtual: true
   border-width: 0
-  margin-left: 5
-  margin-top: 10
+  margin-left: 10
+  margin-top: 12
   image-source: /images/pictures/0
   image-color: white
   focusable: false
   anchors.top: Portrait2.bottom
   anchors.left: parent.left
-  $hover:
-    border-color: white
-    border-width: 1
 
 PokemonUse3 < UIButton
   id: PokemonUse3
@@ -241,76 +247,82 @@ PokemonName3 < Label
   anchors.top: Portrait3.top
   anchors.left: Portrait3.right
   margin-left: 5
+  margin-top: 4
+  width: 60
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonLevel3 < Label
   id: PokemonLevel3
-  anchors.top: PokemonName3.bottom
+  anchors.top: Portrait3.top
   anchors.left: Portrait3.right
-  margin-left: 5
+  margin-left: 70
+  margin-top: 3
+  color: #12baf1
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonHP3 < ProgressBar
   id: PokemonHP3
-  height: 7
+  height: 8
+  width: 100
   background-color: #00b324
   anchors.top: PokemonLevel3.bottom
   anchors.left: Portrait3.right
   margin-left: 5
-  opacity: 0.6
+  opacity: 0.8
   phantom: true
 
 PokemonMP3 < ProgressBar
   id: PokemonMP3
-  height: 7
+  height: 8
+  width: 100
   background-color: blue
   anchors.top: PokemonHP3.bottom
   anchors.left: Portrait3.right
   margin-left: 5
-  opacity: 0.6
+  opacity: 0.8
   phantom: true
 
 PokemonEXP3 < ProgressBar
   id: PokemonEXP3
-  height: 7
+  height: 4
+  width: 60
   background-color: #f8de34
   anchors.top: PokemonMP3.bottom
   anchors.left: Portrait3.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 2
+  opacity: 0.8
   phantom: true
 
 PortraitBackground4 < UIButton
   id: PortraitBackground4
-  size: 45 45
+  size: 160 48
   margin-left: 5
   margin-top: 10
-  image-source: /modules/game_belt/bg
+  image-source: /modules/game_belt/bar
   image-color: white
   focusable: false
   anchors.top: Portrait3.bottom
   anchors.left: parent.left
-  border: 1 black
+
   
 Portrait4 < UIButton
   id: Portrait4
-  size: 45 45
+  size: 40 40
   virtual: true
   border-width: 0
-  margin-left: 5
-  margin-top: 10
+  margin-left: 10
+  margin-top: 12
   image-source: /images/pictures/0
   image-color: white
   focusable: false
   anchors.top: Portrait3.bottom
   anchors.left: parent.left
-  $hover:
-    border-color: white
-    border-width: 1
+
 
 PokemonUse4 < UIButton
   id: PokemonUse4
@@ -336,76 +348,82 @@ PokemonName4 < Label
   anchors.top: Portrait4.top
   anchors.left: Portrait4.right
   margin-left: 5
+  margin-top: 4
+  width: 60
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonLevel4 < Label
   id: PokemonLevel4
-  anchors.top: PokemonName4.bottom
+  anchors.top: Portrait4.top
   anchors.left: Portrait4.right
-  margin-left: 5
+  margin-left: 70
+  margin-top: 3
+  color: #12baf1
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonHP4 < ProgressBar
   id: PokemonHP4
-  height: 7
+  height: 8
+  width: 100
   background-color: #00b324
   anchors.top: PokemonLevel4.bottom
   anchors.left: Portrait4.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 3
+  opacity: 0.8
   phantom: true
 
 PokemonMP4 < ProgressBar
   id: PokemonMP4
-  height: 7
+  height: 8
+  width: 100
   background-color: blue
   anchors.top: PokemonHP4.bottom
   anchors.left: Portrait4.right
   margin-left: 5
-  opacity: 0.6
+  opacity: 0.8
   phantom: true
 
 PokemonEXP4 < ProgressBar
   id: PokemonEXP4
-  height: 7
+  height: 4
+  width: 60
   background-color: #f8de34
   anchors.top: PokemonMP4.bottom
   anchors.left: Portrait4.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 2
+  opacity: 0.8
   phantom: true
 
 PortraitBackground5 < UIButton
   id: PortraitBackground5
-  size: 45 45
+  size: 160 48
   margin-left: 5
   margin-top: 10
-  image-source: /modules/game_belt/bg
+  image-source: /modules/game_belt/bar
   image-color: white
   focusable: false
   anchors.top: Portrait4.bottom
   anchors.left: parent.left
-  border: 1 black
+
   
 Portrait5 < UIButton
   id: Portrait5
-  size: 45 45
+  size: 40 40
   virtual: true
   border-width: 0
-  margin-left: 5
-  margin-top: 10
+  margin-left: 10
+  margin-top: 12
   image-source: /images/pictures/0
   image-color: white
   focusable: false
   anchors.top: Portrait4.bottom
   anchors.left: parent.left
-  $hover:
-    border-color: white
-    border-width: 1
 
 PokemonUse5 < UIButton
   id: PokemonUse5
@@ -431,76 +449,83 @@ PokemonName5 < Label
   anchors.top: Portrait5.top
   anchors.left: Portrait5.right
   margin-left: 5
+  margin-top: 4
+  width: 60
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonLevel5 < Label
   id: PokemonLevel5
-  anchors.top: PokemonName5.bottom
+  anchors.top: Portrait5.top
   anchors.left: Portrait5.right
-  margin-left: 5
+  margin-left: 70
+  margin-top: 3
+  color: #12baf1
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonHP5 < ProgressBar
   id: PokemonHP5
-  height: 7
+  height: 8
+  width: 100
   background-color: #00b324
   anchors.top: PokemonLevel5.bottom
   anchors.left: Portrait5.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 3
+  opacity: 0.8
   phantom: true
 
 PokemonMP5 < ProgressBar
   id: PokemonMP5
-  height: 7
+  height: 8
+  width: 100
   background-color: blue
   anchors.top: PokemonHP5.bottom
   anchors.left: Portrait5.right
   margin-left: 5
-  opacity: 0.6
+  opacity: 0.8
   phantom: true
 
 PokemonEXP5 < ProgressBar
   id: PokemonEXP5
-  height: 7
+  height: 4
+  width: 60
   background-color: #f8de34
   anchors.top: PokemonMP5.bottom
   anchors.left: Portrait5.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 2
+  opacity: 0.8
   phantom: true
 
 PortraitBackground6 < UIButton
   id: PortraitBackground6
-  size: 45 45
+  size: 160 48
   margin-left: 5
   margin-top: 10
-  image-source: /modules/game_belt/bg
+  image-source: /modules/game_belt/bar
   image-color: white
   focusable: false
   anchors.top: Portrait5.bottom
   anchors.left: parent.left
-  border: 1 black
+
+
   
 Portrait6 < UIButton
   id: Portrait6
-  size: 45 45
+  size: 40 40
   virtual: true
   border-width: 0
-  margin-left: 5
-  margin-top: 10
+  margin-left: 10
+  margin-top: 12
   image-source: /images/pictures/0
   image-color: white
   focusable: false
   anchors.top: Portrait5.bottom
   anchors.left: parent.left
-  $hover:
-    border-color: white
-    border-width: 1
 
 PokemonUse6 < UIButton
   id: PokemonUse6
@@ -526,54 +551,62 @@ PokemonName6 < Label
   anchors.top: Portrait6.top
   anchors.left: Portrait6.right
   margin-left: 5
+  margin-top: 4
+  width: 60
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonLevel6 < Label
   id: PokemonLevel6
-  anchors.top: PokemonName6.bottom
+  anchors.top: Portrait6.top
   anchors.left: Portrait6.right
-  margin-left: 5
+  margin-left: 70
+  margin-top: 4
+  color: #12baf1
   text-auto-resize: true
   font: verdana-10px-rounded
   phantom: true
 
 PokemonHP6 < ProgressBar
   id: PokemonHP6
-  height: 7
+  height: 8
+  width: 100
   background-color: #00b324
   anchors.top: PokemonLevel6.bottom
   anchors.left: Portrait6.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 3
+  opacity: 0.8
   phantom: true
 
 PokemonMP6 < ProgressBar
   id: PokemonMP6
-  height: 7
+  height: 8
+  width: 100
   background-color: blue
   anchors.top: PokemonHP6.bottom
   anchors.left: Portrait6.right
   margin-left: 5
-  opacity: 0.6
+  opacity: 0.8
   phantom: true
 
 PokemonEXP6 < ProgressBar
   id: PokemonEXP6
-  height: 7
+  height: 4
+  width: 60
   background-color: #f8de34
   anchors.top: PokemonMP6.bottom
   anchors.left: Portrait6.right
   margin-left: 5
-  opacity: 0.6
+  margin-top: 2
+  opacity: 0.8
   phantom: true
 
 MiniWindow
-  icon: /images/topbuttons/belt
   id: playerStatsWindow
-  !text: tr('Cinto Pokemon')
   height: 360
+  image-source: ~
   @onClose: modules.game_belt.onMiniWindowClose()
   &autoOpen: 2
 
@@ -632,15 +665,3 @@ MiniWindow
     PokemonHP6
     PokemonMP6
     PokemonEXP6
-
-  ResizeBorder
-    id: bottomResizeBorder
-    anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    height: 3
-    minimum: 85
-    maximum: 360
-    margin-left: 3
-    margin-right: 3
-    background: #ffffff88

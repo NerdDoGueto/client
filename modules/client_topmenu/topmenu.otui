@@ -8,7 +8,7 @@ TopMenuPanel
     id: leftButtonsPanel
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    anchors.left: parent.left
+    anchors.horizontalCenter: parent.horizontalCenter
 
   TopMenuButtonsPanel
     id: leftGameButtonsPanel
@@ -21,7 +21,7 @@ TopMenuPanel
     id: fpsLabel
     text-auto-resize: true
     anchors.top: parent.top
-    anchors.left: leftGameButtonsPanel.right
+    anchors.right: parent.right
 
   TopMenuPingLabel
     color: white
@@ -34,12 +34,12 @@ TopMenuPanel
     id: rightButtonsPanel
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    anchors.right: parent.right
+    anchors.horizontalCenter: parent.horizontalCenter
     padding-left: 0
 
   TopMenuButtonsPanel
     id: rightGameButtonsPanel
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    anchors.right: prev.left
+    anchors.horizontalCenter: parent.horizontalCenter
     visible: false

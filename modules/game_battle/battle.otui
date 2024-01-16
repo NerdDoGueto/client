@@ -36,17 +36,17 @@ BattleParty < BattleIcon
 MiniWindow
   id: battleWindow
   !text: tr('Battle')
-  height: 166
+  height: 200
   icon: /images/topbuttons/battle
   @onClose: modules.game_battle.onMiniWindowClose()
 
   Panel
     id: filterPanel
-    margin-top: 26
+    margin-top: 25
     anchors.top: parent.top
     anchors.left: parent.left
     anchors.right: miniwindowScrollBar.left
-    height: 45
+    height: 55
 
     Panel
       anchors.top: parent.top
@@ -55,7 +55,7 @@ MiniWindow
       width: 100
       layout:
         type: horizontalBox
-        spacing: 5
+        spacing: 8
 
       BattlePlayers
         id: hidePlayers
@@ -91,6 +91,7 @@ MiniWindow
         anchors.left: prev.right
         anchors.horizontalCenter: parent.horizontalCenter
         margin-left: -28
+        margin-top: 8
 
       ComboBox
         id: sortOrderBox
@@ -98,6 +99,7 @@ MiniWindow
         anchors.top: parent.top
         anchors.left: prev.right
         margin-left: 4
+        margin-top: 8
 
   Panel
     height: 18
@@ -113,8 +115,9 @@ MiniWindow
       anchors.horizontalCenter: parent.horizontalCenter
       image-source: /images/ui/arrow_vertical
       image-rect: 0 0 21 12
-      image-clip: 21 0 21 12
+      image-clip: 21 0 21 12  
       @onClick: modules.game_battle.toggleFilterPanel()
+      margin-top: 15
       phantom: false
 
   HorizontalSeparator

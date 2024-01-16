@@ -27,8 +27,9 @@ MoveItem < Item
 
 HeadlessWindow
   id: movesWindow
+  image-source: /data/images/ui/movebar
+  image-border: 5
   focusable: false
-  image-color: #ffffffee
   size: 42 42
   anchors.bottom: gameMapPanel.bottom
   anchors.horizontalCenter: gameMapPanel.horizontalCenter

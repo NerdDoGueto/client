@@ -1,0 +1,119 @@
+HouseData < UILabel
+  font: lucida-11px-rounded
+  anchors.left: parent.left
+  anchors.top: prev.bottom
+  color: #abaaaa
+  margin-top: 6
+  height: 20
+  text-auto-resize: true
+
+MainWindow
+  id: lookWindow
+  image-source: /images/ui/miniwindow
+  !text: tr('Detalhes do Pokemon')
+  size: 460 270
+  @onEnter: onCloseInformation()
+  @onEscape: onCloseInformation()
+
+  ResizeBorder
+    id: bottomResizeBorder
+    anchors.bottom: parent.bottom
+    anchors.left: parent.left
+    anchors.right: parent.right
+    margin-left: 149
+    height: 10
+    minimum: 270
+    maximum: 370
+    background: #ffffff88
+
+  Panel
+    id: full_content
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    
+    Panel
+      id: left_image
+      image-source: /images/ui/panel_container
+      anchors.top: parent.top
+      anchors.left: parent.left
+      size: 140 140
+
+    UIWidget
+      id: left_image2
+      size: 140 140
+      anchors.top: parent.top
+      anchors.left: parent.left
+
+    Button
+      id: fechar
+      !text: tr("Fechar")
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      anchors.right: left_image.right
+      @onClick: onCloseInformation()
+
+    Panel
+      id: right_content
+      image-source: /images/ui/panel_lightflat
+      anchors.top: parent.top
+      anchors.left: left_image.right
+      anchors.right: parent.right
+      anchors.bottom: parent.bottom
+      margin-left: 10
+
+      Label
+        id: look_map_name
+        font: sans-bold-16px
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.left: parent.left
+        text-align: center
+        color: #abaaaa
+        margin-top: 5
+        margin-bottom: 5
+      
+      Label
+        id: data_content
+        anchors.top: prev.bottom
+        anchors.right: parent.right
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        border: 1 #242424
+        margin: 5
+
+        Panel
+          id: info_panel
+          margin-top: 2
+          margin-left: 4
+          anchors.top: parent.top
+          anchors.left: parent.left
+          anchors.bottom: parent.bottom
+          anchors.right: parent.right
+          width: 150
+          
+          HouseData
+            id: look_pokemon_level
+            anchors.top: parent.top
+
+          HouseData
+            id: look_pokemon_nature
+
+          HouseData
+            id: look_pokemon_specialab
+
+          HouseData
+            id: look_pokemon_IVS
+
+          HouseData
+            id: look_pokemon_TMS
+
+          HouseData
+            id: look_pokemon_HELD
+
+          HouseData
+            id: look_pokemon_RELEARN
+
+          HouseData
+            id: look_pokemon_ADDONS

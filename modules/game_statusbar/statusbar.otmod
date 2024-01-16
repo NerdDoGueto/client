@@ -1,8 +1,8 @@
 Module
   name: game_statusbar
   description: Status Bar
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: MundoPokemon
+  website: www.mundopokemon.org
   sandboxed: true
   scripts: [ statusbar ]
   @onLoad: onInit()

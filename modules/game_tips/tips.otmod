@@ -1,8 +1,8 @@
 Module
   name: game_tips
   description: Tips
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: MundoPokemon
+  website: www.mundopokemon.org
   sandboxed: true
   scripts: [ tips ]
   @onLoad: onInit()

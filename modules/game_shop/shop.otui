@@ -11,6 +11,7 @@ ItemsPagePanel < UIWidget
     margin-top: 2
     !text: tr('<<')
     !tooltip: tr('Primeira pagina')
+    font: start_11_big
     @onClick: changePage(1)
 
   Button
@@ -22,6 +23,7 @@ ItemsPagePanel < UIWidget
     margin-top: 2
     !text: tr('<')
     !tooltip: tr('Pagina anterior')
+    font: start_11_big
     @onClick: changePage(getCurrentPage()-1)
 
   Button
@@ -33,6 +35,7 @@ ItemsPagePanel < UIWidget
     margin-top: 2
     !text: tr('>')
     !tooltip: tr('Proxima pagina')
+    font: start_11_big
     @onClick: changePage(getCurrentPage()+1)
 
   Button
@@ -44,6 +47,7 @@ ItemsPagePanel < UIWidget
     margin-top: 2
     !text: tr('>>')
     !tooltip: tr('Ultima pagina')
+    font: start_11_big
     @onClick: changePage(getMaxPage())
 
   UIWidget
@@ -55,13 +59,14 @@ ItemsPagePanel < UIWidget
     margin-top: 2
     !text: tr('0/0')
     !tooltip: tr('Pagina')
+    font: start_11_big
     text-align: center
 
 ShopItem < UIWidget
   size: 118 110
   image-source: /images/game/shop/box_off
-  text-offset: 0 50
-  font: verdana-11px-rounded
+  text-offset: 0 60
+  font: start_11_big
 
 UIWindow
   id: shopWindow
@@ -72,126 +77,161 @@ UIWindow
 
   Panel
     id: textinfo	
-    text: "Loja VIP"
-    size: 38 28
+    text: "BEM-VINDO(A) AO"
+    font: start_18
+    size: 178 28
+    margin-right: 40
+    margin-top: 25
     anchors.top: parent.top
-    anchors.left: parent.left
-    anchors.right: parent.right
-    font: verdana-11px-rounded
+    anchors.horizontalCenter: parent.horizontalCenter
+
+  Panel
+    id: textinfo2
+    text: "SHOP"
+    color: #2eb2e3
+    font: start_18_big
+    size: 58 28
+    margin-right: 7
+    margin-top: 25
+    anchors.top: parent.top
+    anchors.left: textinfo.right
 
   Button
     id: closed
-    text: X
-    text-align: center
-    phantom: false
+    image-source: /images/game/shop/close
+    size: 20 20
+    image-clip: 0 0 20 20
     !tooltip: tr("Fechar")
     size: 20 20
     anchors.right: parent.right
     anchors.top: parent.top
-    margin-right: 2
-    margin-top: 2
+    margin-right: 25
+    margin-top: 25
+
+    $hover !disabled:
+      image-clip: 0 20 20 20
+
+    $pressed:
+      image-clip: 0 40 20 20
     @onClick: function(self) self:getParent():hide() end
 
   UIWidget
     id: panelCoins
-    size: 48 28
-    anchors.right: parent.right
+    anchors.left: parent.left
     anchors.top: parent.top
-    margin-right: 75
-    margin-top: 52
-    font: sans-bold-16px-rounded
+    margin-left: 55
+    margin-top: 35
+    font: start_11_big
+    text-auto-resize: true
+    color: #3ab7e5
 
   UIWidget
     id: panelTab
-    size: 154 355
+    size: 700 40
     anchors.top: parent.top
-    anchors.left: parent.left
-    margin-top: 54
-    margin-left: 56
+    anchors.horizontalCenter: parent.horizontalCenter
+    margin-top: 75
 
     UIWidget
       id: promo
-      size: 136 60
-      anchors.horizontalCenter: parent.horizontalCenter
+      size: 136 40
+      image-clip: 0 0 136 40
+      anchors.left: parent.left
       anchors.top: parent.top
-      margin-top: 10
       on: true
-      image-source: /images/game/shop/promo_off
+      image-source: /images/game/shop/oferta
       @onClick: getShopItems(self, 1)
 
-      $on:
-        image-source: /images/game/shop/promo_on
+      $hover !disabled:
+        image-clip: 0 40 136 40
 
-      $!on:
-        image-source: /images/game/shop/promo_off
+      $pressed:
+        image-clip: 0 80 136 40
+
+      $on:
+        image-clip: 0 80 136 40
 
     UIWidget
       id: itens
-      size: 136 60
-      anchors.horizontalCenter: parent.horizontalCenter
-      anchors.top: promo.bottom
-      margin-top: 10
-      image-source: /images/game/shop/itens_off
+      size: 136 40
+      image-clip: 0 0 136 40
+      margin-left: 6
+      anchors.left: promo.right
+      anchors.top: parent.top
+      image-source: /images/game/shop/item
       @onClick: getShopItems(self, 2)
 
-      $on:
-        image-source: /images/game/shop/itens_on
+      $hover !disabled:
+        image-clip: 0 40 136 40
 
-      $!on:
-        image-source: /images/game/shop/itens_off
+      $pressed:
+        image-clip: 0 80 136 40
+
+      $on:
+        image-clip: 0 80 136 40
 
     UIWidget
       id: house
-      size: 136 60
+      size: 136 40
+      image-clip: 0 0 136 40
       anchors.horizontalCenter: parent.horizontalCenter
-      anchors.top: itens.bottom
-      margin-top: 10
-      image-source: /images/game/shop/house_off
+      anchors.top: parent.top
+      image-source: /images/game/shop/house
       @onClick: getShopItems(self, 3)
 
-      $on:
-        image-source: /images/game/shop/house_on
+      $hover !disabled:
+        image-clip: 0 40 136 40
 
-      $!on:
-        image-source: /images/game/shop/house_off
+      $pressed:
+        image-clip: 0 80 136 40
+
+      $on:
+        image-clip: 0 80 136 40
+
 
     UIWidget
       id: outfits
-      size: 136 60
-      anchors.horizontalCenter: parent.horizontalCenter
-      anchors.top: house.bottom
-      margin-top: 10
-      image-source: /images/game/shop/outfits_off
+      size: 136 40
+      image-clip: 0 0 136 40
+      margin-left: 6
+      anchors.left: house.right
+      anchors.top: parent.top
+      image-source: /images/game/shop/outfit
       @onClick: getShopItems(self, 4)
 
-      $on:
-        image-source: /images/game/shop/outfits_on
+      $hover !disabled:
+        image-clip: 0 40 136 40
 
-      $!on:
-        image-source: /images/game/shop/outfits_off
+      $pressed:
+        image-clip: 0 80 136 40
+
+      $on:
+        image-clip: 0 80 136 40
 
     UIWidget
       id: addons
-      size: 136 60
-      anchors.horizontalCenter: parent.horizontalCenter
-      anchors.top: outfits.bottom
-      margin-top: 10
-      image-source: /images/game/shop/addons_off
+      size: 136 40
+      image-clip: 0 0 136 40
+      anchors.right: parent.right
+      anchors.top: parent.top
+      image-source: /images/game/shop/addon
       @onClick: getShopItems(self, 5)
 
-      $on:
-        image-source: /images/game/shop/addons_on
+      $hover !disabled:
+        image-clip: 0 40 136 40
 
-      $!on:
-        image-source: /images/game/shop/addons_off
+      $pressed:
+        image-clip: 0 80 136 40
+
+      $on:
+        image-clip: 0 80 136 40
 
   ScrollablePanel
     id: panelItems
-    size: 502 205
-    anchors.top: parent.top
-    anchors.left: panelTab.right
-    margin-top: 88
-    margin-left: 28
+    size: 700 205
+    anchors.top: panelTab.bottom
+    anchors.left: panelTab.left
+    margin-top: 15
     vertical-scrollbar: itemsBar
     layout:
       type: grid
@@ -213,41 +253,38 @@ UIWindow
     id: itemInfo
     size: 503 65
     anchors.top: panelItems.bottom
-    anchors.left: panelTab.right
-    margin-top: 11
-    margin-left: 28
+    anchors.left: panelItems.left
+    margin-top: 5
 
     UITextEdit
       id: panelDescription
       size: 364 54
-      anchors.top: parent.top
-      anchors.left: parent.left
+      anchors.top: panelItems.bottom
+      anchors.left: panelItems.left
       margin-top: 6
-      margin-left: 6
-      // font: verdana-11px-rounded
+      font: start_11_big
       editable: false
       text-wrap: true
 
     UIWidget
       id: panelValue
-      size: 48 28
       anchors.bottom: parent.bottom
-      anchors.right: parent.right
-      margin-bottom: 9
-      margin-right: 10
-      font: sans-bold-16px-rounded
+      anchors.left: panelDescription.left
+      font: start_11_big
+      text-auto-resize: true
+      margin-bottom: 10
+      color: #3ab7e5
 
   ItemsPagePanel
     anchors.left: itemInfo.left
     anchors.bottom: parent.bottom
     margin-bottom: 35
 
-  UIWidget
+  StartButton
     id: buyButton
-    size: 156 52
+    !text: tr('COMPRAR')
+    width: 130
     anchors.bottom: parent.bottom
-    anchors.right: parent.right
+    anchors.right: panelTab.right
     margin-bottom: 23
-    margin-right: 55
-    image-source: /images/game/shop/buy_off
     @onClick: buyItem()

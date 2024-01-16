@@ -1,8 +1,8 @@
 Module
   name: game_belt
   description: Cinto Pokemon
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: Mundo Pokemon
+  website: www.mundopokemon.org
   sandboxed: true
   scripts: [ belt ]
   @onLoad: init()

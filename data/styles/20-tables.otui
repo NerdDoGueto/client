@@ -32,7 +32,7 @@ TableHeaderRow < UIButton
   text-wrap: true
 
 TableHeaderColumn < UITableHeaderColumn
-  font: verdana-11px-antialised
+  font: start_11_big
   background-color: alpha
   color: #dfdfdfff
   height: 20

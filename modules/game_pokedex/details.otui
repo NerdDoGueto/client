@@ -1,11 +1,13 @@
 HeadlessWindow
   focusable: false
   image-color: #ffffffee
+  image-source: ~
   size: 50 66
 
   MultilineTextEdit
     id: aaaText
     height: 64
+    image-source: ~
     anchors.fill: parent
     anchors.right: aaaTextScroll.left
     vertical-scrollbar: aaaTextScroll

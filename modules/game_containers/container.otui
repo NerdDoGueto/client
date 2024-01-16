@@ -1,5 +1,5 @@
 ContainerWindow < MiniWindow
-  height: 150
+  height: 200
 
   UIItem
     id: containerItemWidget
@@ -7,14 +7,13 @@ ContainerWindow < MiniWindow
     size: 16 16
     anchors.top: parent.top
     anchors.left: parent.left
-    margin-top: 4
-    margin-left: 4
+
 
   UIButton
     id: upButton
     anchors.top: minimizeButton.top
     anchors.right: minimizeButton.left
-    margin-right: 3
+    margin-right: 20
     size: 14 14
     image-source: /images/ui/miniwindow_buttons
     image-clip: 42 0 14 14
@@ -29,5 +28,6 @@ ContainerWindow < MiniWindow
     padding-right: 0
     layout:
       type: grid
-      cell-size: 34 34
+      cell-size: 32 32
+      cell-spacing: 6
       flow: true

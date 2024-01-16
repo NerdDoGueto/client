@@ -1,8 +1,8 @@
 Module
   name: game_advanceeffect
   description: Advance Effect
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: MundoPokemon
+  website: http://www.mundopokemon.org
   sandboxed: true
   scripts: [ advanceeffect ]
   @onLoad: onInit()

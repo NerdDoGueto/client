@@ -1,8 +1,8 @@
 Module
   name: game_shop
   description: Compre variados produtos :D
-  author: LegendsOfUnknown
-  website: www.legendsofunknown.com.br
+  author: MundoPokemon
+  website: http://www.mundopokemon.org
   sandboxed: true
   scripts: [ shop ]
   @onLoad: init()

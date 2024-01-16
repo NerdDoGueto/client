@@ -8,9 +8,6 @@ CasinoItemTooltip < UIWidget
   text-offset: 24 5
   text-align: topLeft
   image-source: /images/ui/miniwindow
-  image-border: 4
-  image-border-top: 23
-  image-border-bottom: 4
   focusable: false
 
   UIWidget
@@ -122,10 +119,8 @@ UIWindow
   height: 600
   text-offset: 24 5
   text-align: topLeft
-  image-source: /images/ui/miniwindow
-  image-border: 4
-  image-border-top: 23
-  image-border-bottom: 4  
+  image-source: /images/ui/window
+  image-border: 40
   anchors.centerIn: parent
   focusable: false
   @onEscape: hide()

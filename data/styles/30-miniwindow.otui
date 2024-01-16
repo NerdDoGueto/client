@@ -1,19 +1,23 @@
 MiniWindow < UIMiniWindow
-  font: verdana-11px-antialised
-  icon-rect: 4 4 16 16
-  width: 192
+  font: start_11_big
+  icon-rect: 9 9 16 16
+  icon-clip: 0 0 23 23
+  width: 200
   height: 200
-  text-offset: 24 5
+  text-offset: 30 9
   text-align: topLeft
   image-source: /images/ui/miniwindow
-  image-border: 4
-  image-border-top: 23
-  image-border-bottom: 4
+  image-border: 30
   focusable: false
-  &minimizedHeight: 24
+  padding-left: 10
+  padding-top: 7
+  padding-bottom: 10
+  padding-right: 10
+  &minimizedHeight: 60
 
   $on:
-    image-border-bottom: 2
+    image-border: 30
+
 
   UIWidget
     id: miniwindowTopBar
@@ -30,8 +34,8 @@ MiniWindow < UIMiniWindow
     id: closeButton
     anchors.top: parent.top
     anchors.right: parent.right
-    margin-top: 5
-    margin-right: 5
+    margin-top: 2
+    margin-right: 6
     size: 14 14
     image-source: /images/ui/miniwindow_buttons
     image-clip: 28 0 14 14
@@ -100,7 +104,7 @@ MiniWindow < UIMiniWindow
     anchors.top: parent.top
     anchors.bottom: parent.bottom
     anchors.right: parent.right
-    step: 14
+    step: 100
     margin-top: 22
     margin-right: 3
     margin-bottom: 3

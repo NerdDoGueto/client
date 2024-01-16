@@ -1,0 +1,94 @@
+Login < Window
+  image-source: /data/images/ui_start/background
+  size: 826 432
+
+TextLogin < UITextEdit
+  font: start_12_mont
+  color: white
+  text-offset: 0 3
+  padding: 7
+  image-source: /images/ui_start/text
+  size: 186 28
+  image-clip: 0 0 186 28
+  image-border: 23
+  selection-color: #111416
+  selection-background-color: #999999
+
+  $hover !disabled:
+    image-clip: 0 28 186 28
+
+StartCheck < UICheckBox
+  size: 30 12
+  font: start_12_mont
+  text-align: left
+  text-offset: 34 0
+  color: white
+  image-color: #ffffffff
+  image-rect: 0 0 30 12
+  image-offset: 0 2
+  image-source: /images/ui_start/checkbox
+
+  $hover !disabled:
+    color: white
+
+  $!checked:
+    image-clip: 0 0 30 12
+
+  $hover !checked:
+    image-clip: 0 12 30 12
+
+  $checked:
+    image-clip: 0 24 30 12
+
+  $hover checked:
+    image-clip: 0 36 30 12
+
+  $disabled:
+    image-color: #ffffff88
+    color: #aaaaaa88
+
+StartButton < UIButton
+  font: start_12_big
+  color: #161919
+  size: 142 37
+  text-offset: 0 0
+  image-source: /images/ui_start/button
+  image-color: #dfdfdf
+  image-clip: 0 0 142 37
+  image-border: 37
+  image-border-left: 102
+  opacity: 1.0
+
+  $hover !disabled:
+    image-clip: 0 37 142 37
+
+  $pressed:
+    image-clip: 0 74 142 37
+    text-offset: 1 1
+
+  $disabled:
+    color: #dfdfdf88
+    opacity: 0.8
+
+StartButtonSlin < UIButton
+  font: start_12_slin
+  color: white
+  size: 142 37
+  text-offset: 0 0
+  image-source: /images/ui_start/button_slin
+  image-color: #dfdfdf
+  image-clip: 0 0 142 37
+  image-border: 37
+  image-border-left: 102
+  opacity: 1.0
+
+  $hover !disabled:
+    image-clip: 0 37 142 37
+
+  $pressed:
+    image-clip: 0 74 142 37
+    text-offset: 1 1
+
+  $disabled:
+    color: #dfdfdf88
+    opacity: 0.8

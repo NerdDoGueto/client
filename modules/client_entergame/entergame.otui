@@ -1,56 +1,140 @@
-EnterGameWindow < Window
-  !text: tr('Enter Game')
-  size: 300 400
-  opacity: 0.8
-  anchors.bottom: parent.bottom
+EnterGameWindow < Login
+  draggable: false
+  anchors.verticalCenter: parent.verticalCenter
   anchors.horizontalCenter: parent.horizontalCenter
-  margin-bottom: 82
-
-EnterGameButton < Button
-  width: 128
-
-SocialButton < UIButton
-  width: 70
 
 EnterGameWindow
   id: enterGame
   @onEnter: EnterGame.doLogin()
 
-  MenuLabel
-    !text: tr('Account name')
+
+  UIWidget
+    id: desc1
+    !text: tr('SEJA BEM-VINDO (A) AO')
+    size: 350 25
+    font: start_18
+    color: white
     anchors.left: parent.left
     anchors.top: parent.top
-    text-auto-resize: true
+    margin-top: 67
+    margin-left: 15
 
-  PasswordTextEdit
-    id: accountNameTextEdit
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: prev.bottom
-    margin-top: 2
+  UIWidget
+    id: direitos
+    !text: tr('Todos direitos reservados a Legends of Unknown')
+    size: 350 25
+    font: start_12_slin
+    color: white
+    anchors.horizontalCenter: desc1.horizontalCenter
+    anchors.bottom: parent.bottom
+    margin-bottom: 20
+
+  UIWidget
+    id: desc2
+    !text: tr('LEGENDS OF UNKNOWN')
+    size: 350 25
+    font: start_18_big
+    color: #12cce8
+    anchors.horizontalCenter: desc1.horizontalCenter
+    anchors.top: desc1.top
+    margin-top: 23
+
+  UIWidget
+    id: desc3
+    !text: tr('Ainda nao tem uma conta ou ainda')
+    size: 350 25
+    font: start_12
+    color: white
+    anchors.horizontalCenter: desc1.horizontalCenter
+    anchors.top: desc2.top
+    margin-top: 30
+
+  UIWidget
+    id: desc4
+    !text: tr('nao tem um personagem?')
+    size: 350 25
+    font: start_12
+    color: white
+    anchors.horizontalCenter: desc1.horizontalCenter
+    anchors.top: desc3.top
+    margin-top: 14
+
+  
+  UIWidget
+    id: logo
+    image-source: /data/images/ui_start/logo
+    anchors.right: parent.right	
+    anchors.top: parent.top	
+    margin-top: 20
+    margin-right: 100
 
   MenuLabel
-    !text: tr('Password')
-    anchors.left: prev.left
-    anchors.top: prev.bottom
-    margin-top: 8
+    id: accountname
+    !text: tr('Account name')
+    font: start_12
+    anchors.horizontalCenter: logo.horizontalCenter
+    anchors.top: logo.bottom
+    margin-top: 40
     text-auto-resize: true
 
-  PasswordTextEdit
-    id: accountPasswordTextEdit
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: prev.bottom
-    margin-top: 2
+  TextLogin
+    id: accountNameTextEdit
+    size: 230 28
+    anchors.horizontalCenter: logo.horizontalCenter
+    anchors.top: accountname.bottom
+    margin-top: 10
 
-  CheckBox
+  MenuLabel
+    id: passname
+    !text: tr('Password')
+    font: start_12
+    anchors.horizontalCenter: logo.horizontalCenter
+    anchors.top: prev.bottom
+    margin-top: 20
+    text-auto-resize: true
+
+  TextLogin
+    id: accountPasswordTextEdit
+    size: 230 28
+    anchors.horizontalCenter: logo.horizontalCenter
+    anchors.top: prev.bottom
+    text-hidden: true
+    margin-top: 10
+
+  StartCheck
     id: rememberAccountBox	
-    size: 110 15
+    size: 300 15
     !text: tr('Remember account')
     !tooltip: tr('Remember account when starts client')
-    anchors.left: parent.left
+    anchors.left: accountNameTextEdit.left
     anchors.top: prev.bottom
-    margin-top: 10
+    margin-top: 20
+
+  StartButton
+    id: enterGameButtonOk
+    !text: tr('ENTER GAME')
+    width: 230
+    color: #161919
+    anchors.left: accountPasswordTextEdit.left
+    anchors.top: prev.bottom
+    @onClick: EnterGame.doLogin()
+    margin-top: 20
+
+  StartButton
+    id: createButton
+    !text: tr('CRIAR CONTA')
+    anchors.horizontalCenter: desc1.horizontalCenter
+    anchors.top: desc4.bottom
+    margin-top: 30
+    @onClick: AccountManager.show()
+
+  StartButtonSlin
+    id: characterButton
+    !text: tr('PERSONAGEM')
+    anchors.horizontalCenter: desc1.horizontalCenter
+    anchors.top: createButton.bottom
+    margin-top: 20
+    @onClick: AccountManager.characterCreatorShow()
 
   CheckBox
     id: TestServerBox	
@@ -58,145 +142,85 @@ EnterGameWindow
     !text: tr('Servidor Teste')
     !tooltip: tr('Marque se voce fizer parte do grupo do teste server')
     anchors.right: parent.right
+    opacity: 0
     anchors.top: rememberAccountBox.top
 
-  EnterGameButton
-    id: enterGameButtonOk
-    !text: tr('Ok')
-    anchors.left: parent.left
-    anchors.right: parent.right
-    anchors.top: prev.bottom
-    @onClick: EnterGame.doLogin()
-    margin-top: 8
+  UIWidget
+    id: face
+    !tooltip: tr('Facebook')
+    image-source: /data/images/ui_start/social media/face
+    size: 32 32
+    opacity: 1
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: discord.top
+    margin-bottom: 10
 
-  HorizontalSeparator
-    id: separator
-    anchors.top: prev.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    margin-right: 1
-    margin-top: 11
+    $hover !disabled:
+      color: white
+      opacity: 0.5
 
-  HorizontalSeparator
-    id: separator2
-    anchors.top: createRecoverKeyButton.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    margin-right: 1
-    margin-top: 5
-
-  HorizontalSeparator
-    id: separator3
-    anchors.top: prev.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
-    margin-right: 1
-    margin-top: 70
-
-  Button
-    id: createButton
-    size: 120 20
-    !text: tr('Criar Conta')
-    anchors.left: parent.left
-    anchors.top: separator.bottom
-    margin-top: 5
-    margin-left: 5
-    @onClick: AccountManager.show()
-
-  Button
-    id: characterButton
-    size: 120 20
-    !text: tr('Criar Personagem')
-    anchors.left: createButton.right
-    anchors.top: createButton.top
-    margin-left: 10
-    @onClick: AccountManager.characterCreatorShow()
-
-  Button
-    id: changePasswordButton
-    size: 120 20
-    !text: tr('Alterar Senha')
-    anchors.left: parent.left
-    anchors.top: createButton.bottom
-    margin-top: 5
-    margin-left: 5
-    @onClick: AccountManager.changePasswordShow()
-
-  Button
-    id: recoverButton
-    size: 120 20
-    !text: tr('Recuperar Senha')
-    anchors.left: changePasswordButton.right
-    anchors.top: createButton.bottom
-    margin-top: 5
-    margin-left: 10
-    @onClick: AccountManager.recoverShow()
-
-  Button
-    id: createRecoverKeyButton
-    size: 150 20
-    !text: tr('Gerar Recovery Key')
-    anchors.left: changePasswordButton.left
-    anchors.top: recoverButton.bottom
-    margin-top: 5
-    margin-left: 50
-    @onClick: AccountManager.createRecoverKeyShow()
-
-  SocialButton
-    !tooltip: tr('Pagina no Facebook')
-    image-source: facebook
-    size: 45 45
-    anchors.left: parent.left
-    anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("www.facebook.com/LegendsofUnknown/")
+    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
     margin-top: 10
 
-  SocialButton
-    !tooltip: tr('Pagina no Instagram')
-    image-source: instagram
-    size: 45 45
-    anchors.left: parent.left
-    anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("www.instagram.com/legends.of.unknown/")
-    margin-top: 10
-    margin-left: 55
+  UIWidget
+    id: insta
+    !tooltip: tr('Instagram')
+    image-source: /data/images/ui_start/social media/insta
+    size: 32 32
+    opacity: 1
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.verticalCenter: parent.verticalCenter
 
-  SocialButton
-    !tooltip: tr('Pagina no Discord')
-    image-source: discord
-    size: 45 45
-    anchors.left: parent.left
-    anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("discord.gg/nwBZVpuVH9")
-    margin-top: 10
-    margin-left: 110
+    $hover !disabled:
+      color: white
+      opacity: 0.5
 
-  SocialButton
-    !tooltip: tr('Pagina no Youtube')
-    image-source: youtube
-    size: 45 45
-    anchors.left: parent.left
-    anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("www.youtube.com/")
-    margin-top: 10
-    margin-left: 165
+    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
 
-  SocialButton
-    !tooltip: tr('Pagina no Whatsapp')
-    image-source: whatsapp
-    size: 45 45
-    anchors.left: parent.left
-    anchors.top: separator2.bottom
-    @onClick: g_platform.openUrl("https://wa.me/message/UJJYRQRWVDLEM1")
-    margin-top: 10
-    margin-left: 220
+  UIWidget
+    id: discord
+    !tooltip: tr('Discord')
+    image-source: /data/images/ui_start/social media/discord
+    size: 32 32
+    opacity: 1
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.bottom: insta.top
+    margin-bottom: 10
 
-  SocialButton
-    !tooltip: tr('Pagina de Donate')
-    image-source: donate2
-    size: 250 80
-    anchors.left: parent.left
-    anchors.top: separator3.bottom
-    @onClick: g_platform.openUrl("www.legendsofunknown.com.br/index.php?page=account/donate")
-    margin-top: 0
-    margin-left: 5
+    $hover !disabled:
+      color: white
+      opacity: 0.5
+
+    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+
+  UIWidget
+    id: whats
+    !tooltip: tr('Whatsapp')
+    image-source: /data/images/ui_start/social media/whats
+    size: 32 32
+    opacity: 1
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: insta.bottom
+    margin-top: 10
+
+    $hover !disabled:
+      color: white
+      opacity: 0.5
+
+    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+
+  UIWidget
+    id: youtube
+    !tooltip: tr('Youtube')
+    image-source: /data/images/ui_start/social media/youtube
+    size: 32 32
+    opacity: 1
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: whats.bottom
+    margin-top: 10
+
+    $hover !disabled:
+      color: white
+      opacity: 0.5
+
+    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")

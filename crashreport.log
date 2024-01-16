@@ -1,0 +1,104 @@
+== application crashed
+app name: LegendsOfUnknown
+app version: 1.0.0
+build compiler: gcc 4.8.1
+build date: Sep 28 2022
+build type: Release
+build revision: 0 (devel)
+crash date: Sep 28 2022 09:49:35
+exception: Integer divide by zero (0xc0000094)
+exception address: 0x004255f7
+  backtrace:
+    0: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x00000000004255F7]
+    1: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000425E14]
+    2: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000043900C]
+    3: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000042FEC8]
+    4: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000044F2AD]
+    5: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000472FB0]
+    6: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000472E43]
+    7: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000473015]
+    8: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000472E43]
+    9: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000473015]
+    10: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x00000000004A219C]
+    11: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000047DB46]
+    12: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe(wglewIsSupported+0x1255c5) [0x000000000075D885]
+    13: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000401250]
+    14: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x00000000004012D5]
+    15: C:\Windows\SYSTEM32\ntdll.dll(RtlGetAppContainerNamedObjectPath+0x11e) [0x00000000779B7B5E]
+    16: C:\Windows\SYSTEM32\ntdll.dll(RtlGetAppContainerNamedObjectPath+0xee) [0x00000000779B7B2E]
+
+== application crashed
+app name: LegendsOfUnknown
+app version: 1.0.0
+build compiler: gcc 4.8.1
+build date: Sep 28 2022
+build type: Release
+build revision: 0 (devel)
+crash date: Sep 28 2022 10:01:55
+exception: Integer divide by zero (0xc0000094)
+exception address: 0x004255f7
+  backtrace:
+    0: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x00000000004255F7]
+    1: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000425E14]
+    2: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000043900C]
+    3: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000042FEC8]
+    4: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000044F2AD]
+    5: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000472FB0]
+    6: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000472E43]
+    7: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000473015]
+    8: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000472E43]
+    9: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000473015]
+    10: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x00000000004A219C]
+    11: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x000000000047DB46]
+    12: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe(wglewIsSupported+0x1255c5) [0x000000000075D885]
+    13: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x0000000000401250]
+    14: D:\Projeto pokemon\Files\-- MUNDO POKEMON\client\LegendsOfUnknown.exe [0x00000000004012D5]
+    15: C:\Windows\SYSTEM32\ntdll.dll(RtlGetAppContainerNamedObjectPath+0x11e) [0x00000000779B7B5E]
+    16: C:\Windows\SYSTEM32\ntdll.dll(RtlGetAppContainerNamedObjectPath+0xee) [0x00000000779B7B2E]
+
+== application crashed
+app name: LegendsOfUnknown
+app version: 1.0.0
+build compiler: gcc 4.8.1
+build date: Sep 28 2022
+build type: Release
+build revision: 0 (devel)
+crash date: Dec 13 2022 10:32:10
+exception: Access violation (0xc0000005)
+exception address: 0x00460a00
+  backtrace:
+    0: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x0000000000460A00]
+    1: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x00000000004618EE]
+    2: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x0000000000461AE8]
+    3: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x0000000000461BBC]
+    4: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000045F990]
+    5: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000045FA30]
+    6: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x00000000004A3128]
+    7: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(wglewIsSupported+0xc6779) [0x00000000006FEA39]
+    8: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(wglewIsSupported+0x1152c1) [0x000000000074D581]
+    9: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(wglewIsSupported+0xcd9ce) [0x0000000000705C8E]
+    10: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000045C988]
+    11: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x3650b) [0x000000000050B58B]
+    12: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x3e69f) [0x000000000051371F]
+    13: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x3e524) [0x00000000005135A4]
+    14: C:\Windows\System32\msvcrt.dll(malloc+0x90) [0x0000000075C27580]
+    15: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x36990) [0x000000000050BA10]
+    16: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x32ed0) [0x0000000000507F50]
+    17: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x35c1d) [0x000000000050AC9D]
+    18: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x36b01) [0x000000000050BB81]
+    19: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x36ff9) [0x000000000050C079]
+    20: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000045A7C3]
+    21: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000045BB8F]
+    22: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000049DBAF]
+    23: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000049DCF5]
+    24: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x00000000004578CF]
+    25: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(wglewIsSupported+0xdac99) [0x0000000000712F59]
+    26: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(wglewIsSupported+0xd6a34) [0x000000000070ECF4]
+    27: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe [0x000000000045C988]
+    28: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x3650b) [0x000000000050B58B]
+    29: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x3e524) [0x00000000005135A4]
+    30: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x3f532) [0x00000000005145B2]
+    31: C:\Windows\SYSTEM32\ntdll.dll(RtlAllocateHeap+0x36) [0x000000007740A396]
+    32: C:\Windows\System32\msvcrt.dll(malloc+0x90) [0x0000000075C27580]
+    33: C:\Users\gahpe\OneDrive\햞ea de Trabalho\Gabriel\Unknown Client\LegendsOfUnknown.exe(alGetListeneriv+0x36990) [0x000000000050BA10]
+
