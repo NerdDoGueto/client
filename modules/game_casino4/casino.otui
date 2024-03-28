@@ -115,7 +115,7 @@ Stake < UIWidget
 
 UIWindow
   id: casinoWindow  
-  text: Casino Maquina 4 [WORLD COIN] [VALOR: 1]
+  text: Casino Maquina 4 [LOU COIN] [VALOR: 1]
   font: verdana-11px-antialised
   icon-rect: 4 4 16 16
   width: 775
