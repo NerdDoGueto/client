@@ -260,16 +260,18 @@ UIWindow
       id: panelDescription
       size: 364 54
       anchors.top: panelItems.bottom
-      anchors.left: panelItems.left
+      anchors.left: panelValue.right
+      anchors.bottom: parent.bottom
       margin-top: 6
-      font: start_11_big
+      margin-left: 10
+      font: terminus-10px
       editable: false
       text-wrap: true
 
     UIWidget
       id: panelValue
       anchors.bottom: parent.bottom
-      anchors.left: panelDescription.left
+      anchors.left: parent.left
       font: start_11_big
       text-auto-resize: true
       margin-bottom: 10
