@@ -1,0 +1,7 @@
+Font
+  name: unown-16px
+  texture: unown-20px-edu
+  height: 22
+  glyph-size: 20 20
+  space-width: 3
+  space-height: 3
