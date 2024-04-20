@@ -10,12 +10,9 @@ Module
   @onLoad: |
     dofile 'entergame'
     dofile 'characterlist'
-    dofile 'accountmanager'
     EnterGame.init()
     CharacterList.init()
-    AccountManager.init()
 
   @onUnload: |
     EnterGame.terminate()
     CharacterList.terminate()
-    AccountManager.terminate()
