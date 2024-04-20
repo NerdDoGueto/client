@@ -126,15 +126,7 @@ EnterGameWindow
     anchors.horizontalCenter: desc1.horizontalCenter
     anchors.top: desc4.bottom
     margin-top: 30
-    @onClick: AccountManager.show()
-
-  StartButtonSlin
-    id: characterButton
-    !text: tr('PERSONAGEM')
-    anchors.horizontalCenter: desc1.horizontalCenter
-    anchors.top: createButton.bottom
-    margin-top: 20
-    @onClick: AccountManager.characterCreatorShow()
+    @onClick: g_platform.openUrl("www.legendsofunknown.com.br/sign-up/")
 
   CheckBox
     id: TestServerBox	
@@ -159,7 +151,7 @@ EnterGameWindow
       color: white
       opacity: 0.5
 
-    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+    @onClick: g_platform.openUrl("https://www.facebook.com/LegendsofUnknown/")
     margin-top: 10
 
   UIWidget
@@ -175,7 +167,7 @@ EnterGameWindow
       color: white
       opacity: 0.5
 
-    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+    @onClick: g_platform.openUrl("https://www.instagram.com/legends.of.unknown/")
 
   UIWidget
     id: discord
@@ -191,7 +183,7 @@ EnterGameWindow
       color: white
       opacity: 0.5
 
-    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+    @onClick: g_platform.openUrl("https://discord.gg/2RNXX29Kbs")
 
   UIWidget
     id: whats
@@ -207,7 +199,7 @@ EnterGameWindow
       color: white
       opacity: 0.5
 
-    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+    @onClick: g_platform.openUrl("https://chat.whatsapp.com/HpDYNUHgpoLGWEUFmHBQer")
 
   UIWidget
     id: youtube
@@ -223,4 +215,4 @@ EnterGameWindow
       color: white
       opacity: 0.5
 
-    @onClick: g_platform.openUrl("www.facebook.com/mundopokemon.org/")
+    @onClick: g_platform.openUrl("https://www.youtube.com/@LegendsofUnknown")
